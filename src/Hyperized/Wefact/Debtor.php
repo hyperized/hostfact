@@ -1,10 +1,13 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Debtor extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function checkLogin() {}
-		public function edit() {}
-		public function show () {}
+class Debtor extends WefactAPI {
 
+	protected $allowed = ['add', 'edit', 'show'];
+
+	protected function checkLogin(array $input) {
+		return $this->pseudoRequest('checkLogin', $input); // Yep, _now_ all the sudden its camelCase.
 	}
+
+}

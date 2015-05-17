@@ -1,11 +1,9 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Product extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function delete() {}
-		public function edit() {}
-		public function getList() {}
-		public function show() {}
+class Product extends WefactAPI {
 
-	}
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show'];
+
+}

@@ -1,23 +1,34 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Invoice extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function credit() {}
-		public function delete() {}
-		public function download() {}
-		public function edit() {}
-		public function getList() {}
-		public function markAsPaid() {}
-		public function markAsUnpaid() {}
-		public function partPayment() {}
-		public function paymentProcessPause() {}
-		public function paymentProcessReactivate() {}
-		public function sendByEmail() {}
-		public function sendReminderByEmail() {}
-		public function sendSummationByEmail() {}
-		public function show() {}
-		public function lineAdd() {}
-		public function lineDelete() {}
+class Invoice extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'download', 'edit', 'list', 'show', 'lineAdd', 'lineDelete', 'sendByEmail'];
+
+	public function credit(array $input) {
+		return $this->pseudoRequest('credit', $input);
 	}
+	public function markAsPaid(array $input) {
+		return $this->pseudoRequest('markaspaid', $input);
+	}
+	public function markAsUnpaid(array $input) {
+		return $this->pseudoRequest('markasunpaid', $input);
+	}
+	public function partPayment(array $input) {
+		return $this->pseudoRequest('partpayment', $input);
+	}
+	public function paymentProcessPause(array $input) {
+		return $this->pseudoRequest('paymentprocesspause', $input);
+	}
+	public function paymentProcessReactivate(array $input) {
+		return $this->pseudoRequest('paymentprocessreactivate', $input);
+	}
+	public function sendReminderByEmail(array $input) {
+		return $this->pseudoRequest('sendreminderbyemail', $input);
+	}
+	public function sendSummationByEmail(array $input) {
+		return $this->pseudoRequest('sendsummationbyemail', $input);
+	}
+
+}

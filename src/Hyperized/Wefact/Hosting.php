@@ -1,19 +1,34 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Hosting extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function create() {}
-		public function delete() {}
-		public function edit() {}
-		public function getDomainList() {}
-		public function getList() {}
-		public function removeFromServer() {}
-		public function sendAccountInfoByEmail() {}
-		public function show() {}
-		public function suspend() {}
-		public function terminate() {}
-		public function unsuspend() {}
-		public function upDownGrade() {}
+class Hosting extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show'];
+
+	public function create(array $input) {
+		return $this->pseudoRequest('create', $input);
 	}
+	public function getDomainList(array $input) {
+		return $this->pseudoRequest('getdomainlist', $input);
+	}
+	public function removeFromServer(array $input) {
+		return $this->pseudoRequest('removefromserver', $input);
+	}
+	public function sendAccountInfoByEmail(array $input) {
+		return $this->pseudoRequest('sendaccountinfobyemail', $input);
+	}
+	public function suspend(array $input) {
+		return $this->pseudoRequest('suspend', $input);
+	}
+	public function terminate(array $input) {
+		return $this->pseudoRequest('terminate', $input);
+	}
+	public function unsuspend(array $input) {
+		return $this->pseudoRequest('unsuspend', $input);
+	}
+	public function upDownGrade(array $input) {
+		return $this->pseudoRequest('updowngrade', $input);
+	}
+
+}

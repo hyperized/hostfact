@@ -1,15 +1,16 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class CreditInvoice extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function delete() {}
-		public function edit() {}
-		public function getList() {}
-		public function markAsPaid() {}
-		public function PartPayment() {}
-		public function show() {}
-		public function lineAdd() {}
-		public function lineDelete() {}
+class CreditInvoice extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show', 'markAsPaid', 'partPayment', 'lineAdd', 'lineDelete'];
+
+	protected function markAsPaid(array $input) {
+		return $this->pseudoRequest('markaspaid', $input);
 	}
+	protected function partPayment(array $input) {
+		return $this->pseudoRequest('partpayment', $input);
+	}
+
+}

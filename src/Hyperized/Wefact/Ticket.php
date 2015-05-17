@@ -1,14 +1,19 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Ticket extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function addMessage() {}
-		public function changeOwner() {}
-		public function changeStatus() {}
-		public function delete() {}
-		public function edit() {}
-		public function getList() {}
-		public function show() {}
+class Ticket extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show'];
+
+	public function addMessage(array $input) {
+		return $this->pseudoRequest('addmessage', $input);
 	}
+	public function changeOwner(array $input) {
+		return $this->pseudoRequest('changeowner', $input);
+	}
+	public function changeStatus(array $input) {
+		return $this->pseudoRequest('changeStatus', $input);
+	}
+
+}

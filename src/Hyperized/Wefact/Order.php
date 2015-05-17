@@ -1,14 +1,13 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Order extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function delete() {}
-		public function edit() {}
-		public function getList() {}
-		public function process() {}
-		public function show() {}
-		public function lineAdd() {}
-		public function lineDelete() {}
+class Order extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show', 'lineAdd', 'lineDelete'];
+
+	public function process(array $input) {
+		return $this->pseudoRequest('process', $input);
 	}
+
+}

@@ -1,12 +1,13 @@
-<?php namespace Hyperized\Wefact;
+<?php
 
-	class Handle extends WefactAPI {
+namespace Hyperized\Wefact;
 
-		public function add() {}
-		public function delete() {}
-		public function edit() {}
-		public function getList() {}
-		public function listDomain() {}
-		public function show () {}
+class Handle extends WefactAPI {
 
+	protected $allowed = ['add', 'delete', 'edit', 'list', 'show'];
+
+	public function listDomain(array $input) {
+		return $this->pseudoRequest('listdomain', $input);
 	}
+
+}
