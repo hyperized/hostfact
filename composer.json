@@ -1,0 +1,18 @@
+{
+    "name": "hyperized/wefact",
+    "description": "WeFact 2.2 API Implementation",
+    "authors": [
+        {
+            "name": "Gerben Geijteman",
+            "email": "gerben@hyperized.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hyperized\\Wefact\\": "src/"
+        }
+    }
+}
