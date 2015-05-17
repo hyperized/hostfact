@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
 	// Ensure to whitelist the application IP!
 	
@@ -10,5 +10,5 @@ return array(
 	// Token provided as 'Beveiligingscode'
 	'api_v2_key'	=> 'token',
 
-);
+];
 

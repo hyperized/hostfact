@@ -1,6 +1,7 @@
 {
     "name": "hyperized/wefact",
     "description": "WeFact 2.2 API Implementation",
+    "license": "MIT",
     "authors": [
         {
             "name": "Gerben Geijteman",
