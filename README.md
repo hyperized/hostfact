@@ -1,7 +1,7 @@
-# WeFact API 2.2 for Laravel 5
+# WeFact API 2.3 for Laravel 5
 
 Official documentation:
-* [WeFact API 2.2](https://www.wefact.nl/wefact-hosting/apiv2/)
+* [WeFact API 2.3](https://www.wefact.nl/wefact-hosting/apiv2/)
 * [Official API examples](https://www.wefact.nl/wefact-hosting/apiv2/)
 
 Installation with composer:
