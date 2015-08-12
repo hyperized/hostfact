@@ -8,7 +8,7 @@ Installation with composer:
 
 Add the following to the "require" section of your composer.json:
 ```json
-"hyperized/wefact": "dev-master"
+"hyperized/wefact": "~2.3"
 ```
 Run:
 ```sh
@@ -22,7 +22,7 @@ Add to config/app.php in the 'providers' array:
 In the 'aliases' array for ease of use:
 
 ```php
-'Wefact'    => 'Hyperized\Wefact\WeFactAPI',
+'Wefact'    => 'Hyperized\Wefact\WefactFacade',
 ```
 Then, via the CLI:
 ```sh
@@ -38,9 +38,24 @@ Edit your configuration variables in Wefact.php, newly installed in your /config
 
 Example code:
 ```php
-$product = new Hyperized\Wefact\Product();
-$productParams = [
-    'searchfor'	=> 'invoice'
-];
-$products = $product->list($productParams);
+// Direct use
+  $product = new Hyperized\Wefact\Product();
+  $productParams = [
+    'searchfor' => 'invoice'
+  ];
+  $output = $product->list($productParams);
+
+// Use in Controllers
+use Hyperized\Wefact;
+
+class MyController extends Controller {
+  public function getProducts()
+  {
+    $product = new Wefact\Product();
+    $productParams = [
+      'searchfor' => 'invoice'
+    ];
+    return $product->list($productParams);
+  }
 ```
+

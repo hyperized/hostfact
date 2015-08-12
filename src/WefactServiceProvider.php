@@ -7,7 +7,9 @@ use Illuminate\Support\ServiceProvider;
 class WefactServiceProvider extends ServiceProvider {
 
   /**
-   * @var bool $defer Indicates if loading of the provider is deferred.
+   * Indicates if loading of the provider is deferred.
+   *
+   * @var bool $defer
    */
   protected $defer = false;
 
@@ -19,10 +21,21 @@ class WefactServiceProvider extends ServiceProvider {
   public function boot()
   {
     // Configuration file
+    $configPath = __DIR__.'/config/wefact.php';
+    $this->mergeConfigFrom($configPath, 'Wefact');
     $this->publishes([
-      __DIR__.'/config/Wefact.php' => config_path('Wefact.php'),
+      $configPath => config_path('wefact.php'),
     ]);
   }
+
+  /**
+   * Get the services provided by the provider.
+   *
+   * @return array
+   */
+    public function provides() {
+        return ['Hyperized\WeFact'];
+    }
 
   /**
    * Register the application services.
@@ -31,7 +44,9 @@ class WefactServiceProvider extends ServiceProvider {
    */
   public function register()
   {
-    //echo 'WefactServiceProvider::register called!';
+    $this->app->bind('Wefact', function($app) {
+        return new Hyperized\WeFact;
+    });
   }
 
 }
