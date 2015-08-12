@@ -1,6 +1,4 @@
-<?php
-
-namespace Hyperized\Wefact;
+<?php namespace Hyperized\Wefact;
 
 class PriceQuote extends WefactAPI {
 

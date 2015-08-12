@@ -1,6 +1,4 @@
-<?php
-
-namespace Hyperized\Wefact;
+<?php namespace Hyperized\Wefact;
 
 class Service extends WefactAPI {
 
