@@ -33,7 +33,7 @@ class Invoice extends WefactAPI {
   public function terminate(array $input) {
     return $this->pseudoRequest('terminate', $input);
   }
-  public function unsuspend(array, $input) {
+  public function unsuspend(array $input) {
     return $this->pseudoRequest('unsuspend', $input);
   }
 
