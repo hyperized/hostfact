@@ -18,8 +18,17 @@ class Domain extends WefactAPI {
   public function check(array $input) {
     return $this->pseudoRequest('check', $input);
   }
+  public function editDnsZone(array $input) {
+    return $this->pseudoRequest('editdnszone', $input);
+  }
+  public function getDnsZone(array $input) {
+    return $this->pseudoRequest('getdnszone', $input);
+  }
   public function getToken(array $input) {
     return $this->pseudoRequest('gettoken', $input);
+  }
+  public function listDnsTemplates(array $input) {
+    return $this->pseudoRequest('listdnstemplates', $input);
   }
   public function lock(array $input) {
     return $this->pseudoRequest('lock', $input);
@@ -29,6 +38,9 @@ class Domain extends WefactAPI {
   }
   public function syncWHOIS(array $input) {
     return $this->pseudoRequest('syncwhois', $input);
+  }
+  public function terminate(array $input) {
+    return $this->pseudoRequest('transfer', $input);
   }
   public function transfer(array $input) {
     return $this->pseudoRequest('transfer', $input);
