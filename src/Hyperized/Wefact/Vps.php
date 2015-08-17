@@ -1,6 +1,6 @@
 <?php namespace Hyperized\Wefact;
 
-class Invoice extends WefactAPI {
+class Vps extends WefactAPI {
 
   protected $allowed = [
     'add',
