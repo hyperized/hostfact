@@ -23,7 +23,7 @@ class WefactAPI {
       if(in_array($method, $this->allowed)) {
         $methodName = '_'.$method;
         if(method_exists($this, $methodName)) {
-          return call_user_func_array([$this,$methodName], [$arguments]);
+          return call_user_func_array([$this,$methodName], $arguments);
         }
       }
       else
