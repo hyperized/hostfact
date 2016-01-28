@@ -63,7 +63,7 @@ class WefactAPI {
   protected function _lineDelete(array $input) {
     return $this->sendRequest($this->mode.'line', 'delete', $input);
   }
-  protected function sendByEmail(array $input) {
+  protected function _sendByEmail(array $input) {
     return $this->pseudoRequest('sendbyemail', $input);
   }
 
