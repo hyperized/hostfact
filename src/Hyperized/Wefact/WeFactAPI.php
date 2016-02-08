@@ -77,7 +77,7 @@ class WefactAPI {
   protected function sendRequest($controller, $action, $params)
   {
     if(is_array($params)) {
-      $params['api_key']      = config('Wefact.api_v2_key'); 
+      $params['api_key']      = config('Wefact.api_v2_key');
       $params['controller']   = $controller;
       $params['action']       = $action;
     }

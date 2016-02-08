@@ -3,7 +3,7 @@
 return [
 
   // Ensure to whitelist the application IP!
-  
+
   // Full URI to api.php location
   'api_v2_url'      => 'https://yoursite.tld/Pro/apiv2/api.php',
 
