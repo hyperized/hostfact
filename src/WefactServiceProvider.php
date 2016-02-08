@@ -21,7 +21,7 @@ class WefactServiceProvider extends ServiceProvider {
   public function boot()
   {
     // Configuration file
-    $configPath = __DIR__.'/config/wefact.php';
+    $configPath = __DIR__.'/config/Wefact.php';
     $this->mergeConfigFrom($configPath, 'Wefact');
     $this->publishes([
       $configPath => config_path('Wefact.php'),
