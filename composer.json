@@ -18,6 +18,9 @@
     "autoload": {
         "psr-4": {
             "Hyperized\\Wefact\\": "src/"
+        },
+        "psr-0": {
+            "Hyperized\\Wefact\\": "src/"
         }
     }
 }
