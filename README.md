@@ -1,35 +1,35 @@
 # WeFact API 2.3 for Laravel 5
 
 Official documentation:
+-----------------------
+
 * [WeFact API 2.3](https://www.wefact.nl/wefact-hosting/apiv2/)
 * [Official API examples](https://www.wefact.nl/wefact-hosting/apiv2/)
 
-Installation with composer:
+Installation
+------------
 
-Add the following to the "require" section of your composer.json:
-```json
-"hyperized/wefact": "~2.3"
-```
-Run:
-```sh
-composer update
+Install using composer:
+```bash
+composer require hyperized/wefact
 ```
 
-Add to config/app.php in the 'providers' array:
+Register the Wefact ServiceProvider, open `config/app.php`:
 ```php
-'Hyperized\Wefact\WefactServiceProvider',
+Hyperized\Wefact\WefactServiceProvider::class,
 ```
-In the 'aliases' array for ease of use:
+Register a alias for Wefact, also in `config/app.php`:
 
 ```php
-'Wefact'    => 'Hyperized\Wefact\WefactFacade',
+'Wefact'    => Hyperized\Wefact\WefactServiceProvider::class,
 ```
-Then, via the CLI:
-```sh
+Now publish the Wefact package into your installation:
+```bash
 php artisan vendor:publish
 ```
+This should give you a message like: `Copied File [/vendor/hyperized/wefact/src/config/Wefact.php] To [/config/Wefact.php]`
 
-Edit your configuration variables in Wefact.php, newly installed in your /config directory.
+Now edit your configuration variables in the newly installed `config/Wefact.php`
 ```php
 'api_v2_url'		=> 'https://yoursite.tld/Pro/apiv2/api.php',
 'api_v2_key'		=> 'token',
@@ -39,23 +39,24 @@ Edit your configuration variables in Wefact.php, newly installed in your /config
 Example code:
 ```php
 // Direct use
-  $product = new Hyperized\Wefact\Product();
+  $product = new Hyperized\Wefact\Types\Product();
   $productParams = [
     'searchfor' => 'invoice'
   ];
   $output = $product->list($productParams);
 
 // Use in Controllers
-use Hyperized\Wefact;
+use Hyperized\Wefact\Types\Product;
 
 class MyController extends Controller {
   public function getProducts()
   {
-    $product = new Wefact\Product();
+    $product = new Product();
     $productParams = [
       'searchfor' => 'invoice'
     ];
     return $product->list($productParams);
   }
 ```
+
 

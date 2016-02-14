@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyperized\WeFact;
+namespace Hyperized\Wefact;
 
 use Illuminate\Support\Facades\Facade;
 
