@@ -1,5 +1,7 @@
 # WeFact API 2.3 for Laravel 5
 
+[![Build Status](https://travis-ci.org/hyperized/wefact.svg?branch=master)](https://travis-ci.org/hyperized/wefact)
+
 Official documentation:
 -----------------------
 
