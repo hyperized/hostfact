@@ -29,7 +29,7 @@ class CreditInvoice extends WefactAPI
      * @param array $input
      * @return array|mixed
      */
-    protected function markAsPaid(array $input)
+    public function markAsPaid(array $input)
     {
         return $this->pseudoRequest('markaspaid', $input);
     }
@@ -38,7 +38,7 @@ class CreditInvoice extends WefactAPI
      * @param array $input
      * @return array|mixed
      */
-    protected function partPayment(array $input)
+    public function partPayment(array $input)
     {
         return $this->pseudoRequest('partpayment', $input);
     }
