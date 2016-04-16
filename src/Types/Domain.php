@@ -109,7 +109,7 @@ class Domain extends WefactAPI
      */
     public function terminate(array $input)
     {
-        return $this->pseudoRequest('transfer', $input);
+        return $this->pseudoRequest('terminate', $input);
     }
 
     /**
