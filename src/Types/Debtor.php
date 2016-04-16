@@ -24,7 +24,7 @@ class Debtor extends WefactAPI
      * @param array $input
      * @return array|mixed
      */
-    protected function checkLogin(array $input)
+    public function checkLogin(array $input)
     {
         return $this->pseudoRequest('checkLogin', $input); // Yep, _now_ all the sudden its camelCase.
     }
