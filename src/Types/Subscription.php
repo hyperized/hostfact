@@ -1,6 +1,9 @@
 <?php
+
 namespace Hyperized\Wefact\Types;
+
 use Hyperized\Wefact\WefactAPI;
+
 /**
  * Class Subscription
  * @package Hyperized\Wefact\Types
