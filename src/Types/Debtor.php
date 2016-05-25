@@ -18,6 +18,7 @@ class Debtor extends WefactAPI
         'add',
         'edit',
         'show',
+        'list',
     ];
 
     /**
