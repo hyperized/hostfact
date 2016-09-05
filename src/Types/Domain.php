@@ -102,6 +102,15 @@ class Domain extends WefactAPI
     {
         return $this->pseudoRequest('syncwhois', $input);
     }
+    
+    /**
+     * @param array $input
+     * @return array|mixed
+     */
+    public function editWHOIS(array $input)
+    {
+        return $this->pseudoRequest('editwhois', $input);
+    }
 
     /**
      * @param array $input
