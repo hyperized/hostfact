@@ -8,7 +8,7 @@ use Hyperized\Wefact\WefactAPI;
  * Class Service
  * @package Hyperized\Wefact\Types
  */
-class Service extends WefactAPI
+class Services extends WefactAPI
 {
 
     /**
