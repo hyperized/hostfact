@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Product extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -21,5 +20,4 @@ class Product extends WefactAPI
         'list',
         'show'
     ];
-
 }

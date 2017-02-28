@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Ssl extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -93,5 +92,4 @@ class Ssl extends WefactAPI
     {
         return $this->pseudoRequest('terminate', $input);
     }
-
 }

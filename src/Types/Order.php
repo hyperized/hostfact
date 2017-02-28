@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Order extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -32,5 +31,4 @@ class Order extends WefactAPI
     {
         return $this->pseudoRequest('process', $input);
     }
-
 }

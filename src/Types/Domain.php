@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Domain extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -102,7 +101,7 @@ class Domain extends WefactAPI
     {
         return $this->pseudoRequest('syncwhois', $input);
     }
-    
+
     /**
      * @param array $input
      * @return array|mixed
@@ -138,5 +137,4 @@ class Domain extends WefactAPI
     {
         return $this->pseudoRequest('unlock', $input);
     }
-
 }

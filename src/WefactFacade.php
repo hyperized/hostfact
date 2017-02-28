@@ -14,5 +14,4 @@ class WefactFacade extends Facade
   protected static function getFacadeAccessor() {
     return 'Wefact';
   }
-
 }

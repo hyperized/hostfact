@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Debtor extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -29,5 +28,4 @@ class Debtor extends WefactAPI
     {
         return $this->pseudoRequest('checkLogin', $input); // Yep, _now_ all the sudden its camelCase.
     }
-
 }

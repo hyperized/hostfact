@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Invoice extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -97,5 +96,4 @@ class Invoice extends WefactAPI
     {
         return $this->pseudoRequest('sendsummationbyemail', $input);
     }
-
 }

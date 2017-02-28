@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Hosting extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -93,5 +92,4 @@ class Hosting extends WefactAPI
     {
         return $this->pseudoRequest('updowngrade', $input);
     }
-
 }

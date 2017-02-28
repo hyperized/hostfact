@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Handle extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -30,5 +29,4 @@ class Handle extends WefactAPI
     {
         return $this->pseudoRequest('listdomain', $input);
     }
-
 }

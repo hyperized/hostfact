@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Ticket extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -48,5 +47,4 @@ class Ticket extends WefactAPI
     {
         return $this->pseudoRequest('changeStatus', $input);
     }
-
 }

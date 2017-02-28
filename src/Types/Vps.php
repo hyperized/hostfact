@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Vps extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -101,5 +100,4 @@ class Vps extends WefactAPI
     {
         return $this->pseudoRequest('unsuspend', $input);
     }
-
 }

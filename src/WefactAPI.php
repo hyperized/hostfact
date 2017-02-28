@@ -9,17 +9,18 @@ namespace Hyperized\Wefact;
 class WefactAPI
 {
     /**
-     * @var
-     */
-    private $response;
-    /**
      * @var mixed
+     * Set the sendRequest 'mode' based on inherited class name
      */
-    private $mode;      // Set the sendRequest 'mode' based on inhenited classname
+    private $mode;
     /**
      * @var string
      */
     protected $parentName = 'Hyperized\Wefact\WefactAPI';
+    /**
+     * @var array
+     */
+    protected $allowed = [];
 
     /**
      * WefactAPI constructor.
@@ -51,9 +52,11 @@ class WefactAPI
             } else {
                 $error = 'No such method: ' . get_class($this) . '::' . $method;
                 dd($error);
-                die(); // Todo: add proper Laravel error handling
+                return false;
             }
+            return false;
         }
+        return false;
     }
 
     // Generic function implementations
@@ -158,7 +161,6 @@ class WefactAPI
         return $this->sendRequest($this->mode, $action, $input);
     }
 
-    // Sends request from the server and resturns results
     /**
      * @param $controller
      * @param $action
@@ -173,22 +175,19 @@ class WefactAPI
             $params['action'] = $action;
         }
 
-        $ch = curl_init();
-
-        $curlOptions = [
-            CURLOPT_URL => config('Wefact.api_v2_url'),
+        $request = new CurlRequest(config('Wefact.api_v2_url'));
+        $request->setOptionArray([
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => http_build_query($params),
-        ];
-
-        curl_setopt_array($ch, $curlOptions);
-
-        $curlResp = curl_exec($ch);
-        $curlError = curl_error($ch);
+        ]);
+        $request->execute();
+        $curlError = $request->getError();
+        $curlResp = $request->getResponse();
+        $request->close();
 
         if ($curlError != '') {
             $result = [
@@ -204,5 +203,4 @@ class WefactAPI
 
         return $result;
     }
-
 }

@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class PriceQuote extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -43,5 +42,4 @@ class PriceQuote extends WefactAPI
     {
         return $this->pseudoRequest('decline', $input);
     }
-
 }

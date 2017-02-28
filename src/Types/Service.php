@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Service extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -21,5 +20,4 @@ class Service extends WefactAPI
         'show',
         'terminate',
     ];
-
 }

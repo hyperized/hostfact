@@ -10,7 +10,6 @@ use Hyperized\Wefact\WefactAPI;
  */
 class Creditor extends WefactAPI
 {
-
     /**
      * @var array
      */
@@ -21,5 +20,4 @@ class Creditor extends WefactAPI
         'list',
         'show',
     ];
-
 }
