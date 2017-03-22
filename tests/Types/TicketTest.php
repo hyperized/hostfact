@@ -1,50 +1,51 @@
 <?php
 
 use Hyperized\Wefact\Types\Ticket;
+use PHPUnit\Framework\TestCase;
 
-class TicketTest extends PHPUnit_Framework_TestCase
+class TicketTest extends TestCase
 {
     protected $object;
 
     public function testProductInstanceOf()
     {
-        $this->assertInstanceOf(Ticket::class, $this->object);
+        self::assertInstanceOf(Ticket::class, $this->object);
     }
 
     // Test if product initiates
 
     public function testClassHasAllowed()
     {
-        $this->assertClassHasAttribute('allowed', Ticket::class);
+        self::assertClassHasAttribute('allowed', Ticket::class);
     }
 
     // Testing availability of public class attributes
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Ticket::class);
+        self::assertClassHasAttribute('parentName', Ticket::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Ticket::class);
+        self::assertClassNotHasAttribute('response', Ticket::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Ticket::class);
+        self::assertClassNotHasAttribute('mode', Ticket::class);
     }
 
     public function testObjectHasAllowed()
     {
-        $this->assertObjectHasAttribute('allowed', $this->object);
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
     }
 
     protected function setUp()

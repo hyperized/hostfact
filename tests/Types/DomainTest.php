@@ -1,53 +1,56 @@
 <?php
 
-use Hyperized\Wefact;
 use Hyperized\Wefact\Types\Domain;
+use PHPUnit\Framework\TestCase;
 
-class DomainTest extends PHPUnit_Framework_TestCase
+class DomainTest extends TestCase
 {
     protected $object;
 
-    protected function setUp()
+    public function testProductInstanceOf()
     {
-        $this->object = new Domain();
+        self::assertInstanceOf(Domain::class, $this->object);
     }
 
     // Test if product initiates
-    public function testProductInstanceOf()
+
+    public function testClassHasAllowed()
     {
-        $this->assertInstanceOf(Domain::class, $this->object);
+        self::assertClassHasAttribute('allowed', Domain::class);
     }
 
     // Testing availability of public class attributes
-    public function testClassHasAllowed()
-    {
-        $this->assertClassHasAttribute('allowed', Domain::class);
-    }
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Domain::class);
+        self::assertClassHasAttribute('parentName', Domain::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Domain::class);
+        self::assertClassNotHasAttribute('response', Domain::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Domain::class);
+        self::assertClassNotHasAttribute('mode', Domain::class);
+    }
+
+    public function testObjectHasAllowed()
+    {
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
-    public function testObjectHasAllowed()
-    {
-        $this->assertObjectHasAttribute('allowed', $this->object);
-    }
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
+    }
+
+    protected function setUp()
+    {
+        $this->object = new Domain();
     }
 
 }

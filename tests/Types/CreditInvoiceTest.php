@@ -1,50 +1,51 @@
 <?php
 
 use Hyperized\Wefact\Types\CreditInvoice;
+use PHPUnit\Framework\TestCase;
 
-class CreditInvoiceTest extends PHPUnit_Framework_TestCase
+class CreditInvoiceTest extends TestCase
 {
     protected $object;
 
     public function testProductInstanceOf()
     {
-        $this->assertInstanceOf(CreditInvoice::class, $this->object);
+        self::assertInstanceOf(CreditInvoice::class, $this->object);
     }
 
     // Test if product initiates
 
     public function testClassHasAllowed()
     {
-        $this->assertClassHasAttribute('allowed', CreditInvoice::class);
+        self::assertClassHasAttribute('allowed', CreditInvoice::class);
     }
 
     // Testing availability of public class attributes
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', CreditInvoice::class);
+        self::assertClassHasAttribute('parentName', CreditInvoice::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', CreditInvoice::class);
+        self::assertClassNotHasAttribute('response', CreditInvoice::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', CreditInvoice::class);
+        self::assertClassNotHasAttribute('mode', CreditInvoice::class);
     }
 
     public function testObjectHasAllowed()
     {
-        $this->assertObjectHasAttribute('allowed', $this->object);
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
     }
 
     protected function setUp()

@@ -1,50 +1,51 @@
 <?php
 
 use Hyperized\Wefact\Types\Handle;
+use PHPUnit\Framework\TestCase;
 
-class HandleTest extends PHPUnit_Framework_TestCase
+class HandleTest extends TestCase
 {
     protected $object;
 
     public function testProductInstanceOf()
     {
-        $this->assertInstanceOf(Handle::class, $this->object);
+        self::assertInstanceOf(Handle::class, $this->object);
     }
 
     // Test if product initiates
 
     public function testClassHasAllowed()
     {
-        $this->assertClassHasAttribute('allowed', Handle::class);
+        self::assertClassHasAttribute('allowed', Handle::class);
     }
 
     // Testing availability of public class attributes
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Handle::class);
+        self::assertClassHasAttribute('parentName', Handle::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Handle::class);
+        self::assertClassNotHasAttribute('response', Handle::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Handle::class);
+        self::assertClassNotHasAttribute('mode', Handle::class);
     }
 
     public function testObjectHasAllowed()
     {
-        $this->assertObjectHasAttribute('allowed', $this->object);
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
     }
 
     protected function setUp()

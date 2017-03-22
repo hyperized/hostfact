@@ -1,53 +1,56 @@
 <?php
 
-use Hyperized\Wefact;
 use Hyperized\Wefact\Types\Debtor;
+use PHPUnit\Framework\TestCase;
 
-class DebtorTest extends PHPUnit_Framework_TestCase
+class DebtorTest extends TestCase
 {
     protected $object;
 
-    protected function setUp()
+    public function testProductInstanceOf()
     {
-        $this->object = new Debtor();
+        self::assertInstanceOf(Debtor::class, $this->object);
     }
 
     // Test if product initiates
-    public function testProductInstanceOf()
+
+    public function testClassHasAllowed()
     {
-        $this->assertInstanceOf(Debtor::class, $this->object);
+        self::assertClassHasAttribute('allowed', Debtor::class);
     }
 
     // Testing availability of public class attributes
-    public function testClassHasAllowed()
-    {
-        $this->assertClassHasAttribute('allowed', Debtor::class);
-    }
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Debtor::class);
+        self::assertClassHasAttribute('parentName', Debtor::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Debtor::class);
+        self::assertClassNotHasAttribute('response', Debtor::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Debtor::class);
+        self::assertClassNotHasAttribute('mode', Debtor::class);
+    }
+
+    public function testObjectHasAllowed()
+    {
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
-    public function testObjectHasAllowed()
-    {
-        $this->assertObjectHasAttribute('allowed', $this->object);
-    }
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
+    }
+
+    protected function setUp()
+    {
+        $this->object = new Debtor();
     }
 
 }

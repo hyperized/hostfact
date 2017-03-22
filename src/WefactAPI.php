@@ -9,11 +9,6 @@ namespace Hyperized\Wefact;
 class WefactAPI
 {
     /**
-     * @var mixed
-     * Set the sendRequest 'mode' based on inherited class name
-     */
-    private $mode;
-    /**
      * @var string
      */
     protected $parentName = 'Hyperized\Wefact\WefactAPI';
@@ -21,6 +16,11 @@ class WefactAPI
      * @var array
      */
     protected $allowed = [];
+    /**
+     * @var mixed
+     * Set the sendRequest 'mode' based on inherited class name
+     */
+    private $mode;
 
     /**
      * WefactAPI constructor.
@@ -67,6 +67,59 @@ class WefactAPI
     protected function _add(array $input)
     {
         return $this->pseudoRequest('add', $input);
+    }
+
+    /**
+     * @param       $action
+     * @param array $input
+     * @return array|mixed
+     */
+    protected function pseudoRequest($action, array $input)
+    {
+        return $this->sendRequest($this->mode, $action, $input);
+    }
+
+    /**
+     * @param $controller
+     * @param $action
+     * @param $params
+     * @return array|mixed
+     */
+    protected function sendRequest($controller, $action, $params)
+    {
+        if (is_array($params)) {
+            $params['api_key'] = config('Wefact.api_v2_key');
+            $params['controller'] = $controller;
+            $params['action'] = $action;
+        }
+
+        $request = new CurlRequest(config('Wefact.api_v2_url'));
+        $request->setOptionArray([
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
+            CURLOPT_POST => 1,
+            CURLOPT_POSTFIELDS => http_build_query($params),
+        ]);
+        $request->execute();
+        $curlError = $request->getError();
+        $curlResp = $request->getResponse();
+        $request->close();
+
+        if ($curlError != '') {
+            $result = [
+                'controller' => 'invalid',
+                'action' => 'invalid',
+                'status' => 'error',
+                'date' => date('c'),
+                'errors' => [$curlError]
+            ];
+        } else {
+            $result = json_decode($curlResp, true);
+        }
+
+        return $result;
     }
 
     /**
@@ -132,6 +185,8 @@ class WefactAPI
         return $this->sendRequest($this->mode . 'line', 'add', $input);
     }
 
+    // Mocks a generic request
+
     /**
      * @param array $input
      * @return array|mixed
@@ -148,59 +203,5 @@ class WefactAPI
     protected function _sendByEmail(array $input)
     {
         return $this->pseudoRequest('sendbyemail', $input);
-    }
-
-    // Mocks a generic request
-    /**
-     * @param       $action
-     * @param array $input
-     * @return array|mixed
-     */
-    protected function pseudoRequest($action, array $input)
-    {
-        return $this->sendRequest($this->mode, $action, $input);
-    }
-
-    /**
-     * @param $controller
-     * @param $action
-     * @param $params
-     * @return array|mixed
-     */
-    protected function sendRequest($controller, $action, $params)
-    {
-        if (is_array($params)) {
-            $params['api_key'] = config('Wefact.api_v2_key');
-            $params['controller'] = $controller;
-            $params['action'] = $action;
-        }
-
-        $request = new CurlRequest(config('Wefact.api_v2_url'));
-        $request->setOptionArray([
-            CURLOPT_SSL_VERIFYHOST => 0,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
-            CURLOPT_POST => 1,
-            CURLOPT_POSTFIELDS => http_build_query($params),
-        ]);
-        $request->execute();
-        $curlError = $request->getError();
-        $curlResp = $request->getResponse();
-        $request->close();
-
-        if ($curlError != '') {
-            $result = [
-                'controller' => 'invalid',
-                'action' => 'invalid',
-                'status' => 'error',
-                'date' => date('c'),
-                'errors' => [$curlError]
-            ];
-        } else {
-            $result = json_decode($curlResp, true);
-        }
-
-        return $result;
     }
 }

@@ -1,50 +1,51 @@
 <?php
 
 use Hyperized\Wefact\Types\Service;
+use PHPUnit\Framework\TestCase;
 
-class ServiceTest extends PHPUnit_Framework_TestCase
+class ServiceTest extends TestCase
 {
-    protected $product;
+    protected $object;
 
     public function testProductInstanceOf()
     {
-        $this->assertInstanceOf(Service::class, $this->object);
+        self::assertInstanceOf(Service::class, $this->object);
     }
 
     // Test if product initiates
 
     public function testClassHasAllowed()
     {
-        $this->assertClassHasAttribute('allowed', Service::class);
+        self::assertClassHasAttribute('allowed', Service::class);
     }
 
     // Testing availability of public class attributes
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Service::class);
+        self::assertClassHasAttribute('parentName', Service::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Service::class);
+        self::assertClassNotHasAttribute('response', Service::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Service::class);
+        self::assertClassNotHasAttribute('mode', Service::class);
     }
 
     public function testObjectHasAllowed()
     {
-        $this->assertObjectHasAttribute('allowed', $this->object);
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
     }
 
     protected function setUp()

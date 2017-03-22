@@ -1,50 +1,51 @@
 <?php
 
 use Hyperized\Wefact\Types\Vps;
+use PHPUnit\Framework\TestCase;
 
-class VpsTest extends PHPUnit_Framework_TestCase
+class VpsTest extends TestCase
 {
     protected $object;
 
     public function testProductInstanceOf()
     {
-        $this->assertInstanceOf(Vps::class, $this->object);
+        self::assertInstanceOf(Vps::class, $this->object);
     }
 
     // Test if product initiates
 
     public function testClassHasAllowed()
     {
-        $this->assertClassHasAttribute('allowed', Vps::class);
+        self::assertClassHasAttribute('allowed', Vps::class);
     }
 
     // Testing availability of public class attributes
 
     public function testClassHasParentName()
     {
-        $this->assertClassHasAttribute('parentName', Vps::class);
+        self::assertClassHasAttribute('parentName', Vps::class);
     }
 
     public function testClassHasNotResponse()
     {
-        $this->assertClassNotHasAttribute('response', Vps::class);
+        self::assertClassNotHasAttribute('response', Vps::class);
     }
 
     public function testClassHasNotMode()
     {
-        $this->assertClassNotHasAttribute('mode', Vps::class);
+        self::assertClassNotHasAttribute('mode', Vps::class);
     }
 
     public function testObjectHasAllowed()
     {
-        $this->assertObjectHasAttribute('allowed', $this->object);
+        self::assertObjectHasAttribute('allowed', $this->object);
     }
 
     // Test if after initiating the Object has the following attributes:
 
     public function testObjectHasResponse()
     {
-        $this->assertObjectNotHasAttribute('response', $this->object);
+        self::assertObjectNotHasAttribute('response', $this->object);
     }
 
     protected function setUp()

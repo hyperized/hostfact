@@ -41,6 +41,7 @@ class CurlRequest implements HttpRequest
     public function execute()
     {
         $this->response = curl_exec($this->handler);
+        return true;
     }
 
     /**
@@ -68,20 +69,20 @@ class CurlRequest implements HttpRequest
     }
 
     /**
+     * Close all connections
+     */
+    public function __destruct()
+    {
+        if (is_resource($this->handler)) {
+            $this->close();
+        }
+    }
+
+    /**
      * @return mixed
      */
     public function close()
     {
         return curl_close($this->handler);
-    }
-
-    /**
-     * Close all connections
-     */
-    public function __destruct()
-    {
-        if(is_resource($this->handler)) {
-            $this->close();
-        }
     }
 }
