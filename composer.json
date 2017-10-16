@@ -31,5 +31,15 @@
         "psr-4": {
             "Hyperized\\Wefact\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hyperized\\Wefact\\WefactServiceProvider"
+            ],
+            "aliases": {
+                "Wefact": "Hyperized\\Wefact\\WefactServiceProvider"
+            }
+        }
     }
 }
