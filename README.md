@@ -42,7 +42,7 @@ It's possible to edit your configuration variables in the `config/Wefact.php` fi
 'api_v2_timeout'	=> 10,
 
 // .env/.env.example
-WEFACT_URL=https://yoursite.tld/Pro/apiv2/api.php'
+WEFACT_URL=https://yoursite.tld/Pro/apiv2/api.php
 WEFACT_KEY=token
 ```
 

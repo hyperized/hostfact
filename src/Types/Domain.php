@@ -137,4 +137,13 @@ class Domain extends WefactAPI
     {
         return $this->pseudoRequest('unlock', $input);
     }
+
+    /**
+     * @param array $input
+     * @return array|mixed
+     */
+    public function autoRenew(array $input)
+    {
+        return $this->pseudoRequest('autorenew', $input);
+    }
 }
