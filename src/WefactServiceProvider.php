@@ -25,7 +25,7 @@ class WefactServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($configPath, 'Wefact');
         $this->publishes([
             $configPath => config_path('Wefact.php'),
-        ]);
+        ], 'config');
     }
 
     /**
