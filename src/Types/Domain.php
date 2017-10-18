@@ -25,6 +25,15 @@ class Domain extends WefactAPI
      * @param array $input
      * @return array|mixed
      */
+    public function autoRenew(array $input)
+    {
+        return $this->pseudoRequest('autorenew', $input);
+    }
+
+    /**
+     * @param array $input
+     * @return array|mixed
+     */
     public function changeNameserver(array $input)
     {
         return $this->pseudoRequest('changenameserver', $input);
@@ -136,14 +145,5 @@ class Domain extends WefactAPI
     public function unlock(array $input)
     {
         return $this->pseudoRequest('unlock', $input);
-    }
-
-    /**
-     * @param array $input
-     * @return array|mixed
-     */
-    public function autoRenew(array $input)
-    {
-        return $this->pseudoRequest('autorenew', $input);
     }
 }

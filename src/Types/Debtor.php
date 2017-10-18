@@ -46,4 +46,13 @@ class Debtor extends WefactAPI
     {
         return $this->pseudoRequest('generatepdf', $input);
     }
+
+    /**
+     * @param array $input
+     * @return array|mixed
+     */
+    public function sendEmail(array $input)
+    {
+        return $this->pseudoRequest('sendemail', $input);
+    }
 }

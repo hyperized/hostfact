@@ -92,4 +92,13 @@ class Ssl extends WefactAPI
     {
         return $this->pseudoRequest('terminate', $input);
     }
+
+    /**
+     * @param array $input
+     * @return array|mixed
+     */
+    public function uninstalled(array $input)
+    {
+        return $this->pseudoRequest('uninstalled', $input);
+    }
 }
