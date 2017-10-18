@@ -1,11 +1,11 @@
-# WeFact API 2.3 for Laravel 5
+# WeFact API 2.7 for Laravel 5
 
 [![Build Status](https://travis-ci.org/hyperized/wefact.svg?branch=master)](https://travis-ci.org/hyperized/wefact)
 
 Official documentation:
 -----------------------
 
-* [WeFact API 2.3](https://www.wefact.nl/wefact-hosting/apiv2/)
+* [WeFact API 2.7](https://www.wefact.nl/wefact-hosting/apiv2/)
 * [Official API examples](https://www.wefact.nl/wefact-hosting/apiv2/)
 
 Installation
