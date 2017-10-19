@@ -117,6 +117,21 @@ class WefactAPI
             ];
         } else {
             $result = json_decode($curlResp, true);
+
+            $informationKey = last(array_keys($result));
+            $typeClass = '\\Hyperized\\Wefact\Models\\'.class_basename($this);
+
+            if($result['action'] == 'list') {
+                $result[$informationKey] = collect($result[$informationKey]);
+
+                foreach($result[$informationKey] as $key => $value) {
+                    $result[$informationKey][$key] = (new $typeClass)
+                        ->forceFill($value);
+                }
+            } else {
+                $result[$informationKey] = (new $typeClass)
+                    ->forceFill($result[$informationKey]);
+            }
         }
 
         return $result;
