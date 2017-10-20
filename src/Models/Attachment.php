@@ -2,7 +2,7 @@
 
 namespace Hyperized\Wefact\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Model\Model;
 
 class Attachment extends Model
 {

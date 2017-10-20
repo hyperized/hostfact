@@ -2,10 +2,18 @@
 
 namespace Hyperized\Wefact\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Model\Model;
 
 class Ticket extends Model
 {
+    /**
+     * @return mixed|string
+     */
+    public function getName()
+    {
+        return (! empty($this->CompanyName)) ? $this->CompanyName : $this->Initials.' '.$this->SurName;
+    }
+
     /**
      * @return string
      */
