@@ -10,5 +10,5 @@ return [
     'api_v2_key' => env('WEFACT_KEY', 'token'),
 
     // Timeout in seconds
-    'api_v2_timeout' => 10,
+    'api_v2_timeout' => env('WEFACT_TIMEOUT', 20),
 ];
