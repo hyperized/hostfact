@@ -1,6 +1,7 @@
 # WeFact API 2.7 for Laravel 5
 
 [![Build Status](https://travis-ci.org/hyperized/wefact.svg?branch=master)](https://travis-ci.org/hyperized/wefact)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fwefact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fwefact?ref=badge_shield)
 
 Official documentation:
 -----------------------
@@ -72,3 +73,7 @@ class MyController extends Controller {
 ```
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fwefact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fwefact?ref=badge_large)
