@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Hosting;
+use Hyperized\Hostfact\Types\Hosting;
 use PHPUnit\Framework\TestCase;
 
 class HostingTest extends TestCase

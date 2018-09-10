@@ -1,12 +1,12 @@
 <?php
 
-namespace Hyperized\Wefact\Types;
+namespace Hyperized\Hostfact\Types;
 
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class AttachmentTest
- * @package Hyperized\Wefact\Types
+ * @package Hyperized\Hostfact\Types
  */
 class AttachmentTest extends TestCase
 {

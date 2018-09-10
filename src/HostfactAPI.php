@@ -1,17 +1,17 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 /**
- * Class WefactAPI
- * @package Hyperized\Wefact
+ * Class HostfactAPI
+ * @package Hyperized\Hostfact
  */
-class WefactAPI
+class HostfactAPI
 {
     /**
      * @var string
      */
-    protected $parentName = 'Hyperized\Wefact\WefactAPI';
+    protected $parentName = 'Hyperized\Hostfact\HostfactAPI';
     /**
      * @var array
      */
@@ -23,7 +23,7 @@ class WefactAPI
     private $mode;
 
     /**
-     * WefactAPI constructor.
+     * HostfactAPI constructor.
      */
     public function __construct()
     {
@@ -88,17 +88,17 @@ class WefactAPI
     protected function sendRequest($controller, $action, $params)
     {
         if (is_array($params)) {
-            $params['api_key'] = config('Wefact.api_v2_key');
+            $params['api_key'] = config('Hostfact.api_v2_key');
             $params['controller'] = $controller;
             $params['action'] = $action;
         }
 
-        $request = new CurlRequest(config('Wefact.api_v2_url'));
+        $request = new CurlRequest(config('Hostfact.api_v2_url'));
         $request->setOptionArray([
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
+            CURLOPT_TIMEOUT => config('Hostfact.api_v2_timeout'),
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => http_build_query($params),
         ]);

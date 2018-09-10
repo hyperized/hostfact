@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Order;
+use Hyperized\Hostfact\Types\Order;
 use PHPUnit\Framework\TestCase;
 
 class OrderTest extends TestCase

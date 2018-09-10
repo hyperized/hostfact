@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyperized\Wefact\Types;
+namespace Hyperized\Hostfact\Types;
 
-use Hyperized\Wefact\WefactAPI;
+use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Ssl
- * @package Hyperized\Wefact\Types
+ * @package Hyperized\Hostfact\Types
  */
-class Ssl extends WefactAPI
+class Ssl extends HostfactAPI
 {
     /**
      * @var array

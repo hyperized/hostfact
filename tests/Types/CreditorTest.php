@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Creditor;
+use Hyperized\Hostfact\Types\Creditor;
 use PHPUnit\Framework\TestCase;
 
 class CreditorTest extends TestCase

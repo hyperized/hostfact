@@ -1,64 +1,64 @@
-# WeFact API 2.7 for Laravel 5
+# Hostfact API 2.7 for Laravel 5
 
-[![Build Status](https://travis-ci.org/hyperized/wefact.svg?branch=master)](https://travis-ci.org/hyperized/wefact)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fwefact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fwefact?ref=badge_shield)
+[![Build Status](https://travis-ci.org/hyperized/hostfact.svg?branch=master)](https://travis-ci.org/hyperized/hostfact)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_shield)
 
 Official documentation:
 -----------------------
 
-* [WeFact API 2.7](https://www.wefact.nl/wefact-hosting/apiv2/)
-* [Official API examples](https://www.wefact.nl/wefact-hosting/apiv2/)
+* [Hostfact API 2.7](https://www.hostfact.nl/hostfact-hosting/apiv2/)
+* [Official API examples](https://www.hostfact.nl/hostfact-hosting/apiv2/)
 
 Installation
 ------------
 
 Install using composer:
 ```bash
-composer require hyperized/wefact
+composer require hyperized/hostfact
 ```
 
 This package supports Package Auto-Discovery (Laravel 5.5+) so it doesn't require you to manually add the ServiceProvider and alias.
 
-If you are using a lower version of Laravel or not using Auto-Discovery you can add the WeFact Service Provider to the `config/app.php` file 
+If you are using a lower version of Laravel or not using Auto-Discovery you can add the Hostfact Service Provider to the `config/app.php` file 
 
 ```php
-Hyperized\Wefact\WefactServiceProvider::class,
+Hyperized\Hostfact\HostfactServiceProvider::class,
 ```
-Register a alias for Wefact, also in `config/app.php`:
+Register a alias for Hostfact, also in `config/app.php`:
 
 ```php
-'Wefact'    => Hyperized\Wefact\WefactServiceProvider::class,
+'Hostfact'    => Hyperized\Hostfact\HostfactServiceProvider::class,
 ```
-Now publish the Wefact package into your installation:
+Now publish the Hostfact package into your installation:
 ```bash
-php artisan vendor:publish --provider="Hyperized\Wefact\WefactServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Hyperized\Hostfact\HostfactServiceProvider" --tag="config"
 ```
-This should give you a message like: `Copied File [/vendor/hyperized/wefact/src/config/Wefact.php] To [/config/Wefact.php]`
+This should give you a message like: `Copied File [/vendor/hyperized/hostfact/src/config/Hostfact.php] To [/config/Hostfact.php]`
 
-It's possible to edit your configuration variables in the `config/Wefact.php` file or you can use the `WEFACT_URL` and `WEFACT_KEY` environment variables to store sensitive information in the `.env` file 
+It's possible to edit your configuration variables in the `config/Hostfact.php` file or you can use the `HOSTFACT_URL` and `HOSTFACT_KEY` environment variables to store sensitive information in the `.env` file 
 ```php
-// config/Wefact.php
-'api_v2_url'		=> env('WEFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
-'api_v2_key'		=> env('WEFACT_KEY', 'token'),
-'api_v2_timeout'	=> env('WEFACT_TIMEOUT', 20),
+// config/Hostfact.php
+'api_v2_url'		=> env('HOSTFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
+'api_v2_key'		=> env('HOSTFACT_KEY', 'token'),
+'api_v2_timeout'	=> env('HOSTFACT_TIMEOUT', 20),
 
 // .env/.env.example
-WEFACT_URL=https://yoursite.tld/Pro/apiv2/api.php
-WEFACT_KEY=token
-WEFACT_TIMEOUT=20
+HOSTFACT_URL=https://yoursite.tld/Pro/apiv2/api.php
+HOSTFACT_KEY=token
+HOSTFACT_TIMEOUT=20
 ```
 
 Example code:
 ```php
 // Direct use
-$product = new Hyperized\Wefact\Types\Product();
+$product = new Hyperized\Hostfact\Types\Product();
 $productParams = [
     'searchfor' => 'invoice'
 ];
 $output = $product->list($productParams);
 
 // Use in Controllers
-use Hyperized\Wefact\Types\Product;
+use Hyperized\Hostfact\Types\Product;
 
 class MyController extends Controller {
     public function getProducts()
@@ -76,4 +76,4 @@ class MyController extends Controller {
 
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fwefact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fwefact?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_large)
