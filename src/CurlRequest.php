@@ -74,7 +74,7 @@ class CurlRequest implements HttpRequest
     public function __destruct()
     {
         if (\is_resource($this->handler)) {
-            $this->close()
+            $this->close();
         }
     }
 
