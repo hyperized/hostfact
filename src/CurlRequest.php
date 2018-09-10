@@ -73,7 +73,7 @@ class CurlRequest implements HttpRequest
      */
     public function __destruct()
     {
-        if (is_resource($this->handler)) {
+        if (\is_resource($this->handler)) {
             $this->close();
         }
     }
@@ -83,6 +83,6 @@ class CurlRequest implements HttpRequest
      */
     public function close()
     {
-        return curl_close($this->handler);
+        curl_close($this->handler);
     }
 }

@@ -1,45 +1,46 @@
 {
-    "name": "hyperized/hostfact",
-    "description": "Hostfact 2.7 API Implementation",
-    "keywords": [
-        "hostfact",
-        "hostfact-api"
-    ],
-    "type": "library",
-    "minimum-stability": "stable",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Gerben Geijteman",
-            "email": "gerben@hyperized.net"
-        }
-    ],
-    "require": {
-        "php": ">=5.6.4",
-        "illuminate/support": "^5.4"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~5.7|~7.0",
-        "phpspec/phpspec": "^3.0|^5.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Hyperized\\Hostfact\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Hyperized\\Hostfact\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Hyperized\\Hostfact\\HostfactServiceProvider"
-            ],
-            "aliases": {
-                "Hostfact": "Hyperized\\Hostfact\\HostfactServiceProvider"
-            }
-        }
+  "name": "hyperized/hostfact",
+  "description": "Hostfact 2.7 API Implementation",
+  "keywords": [
+    "hostfact",
+    "hostfact-api"
+  ],
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gerben Geijteman",
+      "email": "gerben@hyperized.net"
     }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "illuminate/support": "^5.4",
+    "ext-curl": "^7.1",
+    "ext-json": "^1.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hyperized\\Hostfact\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hyperized\\Hostfact\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hyperized\\Hostfact\\HostfactServiceProvider"
+      ],
+      "aliases": {
+        "Hostfact": "Hyperized\\Hostfact\\HostfactServiceProvider"
+      }
+    }
+  }
 }
