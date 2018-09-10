@@ -1,47 +1,46 @@
 {
-    "name": "hyperized/wefact",
-    "description": "Wefact 2.7 API Implementation",
-    "keywords": [
-        "wefact",
-        "wefact-api"
-    ],
-    "type": "library",
-    "minimum-stability": "stable",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Gerben Geijteman",
-            "email": "gerben@hyperized.net"
-        }
-    ],
-    "require": {
-        "php": ">=7.1",
-        "illuminate/support": "^5.4",
-        "ext-curl": "^7.1",
-        "ext-json": "^1.5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~7.0",
-        "phpspec/phpspec": "^5.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Hyperized\\Wefact\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Hyperized\\Wefact\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Hyperized\\Wefact\\WefactServiceProvider"
-            ],
-            "aliases": {
-                "Wefact": "Hyperized\\Wefact\\WefactServiceProvider"
-            }
-        }
+  "name": "hyperized/wefact",
+  "description": "Wefact 2.7 API Implementation",
+  "keywords": [
+    "wefact",
+    "wefact-api"
+  ],
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gerben Geijteman",
+      "email": "gerben@hyperized.net"
     }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "illuminate/support": "^5.4",
+    "ext-curl": "^7.1",
+    "ext-json": "^1.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hyperized\\Wefact\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hyperized\\Wefact\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hyperized\\Wefact\\WefactServiceProvider"
+      ],
+      "aliases": {
+        "Wefact": "Hyperized\\Wefact\\WefactServiceProvider"
+      }
+    }
+  }
 }
