@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Ticket;
+use Hyperized\Hostfact\Types\Ticket;
 use PHPUnit\Framework\TestCase;
 
 class TicketTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\CreditInvoice;
+use Hyperized\Hostfact\Types\CreditInvoice;
 use PHPUnit\Framework\TestCase;
 
 class CreditInvoiceTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Product;
+use Hyperized\Hostfact\Types\Product;
 use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase

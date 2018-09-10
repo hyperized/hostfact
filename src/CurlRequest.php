@@ -1,10 +1,10 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 /**
  * Class CurlRequest
- * @package Hyperized\Wefact
+ * @package Hyperized\Hostfact
  */
 class CurlRequest implements HttpRequest
 {

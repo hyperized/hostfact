@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyperized\Wefact\Types;
+namespace Hyperized\Hostfact\Types;
 
-use Hyperized\Wefact\WefactAPI;
+use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class CreditInvoice
- * @package Hyperized\Wefact\Types
+ * @package Hyperized\Hostfact\Types
  */
-class CreditInvoice extends WefactAPI
+class CreditInvoice extends HostfactAPI
 {
     /**
      * @var array

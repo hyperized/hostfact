@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Handle;
+use Hyperized\Hostfact\Types\Handle;
 use PHPUnit\Framework\TestCase;
 
 class HandleTest extends TestCase
