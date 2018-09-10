@@ -7,18 +7,11 @@ use Illuminate\Support\ServiceProvider;
 class WefactServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool $defer
-     */
-    protected $defer = false;
-
-    /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // Configuration file
         $configPath = __DIR__ . '/config/Wefact.php';
@@ -33,7 +26,7 @@ class WefactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(WefactAPI::class, function ($app) {
             return new WefactAPI();
@@ -45,7 +38,7 @@ class WefactServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             WefactAPI::class

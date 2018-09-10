@@ -11,7 +11,7 @@ class WefactAPI
     /**
      * @var string
      */
-    protected $parentName = 'Hyperized\Wefact\WefactAPI';
+    protected $parentName = WefactAPI::class;
     /**
      * @var array
      */
@@ -28,9 +28,9 @@ class WefactAPI
     public function __construct()
     {
         // Check if mode is set by extended class, if not fall back to naming
-        if (!isset($this->mode)) {
-            // Set mode to classname, strip namespaces :)
-            $function_call = explode('\\', strtolower(get_class($this)));
+        if ($this->mode === null) {
+            // Set mode to class name, strip namespaces :)
+            $function_call = explode('\\', strtolower(\get_class($this)));
             $this->mode = last($function_call);
         }
     }
@@ -42,17 +42,16 @@ class WefactAPI
      */
     public function __call($method, $arguments)
     {
-        // Rename functions from inhented instances from method to _method for internal use.
-        if (get_class($this) != $this->parentName) {
-            if (in_array($method, $this->allowed)) {
+        // Rename functions from inherited instances from method to _method for internal use.
+        if (\get_class($this) !== $this->parentName) {
+            if (\in_array($method, $this->allowed, true)) {
                 $methodName = '_' . $method;
                 if (method_exists($this, $methodName)) {
-                    return call_user_func_array([$this, $methodName], $arguments);
+                    return \call_user_func_array([$this, $methodName], $arguments);
                 }
             } else {
-                $error = 'No such method: ' . get_class($this) . '::' . $method;
-                dd($error);
-                return false;
+                $error = 'No such method: ' . \get_class($this) . '::' . $method;
+                throw new \InvalidArgumentException($error);
             }
             return false;
         }
@@ -87,7 +86,7 @@ class WefactAPI
      */
     protected function sendRequest($controller, $action, $params)
     {
-        if (is_array($params)) {
+        if (\is_array($params)) {
             $params['api_key'] = config('Wefact.api_v2_key');
             $params['controller'] = $controller;
             $params['action'] = $action;
@@ -95,8 +94,8 @@ class WefactAPI
 
         $request = new CurlRequest(config('Wefact.api_v2_url'));
         $request->setOptionArray([
-            CURLOPT_SSL_VERIFYHOST => 0,
-            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
             CURLOPT_POST => 1,
@@ -107,7 +106,7 @@ class WefactAPI
         $curlResp = $request->getResponse();
         $request->close();
 
-        if ($curlError != '') {
+        if ($curlError !== '') {
             $result = [
                 'controller' => 'invalid',
                 'action' => 'invalid',
