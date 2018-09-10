@@ -45,15 +45,14 @@ class HostfactAPI
     {
         // Rename functions from inhented instances from method to _method for internal use.
         if (\get_class($this) !== $this->parentName) {
-            if (in_array($method, $this->allowed, true)) {
+            if (\in_array($method, $this->allowed, true)) {
                 $methodName = '_' . $method;
                 if (method_exists($this, $methodName)) {
                     return \call_user_func_array([$this, $methodName], $arguments);
                 }
             } else {
                 $error = 'No such method: ' . \get_class($this) . '::' . $method;
-                dd($error);
-                return false;
+                throw new \InvalidArgumentException($error);
             }
             return false;
         }
