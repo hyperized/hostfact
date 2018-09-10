@@ -1,10 +1,10 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 use Illuminate\Support\ServiceProvider;
 
-class WefactServiceProvider extends ServiceProvider
+class HostfactServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -14,10 +14,10 @@ class WefactServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Configuration file
-        $configPath = __DIR__ . '/config/Wefact.php';
-        $this->mergeConfigFrom($configPath, 'Wefact');
+        $configPath = __DIR__ . '/config/Hostfact.php';
+        $this->mergeConfigFrom($configPath, 'Hostfact');
         $this->publishes([
-            $configPath => config_path('Wefact.php'),
+            $configPath => config_path('Hostfact.php'),
         ], 'config');
     }
 
@@ -28,8 +28,8 @@ class WefactServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(WefactAPI::class, function ($app) {
-            return new WefactAPI();
+        $this->app->singleton(HostfactAPI::class, function ($app) {
+            return new HostfactAPI();
         });
     }
 
@@ -41,7 +41,7 @@ class WefactServiceProvider extends ServiceProvider
     public function provides(): array
     {
         return [
-            WefactAPI::class
+            HostfactAPI::class
         ];
     }
 }

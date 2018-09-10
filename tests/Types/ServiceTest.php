@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Service;
+use Hyperized\Hostfact\Types\Service;
 use PHPUnit\Framework\TestCase;
 
 class ServiceTest extends TestCase

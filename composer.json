@@ -1,9 +1,9 @@
 {
-  "name": "hyperized/wefact",
-  "description": "Wefact 2.7 API Implementation",
+  "name": "hyperized/hostfact",
+  "description": "Hostfact 2.7 API Implementation",
   "keywords": [
-    "wefact",
-    "wefact-api"
+    "hostfact",
+    "hostfact-api"
   ],
   "type": "library",
   "minimum-stability": "stable",
@@ -25,21 +25,21 @@
   },
   "autoload": {
     "psr-4": {
-      "Hyperized\\Wefact\\": "src/"
+      "Hyperized\\Hostfact\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Hyperized\\Wefact\\Tests\\": "tests/"
+      "Hyperized\\Hostfact\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Hyperized\\Wefact\\WefactServiceProvider"
+        "Hyperized\\Hostfact\\HostfactServiceProvider"
       ],
       "aliases": {
-        "Wefact": "Hyperized\\Wefact\\WefactServiceProvider"
+        "Hostfact": "Hyperized\\Hostfact\\HostfactServiceProvider"
       }
     }
   }

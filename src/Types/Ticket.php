@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyperized\Wefact\Types;
+namespace Hyperized\Hostfact\Types;
 
-use Hyperized\Wefact\WefactAPI;
+use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Ticket
- * @package Hyperized\Wefact\Types
+ * @package Hyperized\Hostfact\Types
  */
-class Ticket extends WefactAPI
+class Ticket extends HostfactAPI
 {
     /**
      * @var array

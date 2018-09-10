@@ -1,10 +1,10 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 /**
  * Interface HttpRequest
- * @package Hyperized\Wefact
+ * @package Hyperized\Hostfact
  */
 interface HttpRequest
 {

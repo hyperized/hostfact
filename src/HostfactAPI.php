@@ -1,17 +1,17 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 /**
- * Class WefactAPI
- * @package Hyperized\Wefact
+ * Class HostfactAPI
+ * @package Hyperized\Hostfact
  */
-class WefactAPI
+class HostfactAPI
 {
     /**
      * @var string
      */
-    protected $parentName = WefactAPI::class;
+    protected $parentName = HostfactAPI::class;
     /**
      * @var array
      */
@@ -23,13 +23,13 @@ class WefactAPI
     private $mode;
 
     /**
-     * WefactAPI constructor.
+     * HostfactAPI constructor.
      */
     public function __construct()
     {
         // Check if mode is set by extended class, if not fall back to naming
         if ($this->mode === null) {
-            // Set mode to class name, strip namespaces :)
+            // Set mode to classname, strip namespaces :)
             $function_call = explode('\\', strtolower(\get_class($this)));
             $this->mode = last($function_call);
         }
@@ -38,29 +38,32 @@ class WefactAPI
     /**
      * @param $method
      * @param $arguments
+     *
      * @return mixed
      */
     public function __call($method, $arguments)
     {
-        // Rename functions from inherited instances from method to _method for internal use.
+        // Rename functions from inhented instances from method to _method for internal use.
         if (\get_class($this) !== $this->parentName) {
-            if (\in_array($method, $this->allowed, true)) {
+            if (in_array($method, $this->allowed, true)) {
                 $methodName = '_' . $method;
                 if (method_exists($this, $methodName)) {
                     return \call_user_func_array([$this, $methodName], $arguments);
                 }
             } else {
                 $error = 'No such method: ' . \get_class($this) . '::' . $method;
-                throw new \InvalidArgumentException($error);
+                dd($error);
+                return false;
             }
             return false;
         }
         return false;
     }
-
     // Generic function implementations
+
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _add(array $input)
@@ -71,6 +74,7 @@ class WefactAPI
     /**
      * @param       $action
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function pseudoRequest($action, array $input)
@@ -82,22 +86,22 @@ class WefactAPI
      * @param $controller
      * @param $action
      * @param $params
+     *
      * @return array|mixed
      */
     protected function sendRequest($controller, $action, $params)
     {
         if (\is_array($params)) {
-            $params['api_key'] = config('Wefact.api_v2_key');
+            $params['api_key'] = config('Hostfact.api_v2_key');
             $params['controller'] = $controller;
             $params['action'] = $action;
         }
-
-        $request = new CurlRequest(config('Wefact.api_v2_url'));
+        $request = new CurlRequest(config('Hostfact.api_v2_url'));
         $request->setOptionArray([
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_TIMEOUT => config('Wefact.api_v2_timeout'),
+            CURLOPT_TIMEOUT => config('Hostfact.api_v2_timeout'),
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => http_build_query($params),
         ]);
@@ -105,7 +109,6 @@ class WefactAPI
         $curlError = $request->getError();
         $curlResp = $request->getResponse();
         $request->close();
-
         if ($curlError !== '') {
             $result = [
                 'controller' => 'invalid',
@@ -117,12 +120,12 @@ class WefactAPI
         } else {
             $result = json_decode($curlResp, true);
         }
-
         return $result;
     }
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _delete(array $input)
@@ -132,6 +135,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _download(array $input)
@@ -141,6 +145,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _edit(array $input)
@@ -150,6 +155,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _list(array $input)
@@ -159,6 +165,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _show(array $input)
@@ -168,6 +175,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _terminate(array $input)
@@ -177,17 +185,18 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _lineAdd(array $input)
     {
         return $this->sendRequest($this->mode . 'line', 'add', $input);
     }
-
     // Mocks a generic request
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _lineDelete(array $input)
@@ -197,6 +206,7 @@ class WefactAPI
 
     /**
      * @param array $input
+     *
      * @return array|mixed
      */
     protected function _sendByEmail(array $input)

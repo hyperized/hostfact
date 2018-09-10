@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyperized\Wefact\Types;
+namespace Hyperized\Hostfact\Types;
 
-use Hyperized\Wefact\WefactAPI;
+use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Handle
- * @package Hyperized\Wefact
+ * @package Hyperized\Hostfact
  */
-class Handle extends WefactAPI
+class Handle extends HostfactAPI
 {
     /**
      * @var array

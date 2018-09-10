@@ -1,10 +1,10 @@
 <?php
 
-namespace Hyperized\Wefact;
+namespace Hyperized\Hostfact;
 
 use Illuminate\Support\Facades\Facade;
 
-class WefactFacade extends Facade
+class HostfactFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class WefactFacade extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'Wefact';
+        return 'Hostfact';
     }
 }

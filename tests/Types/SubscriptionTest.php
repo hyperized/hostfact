@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Wefact\Types\Subscription;
+use Hyperized\Hostfact\Types\Subscription;
 use PHPUnit\Framework\TestCase;
 
 class SubscriptionTest extends TestCase
