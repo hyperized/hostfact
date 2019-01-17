@@ -4,6 +4,7 @@ namespace Hyperized\Hostfact;
 
 /**
  * Class HostfactAPI
+ *
  * @package Hyperized\Hostfact
  */
 class HostfactAPI
@@ -71,8 +72,8 @@ class HostfactAPI
     }
 
     /**
-     * @param       $action
-     * @param array $input
+     * @param $action
+     * @param array  $input
      *
      * @return array|mixed
      */
@@ -96,14 +97,16 @@ class HostfactAPI
             $params['action'] = $action;
         }
         $request = new CurlRequest(config('Hostfact.api_v2_url'));
-        $request->setOptionArray([
+        $request->setOptionArray(
+            [
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_TIMEOUT => config('Hostfact.api_v2_timeout'),
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => http_build_query($params),
-        ]);
+            ]
+        );
         $request->execute();
         $curlError = $request->getError();
         $curlResp = $request->getResponse();

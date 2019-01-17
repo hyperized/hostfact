@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Domain
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Domain extends HostfactAPI
@@ -22,7 +23,7 @@ class Domain extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function autoRenew(array $input)
@@ -31,7 +32,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function changeNameserver(array $input)
@@ -40,7 +41,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function check(array $input)
@@ -49,7 +50,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function editDnsZone(array $input)
@@ -58,7 +59,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function getDnsZone(array $input)
@@ -67,7 +68,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function getToken(array $input)
@@ -76,7 +77,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function listDnsTemplates(array $input)
@@ -85,7 +86,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function lock(array $input)
@@ -94,7 +95,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function register(array $input)
@@ -103,7 +104,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function syncWHOIS(array $input)
@@ -112,7 +113,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function editWHOIS(array $input)
@@ -121,7 +122,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function terminate(array $input)
@@ -130,7 +131,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function transfer(array $input)
@@ -139,7 +140,7 @@ class Domain extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function unlock(array $input)

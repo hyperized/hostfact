@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Subscription
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Subscription extends HostfactAPI

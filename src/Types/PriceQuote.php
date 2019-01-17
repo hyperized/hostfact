@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class PriceQuote
+ *
  * @package Hyperized\Hostfact\Types
  */
 class PriceQuote extends HostfactAPI
@@ -26,7 +27,7 @@ class PriceQuote extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function accept(array $input)
@@ -35,7 +36,7 @@ class PriceQuote extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function decline(array $input)
