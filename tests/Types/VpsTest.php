@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Hostfact\Types\Vps;
+use Hyperized\Hostfact\Controllers\Vps;
 use PHPUnit\Framework\TestCase;
 
 class VpsTest extends TestCase

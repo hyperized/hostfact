@@ -1,15 +1,15 @@
 <?php
 
-namespace Hyperized\Hostfact\Types;
+namespace Hyperized\Hostfact\Controllers;
 
 use Hyperized\Hostfact\HostfactAPI;
 
 /**
- * Class Handle
+ * Class Order
  *
- * @package Hyperized\Hostfact
+ * @package Hyperized\Hostfact\Types
  */
-class Handle extends HostfactAPI
+class Order extends HostfactAPI
 {
     /**
      * @var array
@@ -20,14 +20,16 @@ class Handle extends HostfactAPI
         'edit',
         'list',
         'show',
+        'lineAdd',
+        'lineDelete',
     ];
 
     /**
      * @param  array $input
      * @return array|mixed
      */
-    public function listDomain(array $input)
+    public function process(array $input)
     {
-        return $this->pseudoRequest('listdomain', $input);
+        return $this->pseudoRequest('process', $input);
     }
 }

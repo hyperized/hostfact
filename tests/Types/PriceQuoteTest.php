@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Hostfact\Types\PriceQuote;
+use Hyperized\Hostfact\Controllers\PriceQuote;
 use PHPUnit\Framework\TestCase;
 
 class PriceQuoteTest extends TestCase

@@ -1,24 +1,24 @@
 <?php
 
-namespace Hyperized\Hostfact\Types;
+namespace Hyperized\Hostfact\Controllers;
 
 use Hyperized\Hostfact\HostfactAPI;
 
 /**
- * Class Product
+ * Class Service
  *
  * @package Hyperized\Hostfact\Types
  */
-class Product extends HostfactAPI
+class Service extends HostfactAPI
 {
     /**
      * @var array
      */
     protected $allowed = [
         'add',
-        'delete',
         'edit',
         'list',
-        'show'
+        'show',
+        'terminate',
     ];
 }

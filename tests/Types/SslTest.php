@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Hostfact\Types\Ssl;
+use Hyperized\Hostfact\Controllers\Ssl;
 use PHPUnit\Framework\TestCase;
 
 class SslTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Hostfact\Types\Domain;
+use Hyperized\Hostfact\Controllers\Domain;
 use PHPUnit\Framework\TestCase;
 
 class DomainTest extends TestCase

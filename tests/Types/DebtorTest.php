@@ -1,6 +1,6 @@
 <?php
 
-use Hyperized\Hostfact\Types\Debtor;
+use Hyperized\Hostfact\Controllers\Debtor;
 use PHPUnit\Framework\TestCase;
 
 class DebtorTest extends TestCase

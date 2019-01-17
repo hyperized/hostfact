@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyperized\Hostfact\Types;
+namespace Hyperized\Hostfact\Controllers;
 
 use PHPUnit\Framework\TestCase;
 

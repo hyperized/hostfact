@@ -1,15 +1,15 @@
 <?php
 
-namespace Hyperized\Hostfact\Types;
+namespace Hyperized\Hostfact\Controllers;
 
 use Hyperized\Hostfact\HostfactAPI;
 
 /**
- * Class CreditInvoice
+ * Class PriceQuote
  *
  * @package Hyperized\Hostfact\Types
  */
-class CreditInvoice extends HostfactAPI
+class PriceQuote extends HostfactAPI
 {
     /**
      * @var array
@@ -17,30 +17,30 @@ class CreditInvoice extends HostfactAPI
     protected $allowed = [
         'add',
         'delete',
+        'download',
         'edit',
         'list',
+        'sendByEmail',
         'show',
-        'markAsPaid',
-        'partPayment',
         'lineAdd',
-        'lineDelete',
+        'lineDelete'
     ];
 
     /**
      * @param  array $input
      * @return array|mixed
      */
-    public function markAsPaid(array $input)
+    public function accept(array $input)
     {
-        return $this->pseudoRequest('markaspaid', $input);
+        return $this->pseudoRequest('accept', $input);
     }
 
     /**
      * @param  array $input
      * @return array|mixed
      */
-    public function partPayment(array $input)
+    public function decline(array $input)
     {
-        return $this->pseudoRequest('partpayment', $input);
+        return $this->pseudoRequest('decline', $input);
     }
 }

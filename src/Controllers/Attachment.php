@@ -1,15 +1,15 @@
 <?php
 
-namespace Hyperized\Hostfact\Types;
+namespace Hyperized\Hostfact\Controllers;
 
 use Hyperized\Hostfact\HostfactAPI;
 
 /**
- * Class Creditor
+ * Class Attachment
  *
  * @package Hyperized\Hostfact\Types
  */
-class Creditor extends HostfactAPI
+class Attachment extends HostfactAPI
 {
     /**
      * @var array
@@ -17,8 +17,6 @@ class Creditor extends HostfactAPI
     protected $allowed = [
         'add',
         'delete',
-        'edit',
-        'list',
-        'show',
+        'download',
     ];
 }
