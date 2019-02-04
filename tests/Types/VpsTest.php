@@ -48,7 +48,7 @@ class VpsTest extends TestCase
         self::assertObjectNotHasAttribute('response', $this->object);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Vps();
     }
