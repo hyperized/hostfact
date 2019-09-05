@@ -1,4 +1,4 @@
-# Hostfact API 2.7 for Laravel 5
+# Hostfact API 2.7 for Laravel 5+
 
 [![Build Status](https://travis-ci.org/hyperized/hostfact.svg?branch=master)](https://travis-ci.org/hyperized/hostfact)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_shield)
