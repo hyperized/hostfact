@@ -18,8 +18,9 @@ class HostfactServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($configPath, 'Hostfact');
         $this->publishes(
             [
-            $configPath => config_path('Hostfact.php'),
-            ], 'config'
+                $configPath => config_path('Hostfact.php'),
+            ],
+            'config'
         );
     }
 
@@ -31,7 +32,8 @@ class HostfactServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(
-            HostfactAPI::class, function ($app) {
+            HostfactAPI::class,
+            static function ($app) {
                 return new HostfactAPI();
             }
         );

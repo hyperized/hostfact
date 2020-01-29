@@ -7,7 +7,6 @@ use Hyperized\Hostfact\Controllers\Parameters\CreditorList;
 use Hyperized\Hostfact\Controllers\Parameters\CreditorShow;
 use Hyperized\Hostfact\HostfactAPI;
 
-
 /**
  * Class Creditor
  *

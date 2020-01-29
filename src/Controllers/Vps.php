@@ -22,7 +22,7 @@ class Vps extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function create(array $input)
@@ -31,7 +31,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function downloadAccountData(array $input)
@@ -40,7 +40,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function pause(array $input)
@@ -49,7 +49,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function restart(array $input)
@@ -58,7 +58,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function sendAccountDataByEmail(array $input)
@@ -67,7 +67,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function start(array $input)
@@ -76,7 +76,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function suspend(array $input)
@@ -85,7 +85,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function terminate(array $input)
@@ -94,7 +94,7 @@ class Vps extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function unsuspend(array $input)

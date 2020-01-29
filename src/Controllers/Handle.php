@@ -23,7 +23,7 @@ class Handle extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function listDomain(array $input)

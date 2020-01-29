@@ -3,7 +3,9 @@
 namespace Hyperized\Hostfact;
 
 use InvalidArgumentException;
-
+use function get_class;
+use function in_array;
+use function is_array;
 
 /**
  * Class HostfactAPI
@@ -46,7 +48,7 @@ class HostfactAPI
      */
     protected function getController(): string
     {
-        $class = \get_class($this);
+        $class = get_class($this);
         return strtolower(substr($class, strrpos($class, '\\') + 1));
     }
 
@@ -57,7 +59,7 @@ class HostfactAPI
      */
     private function isAllowed($method): bool
     {
-        if (!\in_array($method, $this->allowed, true)) {
+        if (!in_array($method, $this->allowed, true)) {
             throw new InvalidArgumentException('No such allowed method: ' . $method);
         }
         return true;
@@ -66,7 +68,7 @@ class HostfactAPI
     // Generic function implementations
 
     /**
-     * @param  array $parameters
+     * @param array $parameters
      * @return array
      * @throws InvalidArgumentException
      */
@@ -117,13 +119,7 @@ class HostfactAPI
      */
     protected function sendRequest($controller, $action, $params)
     {
-        return [
-            $controller,
-            $action,
-            $params
-        ];
-
-        if (\is_array($params)) {
+        if (is_array($params)) {
             $params['api_key'] = config('Hostfact.api_v2_key');
             $params['controller'] = $controller;
             $params['action'] = $action;

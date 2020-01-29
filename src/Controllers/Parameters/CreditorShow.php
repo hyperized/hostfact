@@ -1,9 +1,9 @@
-<?php /** @noinspection PhpPropertyNamingConventionInspection */ declare(strict_types=1);
+<?php /** @noinspection PhpPropertyNamingConventionInspection */
+declare(strict_types=1);
 
 namespace Hyperized\Hostfact\Controllers\Parameters;
 
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * Class CreditorShow

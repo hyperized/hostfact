@@ -23,7 +23,7 @@ class Ssl extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function getStatus(array $input)
@@ -32,7 +32,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function installed(array $input)
@@ -41,7 +41,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function reissue(array $input)
@@ -50,7 +50,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function renew(array $input)
@@ -59,7 +59,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function request(array $input)
@@ -68,7 +68,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function resendApproverMail(array $input)
@@ -77,7 +77,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function revoke(array $input)
@@ -86,7 +86,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function terminate(array $input)
@@ -95,7 +95,7 @@ class Ssl extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function uninstalled(array $input)

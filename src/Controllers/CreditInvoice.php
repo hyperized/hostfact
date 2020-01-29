@@ -27,7 +27,7 @@ class CreditInvoice extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function markAsPaid(array $input)
@@ -36,7 +36,7 @@ class CreditInvoice extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function partPayment(array $input)

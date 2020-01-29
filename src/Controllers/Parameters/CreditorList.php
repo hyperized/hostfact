@@ -4,7 +4,6 @@ namespace Hyperized\Hostfact\Controllers\Parameters;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Class CreditorList
  *

@@ -27,7 +27,7 @@ class PriceQuote extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function accept(array $input)
@@ -36,7 +36,7 @@ class PriceQuote extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function decline(array $input)

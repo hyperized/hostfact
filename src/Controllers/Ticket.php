@@ -23,7 +23,7 @@ class Ticket extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function addMessage(array $input)
@@ -32,7 +32,7 @@ class Ticket extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function changeOwner(array $input)
@@ -41,7 +41,7 @@ class Ticket extends HostfactAPI
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function changeStatus(array $input)

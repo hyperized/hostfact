@@ -6,7 +6,9 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use InvalidArgumentException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use function count;
 
 /**
  * Class ParameterAbstract
@@ -28,7 +30,7 @@ abstract class ParameterAbstract implements ParameterInterface
     }
 
     /**
-     * @return \Symfony\Component\Validator\Validator\RecursiveValidator|ValidatorInterface
+     * @return RecursiveValidator|ValidatorInterface
      */
     protected static function getValidator()
     {
@@ -65,7 +67,7 @@ abstract class ParameterAbstract implements ParameterInterface
      */
     protected static function handleViolations(ConstraintViolationListInterface $violations): void
     {
-        if (\count($violations) > 0) {
+        if (count($violations) > 0) {
             throw new InvalidArgumentException((string)$violations);
         }
     }
@@ -81,7 +83,7 @@ abstract class ParameterAbstract implements ParameterInterface
     }
 
     /**
-     * @param  ValidatorInterface $validator
+     * @param ValidatorInterface $validator
      * @return ConstraintViolationListInterface
      */
     protected function validate(ValidatorInterface $validator): ConstraintViolationListInterface

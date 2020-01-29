@@ -3,7 +3,6 @@
 
 namespace Hyperized\Hostfact\Controllers\Parameters;
 
-
 /**
  * Interface ParameterInterface
  *
@@ -19,7 +18,7 @@ interface ParameterInterface
     public function __construct(array $parameters);
 
     /**
-     * 
+     *
      * ¶
      *
      * @return array

@@ -25,7 +25,7 @@ class Order extends HostfactAPI
     ];
 
     /**
-     * @param  array $input
+     * @param array $input
      * @return array|mixed
      */
     public function process(array $input)
