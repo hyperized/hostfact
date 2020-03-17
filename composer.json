@@ -27,7 +27,7 @@
     "bmitch/churn-php": "^1.0.3",
     "phan/phan": "^2.4",
     "phpstan/phpstan": "^0.12.0",
-    "phpmd/phpmd": "@stable",
+    "phpmd/phpmd": "^2.8",
     "infection/infection": "^0.15.0",
     "vimeo/psalm": "^3.8"
   },
