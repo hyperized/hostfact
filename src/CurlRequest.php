@@ -2,6 +2,8 @@
 
 namespace Hyperized\Hostfact;
 
+use function is_resource;
+
 /**
  * Class CurlRequest
  * @package Hyperized\Hostfact
@@ -73,16 +75,14 @@ class CurlRequest implements HttpRequest
      */
     public function __destruct()
     {
-        if (\is_resource($this->handler)) {
+        if (is_resource($this->handler)) {
             $this->close();
         }
     }
 
-    /**
-     * @return mixed
-     */
     public function close()
     {
         curl_close($this->handler);
+        return true;
     }
 }

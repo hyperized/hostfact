@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  - push
+
+jobs:
+  unit-test:
+    name: ${{ matrix.test }} on PHP${{ matrix.php }} with ${{ matrix.dependency-version }} on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php:
+          - 7.2
+          - 7.3
+          - 7.4
+        dependency-version:
+          - prefer-lowest
+          - prefer-stable
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, json
+          tools: prestissimo
+          coverage: xdebug
+      - name: Composer self-update
+        run: |
+          composer self-update
+      - name: Composer update
+        run: |
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+      - name: Composer test-${{ matrix.test }}-${{ matrix.os }}
+        run: |
+          composer test-${{ matrix.test }}-${{ matrix.os }}

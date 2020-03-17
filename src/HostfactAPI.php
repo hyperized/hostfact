@@ -2,6 +2,12 @@
 
 namespace Hyperized\Hostfact;
 
+use InvalidArgumentException;
+use function call_user_func_array;
+use function get_class;
+use function in_array;
+use function is_array;
+
 /**
  * Class HostfactAPI
  * @package Hyperized\Hostfact
@@ -30,7 +36,7 @@ class HostfactAPI
         // Check if mode is set by extended class, if not fall back to naming
         if ($this->mode === null) {
             // Set mode to classname, strip namespaces :)
-            $function_call = explode('\\', strtolower(\get_class($this)));
+            $function_call = explode('\\', strtolower(get_class($this)));
             $this->mode = last($function_call);
         }
     }
@@ -44,15 +50,15 @@ class HostfactAPI
     public function __call($method, $arguments)
     {
         // Rename functions from inhented instances from method to _method for internal use.
-        if (\get_class($this) !== $this->parentName) {
-            if (\in_array($method, $this->allowed, true)) {
+        if (get_class($this) !== $this->parentName) {
+            if (in_array($method, $this->allowed, true)) {
                 $methodName = '_' . $method;
                 if (method_exists($this, $methodName)) {
-                    return \call_user_func_array([$this, $methodName], $arguments);
+                    return call_user_func_array([$this, $methodName], $arguments);
                 }
             } else {
-                $error = 'No such method: ' . \get_class($this) . '::' . $method;
-                throw new \InvalidArgumentException($error);
+                $error = 'No such method: ' . get_class($this) . '::' . $method;
+                throw new InvalidArgumentException($error);
             }
             return false;
         }
@@ -90,7 +96,7 @@ class HostfactAPI
      */
     protected function sendRequest($controller, $action, $params)
     {
-        if (\is_array($params)) {
+        if (is_array($params)) {
             $params['api_key'] = config('Hostfact.api_v2_key');
             $params['controller'] = $controller;
             $params['action'] = $action;
