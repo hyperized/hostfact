@@ -6,7 +6,7 @@ on:
 jobs:
   unit-tests:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         php:
           - 7.2
