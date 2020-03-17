@@ -79,7 +79,7 @@ class HostfactAPI
 
     /**
      * @param $action
-     * @param array $input
+     * @param array  $input
      *
      * @return array|mixed
      */
