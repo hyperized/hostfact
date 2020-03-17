@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Product
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Product extends HostfactAPI

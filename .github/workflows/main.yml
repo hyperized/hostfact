@@ -1,13 +1,12 @@
-name: Tests
+name: Run tests
 
 on:
   - push
 
 jobs:
-  unit-test:
-    name: ${{ matrix.test }} on PHP${{ matrix.php }} with ${{ matrix.dependency-version }} on ${{ matrix.os }}
+  unit-tests:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         php:
           - 7.2
@@ -16,6 +15,12 @@ jobs:
         dependency-version:
           - prefer-lowest
           - prefer-stable
+        os:
+          - ubuntu-latest
+        test:
+          - test-github
+
+    name: ${{ matrix.test }} on PHP${{ matrix.php }} with ${{ matrix.dependency-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout code
@@ -33,6 +38,6 @@ jobs:
       - name: Composer update
         run: |
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
-      - name: Composer test-${{ matrix.test }}-${{ matrix.os }}
+      - name: Composer ${{ matrix.test }}-${{ matrix.os }}
         run: |
-          composer test-${{ matrix.test }}-${{ matrix.os }}
+          composer ${{ matrix.test }}

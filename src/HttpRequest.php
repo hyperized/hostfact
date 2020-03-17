@@ -4,12 +4,13 @@ namespace Hyperized\Hostfact;
 
 /**
  * Interface HttpRequest
+ *
  * @package Hyperized\Hostfact
  */
 interface HttpRequest
 {
     /**
-     * @param $value
+     * @param  $value
      * @return mixed
      */
     public function setOptionArray($value);

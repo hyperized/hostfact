@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Invoice
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Invoice extends HostfactAPI
@@ -26,7 +27,7 @@ class Invoice extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function credit(array $input)
@@ -35,7 +36,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function markAsPaid(array $input)
@@ -44,7 +45,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function markAsUnpaid(array $input)
@@ -53,7 +54,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function partPayment(array $input)
@@ -62,7 +63,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function paymentProcessPause(array $input)
@@ -71,7 +72,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function paymentProcessReactivate(array $input)
@@ -80,7 +81,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function sendReminderByEmail(array $input)
@@ -89,7 +90,7 @@ class Invoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function sendSummationByEmail(array $input)

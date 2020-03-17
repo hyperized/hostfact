@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Debtor
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Debtor extends HostfactAPI
@@ -21,7 +22,7 @@ class Debtor extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function checkLogin(array $input)
@@ -30,7 +31,7 @@ class Debtor extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function updateLoginCredentials(array $input)
@@ -39,7 +40,7 @@ class Debtor extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function generatePdf(array $input)
@@ -48,7 +49,7 @@ class Debtor extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function sendEmail(array $input)
