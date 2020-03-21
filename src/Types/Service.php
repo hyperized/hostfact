@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Service
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Service extends HostfactAPI

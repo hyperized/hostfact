@@ -17,11 +17,19 @@
   "require": {
     "php": "^7.2.5",
     "illuminate/support": "^7.2",
-    "ext-curl": "^7.2",
-    "ext-json": "^1.5"
+    "ext-curl": "*",
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.0"
+    "phpunit/phpunit": "^8.0",
+    "squizlabs/php_codesniffer": "^3.5",
+    "povils/phpmnd": "^2.0",
+    "bmitch/churn-php": "^1.0.3",
+    "phan/phan": "^2.4",
+    "phpstan/phpstan": "^0.12.0",
+    "phpmd/phpmd": "^2.8",
+    "infection/infection": "^0.15.0",
+    "vimeo/psalm": "^3.8"
   },
   "autoload": {
     "psr-4": {
@@ -42,5 +50,36 @@
         "Hostfact": "Hyperized\\Hostfact\\HostfactServiceProvider"
       }
     }
+  },
+  "scripts": {
+    "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
+    "phan": "vendor/bin/phan --allow-polyfill-parser",
+    "phpmd": "vendor/bin/phpmd --strict src text cyclomatic.xml",
+    "phpcs": "vendor/bin/phpcs src --standard=PSR2 || true",
+    "phpcbf": "vendor/bin/phpcbf src",
+    "phpmnd": "vendor/bin/phpmnd src",
+    "churn": "vendor/bin/churn run src",
+    "phpstan": "vendor/bin/phpstan --level=7  analyse src tests",
+    "infection": "vendor/bin/infection",
+    "psalm": "vendor/bin/psalm",
+    "test-github": [
+      "@phpunit",
+      "@phpmd",
+      "@phpmnd",
+      "@churn",
+      "@infection"
+    ],
+    "test": [
+      "@phpunit",
+      "@phan",
+      "@phpmd",
+      "@phpcbf",
+      "@phpcs",
+      "@phpmnd",
+      "@churn",
+      "@phpstan",
+      "@infection",
+      "@psalm"
+    ]
   }
 }

@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class CreditInvoice
+ *
  * @package Hyperized\Hostfact\Types
  */
 class CreditInvoice extends HostfactAPI
@@ -26,7 +27,7 @@ class CreditInvoice extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function markAsPaid(array $input)
@@ -35,7 +36,7 @@ class CreditInvoice extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function partPayment(array $input)

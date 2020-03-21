@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Group
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Group extends HostfactAPI

@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Creditor
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Creditor extends HostfactAPI

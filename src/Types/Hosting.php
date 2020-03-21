@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Hosting
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Hosting extends HostfactAPI
@@ -22,7 +23,7 @@ class Hosting extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function create(array $input)
@@ -31,7 +32,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function getDomainList(array $input)
@@ -40,7 +41,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function removeFromServer(array $input)
@@ -49,7 +50,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function sendAccountInfoByEmail(array $input)
@@ -58,7 +59,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function suspend(array $input)
@@ -67,7 +68,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function terminate(array $input)
@@ -76,7 +77,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function unsuspend(array $input)
@@ -85,7 +86,7 @@ class Hosting extends HostfactAPI
     }
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function upDownGrade(array $input)

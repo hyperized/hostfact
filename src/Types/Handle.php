@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Handle
+ *
  * @package Hyperized\Hostfact
  */
 class Handle extends HostfactAPI
@@ -22,7 +23,7 @@ class Handle extends HostfactAPI
     ];
 
     /**
-     * @param array $input
+     * @param  array $input
      * @return array|mixed
      */
     public function listDomain(array $input)

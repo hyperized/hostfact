@@ -6,6 +6,7 @@ use Hyperized\Hostfact\HostfactAPI;
 
 /**
  * Class Attachment
+ *
  * @package Hyperized\Hostfact\Types
  */
 class Attachment extends HostfactAPI
