@@ -65,7 +65,6 @@
     "test-github": [
       "@phpunit",
       "@phpmd",
-      "@phpcbf",
       "@phpmnd",
       "@churn",
       "@infection"
