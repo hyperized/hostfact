@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": "^7.2.5",
-    "illuminate/support": "^7.2",
+    "illuminate/support": "^7.2|^8.0",
     "ext-curl": "*",
     "ext-json": "*"
   },
