@@ -29,7 +29,7 @@
     "phpstan/phpstan": "^0.12.0",
     "phpmd/phpmd": "^2.8",
     "infection/infection": "^0.15.0",
-    "vimeo/psalm": "^3.8"
+    "vimeo/psalm": "^3.8 || ^4.0"
   },
   "autoload": {
     "psr-4": {
