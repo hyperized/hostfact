@@ -15,21 +15,14 @@
     }
   ],
   "require": {
-    "ext-json": "^1.6",
-    "ext-curl": "^7.2",
-    "symfony/validator": "^5.0"
+    "php": "^7.4|^8.0",
+    "guzzlehttp/guzzle": ">=7.2",
+    "hyperized/value-objects": ">=0.1"
   },
   "require-dev": {
-    "orchestra/testbench": "^4.0",
-    "phpunit/phpunit": "^8",
-    "squizlabs/php_codesniffer": "^3.5",
-    "povils/phpmnd": "^2.0",
-    "bmitch/churn-php": "^1.0.3",
-    "phan/phan": "^2.4",
-    "phpstan/phpstan": "^0.12.0",
-    "phpmd/phpmd": "@stable",
-    "infection/infection": "^0.15.0",
-    "vimeo/psalm": "^3.8"
+    "phpunit/phpunit": ">=9.4",
+    "phpmd/phpmd": ">=2.9",
+    "vimeo/psalm": ">=4"
   },
   "autoload": {
     "psr-4": {
@@ -54,25 +47,18 @@
   "scripts": {
     "test": [
       "@phpunit",
-      "@phan",
       "@phpmd",
-      "@phpcs",
-      "@phpcbf",
-      "@phpmnd",
-      "@churn",
-      "@phpstan",
-      "@infection",
       "@psalm"
     ],
     "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
-    "phan": "vendor/bin/phan --allow-polyfill-parser",
     "phpmd": "vendor/bin/phpmd --strict src text cyclomatic.xml",
-    "phpcs": "vendor/bin/phpcs src --standard=PSR2",
-    "phpcbf": "vendor/bin/phpcbf src",
-    "phpmnd": "vendor/bin/phpmnd src",
-    "churn": "vendor/bin/churn run src",
-    "phpstan": "vendor/bin/phpstan --level=7  analyse src tests",
-    "infection": "vendor/bin/infection",
-    "psalm": "vendor/bin/psalm"
+    "psalm": "vendor/bin/psalm",
+    "major": [
+      "composer update",
+      "@update-major",
+      "@update-major-dev"
+    ],
+    "update-major": "jq -r '.require | keys[]' composer.json | xargs composer require --update-with-all-dependencies",
+    "update-major-dev": "jq -r '.\"require-dev\" | keys[]' composer.json | xargs composer require --dev --update-with-all-dependencies"
   }
 }
