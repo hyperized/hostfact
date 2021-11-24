@@ -2,13 +2,13 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
-trait CanShow
+trait CanPause
 {
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function show(array $input): string
+    public function pause(array $input): string
     {
         return $this
             ->doRequest(

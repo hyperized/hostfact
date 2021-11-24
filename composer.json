@@ -1,7 +1,8 @@
 {
   "name": "hyperized/hostfact",
-  "description": "Hostfact 2.7 API Implementation",
+  "description": "Hostfact 3.0 API Implementation for Laravel",
   "keywords": [
+    "hyperized",
     "hostfact",
     "hostfact-api"
   ],
@@ -16,13 +17,15 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "guzzlehttp/guzzle": ">=7.2",
-    "hyperized/value-objects": ">=0.1"
+    "guzzlehttp/guzzle": "^7.2",
+    "hyperized/value-objects": "^0.3"
   },
   "require-dev": {
-    "phpunit/phpunit": ">=9.4",
-    "phpmd/phpmd": ">=2.9",
-    "vimeo/psalm": ">=4"
+    "phpunit/phpunit": "^9.5",
+    "phpmd/phpmd": "^2.10",
+    "vimeo/psalm": "^4.13",
+    "orchestra/testbench": "^6.23",
+    "phpstan/phpstan": "^1.2"
   },
   "autoload": {
     "psr-4": {
@@ -37,10 +40,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Hyperized\\Hostfact\\HostfactServiceProvider"
+        "Hyperized\\Hostfact\\Providers\\HostfactServiceProvider"
       ],
       "aliases": {
-        "Hostfact": "Hyperized\\Hostfact\\HostfactServiceProvider"
+        "Hostfact": "Hyperized\\Hostfact\\Providers\\HostfactServiceProvider"
       }
     }
   },

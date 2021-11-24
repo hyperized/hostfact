@@ -1,14 +1,13 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace Hyperized\Hostfact\Interfaces;
 
-
 use GuzzleHttp\ClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
 
 interface HttpClientInterface
 {
-    public static function new(Url $url): self;
-    public static function getHttpClient(): ClientInterface;
+    public static function new(ByteArrayInterface $url): HttpClientInterface;
+
+    public function getHttpClient(): ClientInterface;
 }

@@ -1,14 +1,20 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
-use Hyperized\Hostfact\Api\Models\Api;
-
 trait CanAdd
 {
-    public function add(Api $model): array
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function add(array $input): string
     {
-        return [];
+        return $this
+            ->doRequest(
+                self::$name,
+                __FUNCTION__,
+                $input
+            );
     }
 }

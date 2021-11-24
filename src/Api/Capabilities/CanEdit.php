@@ -1,14 +1,20 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
-
-use Hyperized\Hostfact\Api\Models\Basic;
-
 trait CanEdit
 {
-    public function edit(Basic $model): bool {
-        return true;
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function edit(array $input): string
+    {
+        return $this
+            ->doRequest(
+                self::$name,
+                __FUNCTION__,
+                $input
+            );
     }
 }

@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="vendor/autoload.php">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" bootstrap="vendor/autoload.php"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    <coverage processUncoveredFiles="false">
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+        <report>
+            <clover outputFile="./clover.xml"/>
+        </report>
+    </coverage>
     <testsuites>
         <testsuite name="Hostfact API Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="false">
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-clover" target="./clover.xml"/>
-    </logging>
+    <logging/>
+    <php>
+        <env name="HOSTFACT_URL" value="https://invalid.tld/Pro/apiv2/api.php"/>
+        <env name="HOSTFACT_KEY" value="abcdefghijklmnopqrstuvwxyz0123456789"/>
+    </php>
 </phpunit>

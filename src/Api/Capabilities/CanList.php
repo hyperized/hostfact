@@ -1,14 +1,20 @@
 <?php declare(strict_types=1);
 
-
 namespace Hyperized\Hostfact\Api\Capabilities;
-
-use Hyperized\Hostfact\Api\Models\Basic;
 
 trait CanList
 {
-    public function list(Basic $model): array
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function list(array $input = []): string
     {
-        return [];
+        return $this
+            ->doRequest(
+                self::$name,
+                __FUNCTION__,
+                $input
+            );
     }
 }
