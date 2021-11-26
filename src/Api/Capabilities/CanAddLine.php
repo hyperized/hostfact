@@ -2,18 +2,18 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
-trait CanEdit
+trait CanAddLine
 {
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function edit(array $input): string
+    public function lineAdd(array $input): string
     {
         return $this
             ->doRequest(
                 self::$name,
-                __FUNCTION__,
+                mb_strtolower(self::$name) . 'line_add',
                 $input
             );
     }
