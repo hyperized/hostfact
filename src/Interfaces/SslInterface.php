@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface SslInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -38,47 +38,54 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
+    public function request(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function start(array $input): string;
+    public function installed(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function pause(array $input): string;
+    public function download(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function restart(array $input): string;
+    public function reissue(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function suspend(array $input): string;
+    public function renew(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function unsuspend(array $input): string;
+    public function getStatus(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function downloadAccountData(array $input): string;
+    public function resendApproverEmail(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function emailAccountData(array $input): string;
+    public function revoke(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function uninstalled(array $input): string;
+
 }

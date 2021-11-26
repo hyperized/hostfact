@@ -49,13 +49,15 @@
   },
   "scripts": {
     "test": [
-      "@phpunit",
       "@phpmd",
-      "@psalm"
+      "@psalm",
+      "@phpstan",
+      "@phpunit"
     ],
     "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
     "phpmd": "vendor/bin/phpmd --strict src text cyclomatic.xml",
     "psalm": "vendor/bin/psalm",
+    "phpstan": "vendor/bin/phpstan analyse",
     "major": [
       "composer update",
       "@update-major",

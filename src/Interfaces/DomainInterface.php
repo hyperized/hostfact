@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface DomainInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -38,47 +38,83 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
+    public function delete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function start(array $input): string;
+    public function getToken(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function pause(array $input): string;
+    public function lock(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function restart(array $input): string;
+    public function unlock(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function suspend(array $input): string;
+    public function changeNameserver(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function unsuspend(array $input): string;
+    public function syncWhois(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function downloadAccountData(array $input): string;
+    public function editWhois(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function emailAccountData(array $input): string;
+    public function check(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function transfer(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function register(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function autoRenew(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function listDnsTemplates(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function getDnsZone(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function editDnsZone(array $input): string;
 }

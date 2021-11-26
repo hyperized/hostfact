@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface PriceQuoteInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -32,53 +32,59 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function terminate(array $input): string;
+    public function delete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
+    public function sendByEmail(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function start(array $input): string;
+    public function download(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function pause(array $input): string;
+    public function accept(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function restart(array $input): string;
+    public function decline(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function suspend(array $input): string;
+    public function lineAdd(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function unsuspend(array $input): string;
+    public function lineDelete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function downloadAccountData(array $input): string;
+    public function attachmentAdd(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function emailAccountData(array $input): string;
+    public function attachmentDelete(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function attachmentDownload(array $input): string;
 }

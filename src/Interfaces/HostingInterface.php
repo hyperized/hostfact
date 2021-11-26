@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface HostingInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -38,25 +38,7 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function start(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function pause(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function restart(array $input): string;
+    public function delete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
@@ -74,11 +56,29 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function downloadAccountData(array $input): string;
+    public function create(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function removeFromServer(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function getDomainList(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
     public function emailAccountData(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
+    public function upDowngrade(array $input): string;
 }

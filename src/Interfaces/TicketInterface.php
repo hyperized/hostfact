@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface TicketInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -32,53 +32,29 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function terminate(array $input): string;
+    public function delete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
+    public function addMessage(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function start(array $input): string;
+    public function changeStatus(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function pause(array $input): string;
+    public function changeOwner(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function restart(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function suspend(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function unsuspend(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function downloadAccountData(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function emailAccountData(array $input): string;
+    public function attachmentDownload(array $input): string;
 }

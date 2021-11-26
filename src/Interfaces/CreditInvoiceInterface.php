@@ -2,7 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
-interface VpsInterface extends ApiInterface
+interface CreditInvoiceInterface extends ApiInterface
 {
     /**
      * @param array<string, mixed> $input
@@ -32,53 +32,47 @@ interface VpsInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function terminate(array $input): string;
+    public function delete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function create(array $input): string;
+    public function partialPayment(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function start(array $input): string;
+    public function markAsPaid(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function pause(array $input): string;
+    public function lineAdd(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function restart(array $input): string;
+    public function lineDelete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function suspend(array $input): string;
+    public function attachmentAdd(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function unsuspend(array $input): string;
+    public function attachmentDelete(array $input): string;
 
     /**
      * @param array<string, mixed> $input
      * @return string
      */
-    public function downloadAccountData(array $input): string;
-
-    /**
-     * @param array<string, mixed> $input
-     * @return string
-     */
-    public function emailAccountData(array $input): string;
+    public function attachmentDownload(array $input): string;
 }

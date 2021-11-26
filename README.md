@@ -1,13 +1,11 @@
-# Hostfact API 2.7 for Laravel 5
+# Hostfact API 3.0 for Laravel
 
-[![Build Status](https://travis-ci.org/hyperized/hostfact.svg?branch=master)](https://travis-ci.org/hyperized/hostfact)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_shield)
 
 Official documentation:
 -----------------------
 
-* [Hostfact API 2.7](https://www.hostfact.nl/hostfact-hosting/apiv2/)
-* [Official API examples](https://www.hostfact.nl/hostfact-hosting/apiv2/)
+* [Hostfact API documentation](https://www.hostfact.nl/developer/api/)
 
 Installation
 ------------
@@ -24,7 +22,7 @@ If you are using a lower version of Laravel or not using Auto-Discovery you can 
 ```php
 Hyperized\Hostfact\HostfactServiceProvider::class,
 ```
-Register a alias for Hostfact, also in `config/app.php`:
+Register an alias for Hostfact, also in `config/app.php`:
 
 ```php
 'Hostfact'    => Hyperized\Hostfact\HostfactServiceProvider::class,
@@ -50,30 +48,8 @@ HOSTFACT_TIMEOUT=20
 
 Example code:
 ```php
-// Direct use
-$product = new Hyperized\Hostfact\Types\Product();
-$productParams = [
-    'searchfor' => 'invoice'
-];
-$output = $product->list($productParams);
-
-// Use in Controllers
-use Hyperized\Hostfact\Types\Product;
-
-class MyController extends Controller {
-    public function getProducts()
-    {
-        $product = new Product();
-        $productParams = [
-            'searchfor' => 'invoice'
-        ];
-        return $product->list($productParams);
-    }
-}
+// TODO
 ```
-
-
-
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_large)
