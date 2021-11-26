@@ -44,7 +44,7 @@ interface SslInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function installed(array $input): string;
+    public function markAsInstalled(array $input): string;
 
     /**
      * @param array<string, mixed> $input
@@ -86,6 +86,6 @@ interface SslInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
-    public function uninstalled(array $input): string;
+    public function markAsUninstalled(array $input): string;
 
 }
