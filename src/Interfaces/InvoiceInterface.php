@@ -38,6 +38,12 @@ interface InvoiceInterface extends ApiInterface
      * @param array<string, mixed> $input
      * @return string
      */
+    public function credit(array $input): string;
+
+    /**
+     * @param array<string, mixed> $input
+     * @return string
+     */
     public function partialPayment(array $input): string;
 
     /**
