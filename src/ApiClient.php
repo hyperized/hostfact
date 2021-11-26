@@ -9,12 +9,17 @@ use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
 use Hyperized\Hostfact\Interfaces\ApiInterface;
 use Hyperized\Hostfact\Interfaces\FormParameterInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
+use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
+use Hyperized\Hostfact\Traits\CanCreateNewSelf;
 use Hyperized\Hostfact\Types\FormParameter;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class ApiClient implements ApiInterface
 {
+    use CanCreateNewSelf;
+    use CanCreateNewCustomSelf;
+
     private HttpClientInterface $httpClient;
 
     protected function __construct(

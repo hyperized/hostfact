@@ -17,13 +17,9 @@ use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\Api\Capabilities\CanUnsuspend;
 use Hyperized\Hostfact\ApiClient;
 use Hyperized\Hostfact\Interfaces\VpsInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
 
 class Vps extends ApiClient implements VpsInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
     use CanShow;
     use CanList;
     use CanAdd;
