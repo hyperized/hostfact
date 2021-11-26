@@ -12,9 +12,14 @@ use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\ApiClient;
 use Hyperized\Hostfact\Interfaces\CreditorInterface;
+use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
+use Hyperized\Hostfact\Traits\CanCreateNewSelf;
 
 class Creditor extends ApiClient implements CreditorInterface
 {
+    use CanCreateNewSelf;
+    use CanCreateNewCustomSelf;
+
     use CanShow;
     use CanList;
     use CanAdd;
