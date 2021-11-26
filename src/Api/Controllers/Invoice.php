@@ -60,4 +60,6 @@ class Invoice extends ApiClient implements InvoiceInterface
     use CanCancelSchedule;
     use CanPaymentProcessPause;
     use CanPaymentProcessReactivate;
+
+    protected static string $name = 'invoice';
 }
