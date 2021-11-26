@@ -18,7 +18,7 @@ abstract class ApiClient implements ApiInterface
     private HttpClientInterface $httpClient;
 
     protected function __construct(
-        HttpClientInterface $httpClient,
+        HttpClientInterface $httpClient
     ) {
         $this->httpClient = $httpClient;
     }

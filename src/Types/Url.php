@@ -15,14 +15,4 @@ class Url extends AbstractByteArray
             throw InvalidArgumentException::invalidUrl($value);
         }
     }
-
-    //    /**
-    //     * @param mixed $value
-    //     * @return static
-    //     * String cast mixed content to deal with Laravel config() output.
-    //     */
-    //    public static function fromMixed($value): self
-    //    {
-    //        return new static((string)$value);
-    //    }
 }
