@@ -5,7 +5,7 @@ namespace Hyperized\Hostfact\Api\Capabilities;
 trait CanRequest
 {
     /**
-     * @param array<string, mixed> $input
+     * @param  array<string, mixed> $input
      * @return string
      */
     public function request(array $input): string

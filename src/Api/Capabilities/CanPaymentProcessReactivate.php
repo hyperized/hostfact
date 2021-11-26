@@ -5,7 +5,7 @@ namespace Hyperized\Hostfact\Api\Capabilities;
 trait CanPaymentProcessReactivate
 {
     /**
-     * @param array<string, mixed> $input
+     * @param  array<string, mixed> $input
      * @return string
      */
     public function paymentProcessReactivate(array $input): string

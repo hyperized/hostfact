@@ -19,8 +19,7 @@ abstract class ApiClient implements ApiInterface
 
     protected function __construct(
         HttpClientInterface $httpClient,
-    )
-    {
+    ) {
         $this->httpClient = $httpClient;
     }
 
@@ -36,11 +35,11 @@ abstract class ApiClient implements ApiInterface
     }
 
     /**
-     * @param HttpClientInterface $client
-     * @param RequestInterface $request
-     * @param FormParameterInterface $formParameter
-     * @param string $controller
-     * @param string $action
+     * @param  HttpClientInterface    $client
+     * @param  RequestInterface       $request
+     * @param  FormParameterInterface $formParameter
+     * @param  string                 $controller
+     * @param  string                 $action
      * @return ResponseInterface
      *
      * This method slipstreams the api_key and controller information into the form parameters
@@ -51,8 +50,7 @@ abstract class ApiClient implements ApiInterface
         FormParameterInterface $formParameter,
         string                 $controller,
         string                 $action
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         try {
             return $client
                 ->getHttpClient()
@@ -87,9 +85,9 @@ abstract class ApiClient implements ApiInterface
     }
 
     /**
-     * @param string $controller
-     * @param string $action
-     * @param array<string, mixed> $input
+     * @param  string               $controller
+     * @param  string               $action
+     * @param  array<string, mixed> $input
      * @return string
      */
     public function doRequest(string $controller, string $action, array $input): string

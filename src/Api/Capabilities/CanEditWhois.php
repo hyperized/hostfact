@@ -5,7 +5,7 @@ namespace Hyperized\Hostfact\Api\Capabilities;
 trait CanEditWhois
 {
     /**
-     * @param array<string, mixed> $input
+     * @param  array<string, mixed> $input
      * @return string
      */
     public function editWhois(array $input): string

@@ -31,7 +31,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: curl, json
-          coverage: xdebug
+          coverage: pcov
       - name: Composer self-update
         run: |
           composer self-update

@@ -8,7 +8,7 @@ use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 trait CanCreateNewCustomSelf
 {
     /**
-     * @param HttpClientInterface $httpClient
+     * @param  HttpClientInterface $httpClient
      * @return ApiInterface
      *
      * This method is useful for testing when a custom HTTP client can be provided to mock requests.

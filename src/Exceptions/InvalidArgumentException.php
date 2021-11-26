@@ -11,13 +11,13 @@ class InvalidArgumentException extends \InvalidArgumentException
         return new self('Provided URL is not valid [' . $value . ']');
     }
 
-    public static function notSupported(): InvalidArgumentException
-    {
-        return new self('Not supported');
-    }
-
     public static function apiFailed(GuzzleException $exception): InvalidArgumentException
     {
         return new self('API call returned an invalid response: ' . $exception->getMessage() . '.');
+    }
+
+    public static function configVariableNotAString(): InvalidArgumentException
+    {
+        return new self('Provided config field is not a string');
     }
 }

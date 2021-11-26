@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Traits;
 
+use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
 use Hyperized\Hostfact\HttpClient;
 use Hyperized\Hostfact\Types\Url;
 
@@ -11,8 +12,18 @@ trait CanCreateNewSelf
     {
         return new self(
             HttpClient::new(
-                Url::fromMixed(config('Hostfact.api_v2_url'))
+                Url::fromString(self::getUrlFromConfig())
             ),
         );
+    }
+
+
+    protected static function getUrlFromConfig(): string
+    {
+        $url = config('Hostfact.api_v2_url');
+        if (!is_string($url)) {
+            throw InvalidArgumentException::configVariableNotAString();
+        }
+        return $url;
     }
 }

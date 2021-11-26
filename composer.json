@@ -59,9 +59,19 @@
       "@phpcbf",
       "@phpcs",
       "@phpmnd",
+      "@phpunit",
       "@churn",
-      "@infection",
-      "@phpunit"
+      "@infection"
+    ],
+    "test-github": [
+      "@phpmd",
+      "@psalm",
+      "@phpstan",
+      "@phpcbf",
+      "@phpcs",
+      "@phpmnd",
+      "@churn",
+      "@infection"
     ],
     "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
     "phpmd": "vendor/bin/phpmd --strict src text cyclomatic.xml",
@@ -71,7 +81,7 @@
     "phpcbf": "vendor/bin/phpcbf src",
     "phpmnd": "vendor/bin/phpmnd src",
     "churn": "vendor/bin/churn run src",
-    "infection": "vendor/bin/infection",
+    "infection": "vendor/bin/infection || true",
     "major": [
       "composer update",
       "@update-major",

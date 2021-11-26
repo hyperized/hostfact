@@ -10,7 +10,7 @@ interface ApiInterface
     public static function new(): ApiInterface;
 
     /**
-     * @param HttpClientInterface $httpClient
+     * @param  HttpClientInterface $httpClient
      * @return ApiInterface
      *
      * Allows for easy testing
@@ -34,9 +34,9 @@ interface ApiInterface
     public function getHttpClient(): HttpClientInterface;
 
     /**
-     * @param string $controller
-     * @param string $action
-     * @param array<string, mixed> $input
+     * @param  string               $controller
+     * @param  string               $action
+     * @param  array<string, mixed> $input
      * @return string
      */
     public function doRequest(string $controller, string $action, array $input): string;

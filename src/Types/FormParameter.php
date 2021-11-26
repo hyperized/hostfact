@@ -20,7 +20,7 @@ final class FormParameter implements FormParameterInterface
     }
 
     /**
-     * @param array<string, mixed> $value
+     * @param  array<string, mixed> $value
      * @return self
      */
     public static function fromArray(array $value = []): self
