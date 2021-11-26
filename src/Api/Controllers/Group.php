@@ -3,16 +3,16 @@
 namespace Hyperized\Hostfact\Api\Controllers;
 
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
+use Hyperized\Hostfact\Api\Capabilities\CanDelete;
 use Hyperized\Hostfact\Api\Capabilities\CanEdit;
 use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
-use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\Interfaces\ServiceInterface;
+use Hyperized\Hostfact\Interfaces\GroupInterface;
 use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
 use Hyperized\Hostfact\Traits\CanCreateNewSelf;
 
-class Service extends ApiClient implements ServiceInterface
+class Group extends ApiClient implements GroupInterface
 {
     use CanCreateNewSelf;
     use CanCreateNewCustomSelf;
@@ -21,7 +21,7 @@ class Service extends ApiClient implements ServiceInterface
     use CanList;
     use CanAdd;
     use CanEdit;
-    use CanTerminate;
+    use CanDelete;
 
-    protected static string $name = 'service';
+    protected static string $name = 'group';
 }
