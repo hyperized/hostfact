@@ -6,12 +6,12 @@ trait CanPayPartial
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function partialPayment(array $input): string
+    public function partialPayment(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'partpayment',
                 $input

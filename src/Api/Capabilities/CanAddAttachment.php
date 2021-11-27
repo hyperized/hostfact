@@ -6,12 +6,12 @@ trait CanAddAttachment
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function attachmentAdd(array $input): string
+    public function attachmentAdd(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'attachment_add',
                 $input

@@ -6,12 +6,12 @@ trait CanList
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function list(array $input = []): string
+    public function list(array $input = []): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 __FUNCTION__,
                 $input

@@ -6,12 +6,12 @@ trait CanSchedule
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function schedule(array $input): string
+    public function schedule(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 __FUNCTION__,
                 $input

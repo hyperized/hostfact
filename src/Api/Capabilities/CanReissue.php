@@ -6,12 +6,12 @@ trait CanReissue
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function reissue(array $input): string
+    public function reissue(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 __FUNCTION__,
                 $input

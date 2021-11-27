@@ -6,12 +6,12 @@ trait CanSendReminderByEmail
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function sendReminderByEmail(array $input): string
+    public function sendReminderByEmail(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(__FUNCTION__),
                 $input

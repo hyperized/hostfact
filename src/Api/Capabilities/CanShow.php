@@ -6,12 +6,12 @@ trait CanShow
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function show(array $input): string
+    public function show(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 __FUNCTION__,
                 $input

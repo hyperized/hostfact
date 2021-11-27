@@ -8,15 +8,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\ServiceInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Types\Url;
 
 class Service extends ApiClient implements ServiceInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -24,4 +22,20 @@ class Service extends ApiClient implements ServiceInterface
     use CanTerminate;
 
     protected static string $name = 'service';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

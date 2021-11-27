@@ -6,12 +6,12 @@ trait CanAddLine
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function lineAdd(array $input): string
+    public function lineAdd(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(self::$name) . 'line_add',
                 $input

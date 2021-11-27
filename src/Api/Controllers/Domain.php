@@ -22,15 +22,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\Api\Capabilities\CanTransfer;
 use Hyperized\Hostfact\Api\Capabilities\CanUnlock;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
 use Hyperized\Hostfact\Interfaces\DomainInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
+use Hyperized\Hostfact\Types\Url;
 
 class Domain extends ApiClient implements DomainInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -52,4 +50,20 @@ class Domain extends ApiClient implements DomainInterface
     use CanEditDnsZone;
 
     protected static string $name = 'domain';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

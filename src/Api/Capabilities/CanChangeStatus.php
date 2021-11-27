@@ -6,12 +6,12 @@ trait CanChangeStatus
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function changeStatus(array $input): string
+    public function changeStatus(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(__FUNCTION__),
                 $input

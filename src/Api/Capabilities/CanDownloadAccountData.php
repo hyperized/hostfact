@@ -6,12 +6,12 @@ trait CanDownloadAccountData
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function downloadAccountData(array $input): string
+    public function downloadAccountData(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'downloadaccountdata',
                 $input

@@ -6,12 +6,12 @@ trait CanDeleteLine
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function lineDelete(array $input): string
+    public function lineDelete(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(self::$name) . 'line_delete',
                 $input

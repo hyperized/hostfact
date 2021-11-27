@@ -12,6 +12,7 @@ use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\FormParameter;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Safe\Exceptions\JsonException;
 
 abstract class ApiClient implements ApiInterface
 {
@@ -88,18 +89,47 @@ abstract class ApiClient implements ApiInterface
      * @param  string               $controller
      * @param  string               $action
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function doRequest(string $controller, string $action, array $input): string
+    public function sendRequest(string $controller, string $action, array $input): array
     {
-        return static::getResponseBody(
-            static::getResponse(
-                $this->getHttpClient(),
-                static::getRequest(),
-                FormParameter::fromArray($input),
-                $controller,
-                $action
-            )
-        );
+        try {
+            /**
+             * @var array<string, mixed> $result
+             */
+            $result = \Safe\json_decode(
+                static::getResponseBody(
+                    static::getResponse(
+                        $this->getHttpClient(),
+                        static::getRequest(),
+                        FormParameter::fromArray($input),
+                        $controller,
+                        $action
+                    )
+                ),
+                true
+            );
+        } catch (JsonException $exception) {
+            $result = [
+                'controller' => 'invalid',
+                'action' => 'invalid',
+                'status' => 'error',
+                'date' => date('c'),
+                'errors' => [
+                    $exception
+                ]
+            ];
+        }
+
+        return $result;
+    }
+
+    public static function getUrlFromConfig(): string
+    {
+        $url = config('Hostfact.api_v2_url');
+        if (!is_string($url)) {
+            throw InvalidArgumentException::configVariableNotAString();
+        }
+        return $url;
     }
 }

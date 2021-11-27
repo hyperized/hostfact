@@ -7,17 +7,11 @@ use Psr\Http\Message\ResponseInterface;
 
 interface ApiInterface
 {
-    public static function new(): ApiInterface;
+    public static function new(): self;
 
-    /**
-     * @param  HttpClientInterface $httpClient
-     * @return ApiInterface
-     *
-     * Allows for easy testing
-     */
-    public static function fromCustom(
+    public static function fromHttpClient(
         HttpClientInterface $httpClient
-    ): ApiInterface;
+    ): self;
 
     public static function getRequest(): RequestInterface;
 
@@ -37,7 +31,7 @@ interface ApiInterface
      * @param  string               $controller
      * @param  string               $action
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function doRequest(string $controller, string $action, array $input): string;
+    public function sendRequest(string $controller, string $action, array $input): array;
 }

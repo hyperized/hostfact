@@ -6,12 +6,12 @@ trait CanMarkAsInstalled
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function markAsInstalled(array $input): string
+    public function markAsInstalled(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'installed',
                 $input

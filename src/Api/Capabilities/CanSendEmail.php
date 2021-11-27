@@ -6,12 +6,12 @@ trait CanSendEmail
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function sendEmail(array $input): string
+    public function sendEmail(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(__FUNCTION__),
                 $input

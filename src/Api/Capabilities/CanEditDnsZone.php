@@ -6,12 +6,12 @@ trait CanEditDnsZone
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function editDnsZone(array $input): string
+    public function editDnsZone(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(__FUNCTION__),
                 $input

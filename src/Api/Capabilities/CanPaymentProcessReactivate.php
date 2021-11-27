@@ -6,12 +6,12 @@ trait CanPaymentProcessReactivate
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function paymentProcessReactivate(array $input): string
+    public function paymentProcessReactivate(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'payment_process_reactivate',
                 $input

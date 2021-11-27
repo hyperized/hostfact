@@ -16,15 +16,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanSuspend;
 use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\Api\Capabilities\CanUnsuspend;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\VpsInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Types\Url;
 
 class Vps extends ApiClient implements VpsInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -40,4 +38,20 @@ class Vps extends ApiClient implements VpsInterface
     use CanEmailAccountData;
 
     protected static string $name = 'vps';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

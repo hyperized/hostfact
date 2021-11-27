@@ -6,12 +6,12 @@ trait CanCheck
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function check(array $input): string
+    public function check(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 __FUNCTION__,
                 $input

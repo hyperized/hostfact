@@ -11,15 +11,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanEdit;
 use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
 use Hyperized\Hostfact\Interfaces\CreditorInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
+use Hyperized\Hostfact\Types\Url;
 
 class Creditor extends ApiClient implements CreditorInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -30,4 +28,20 @@ class Creditor extends ApiClient implements CreditorInterface
     use CanDownloadAttachment;
 
     protected static string $name = 'creditor';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

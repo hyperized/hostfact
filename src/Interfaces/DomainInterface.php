@@ -6,115 +6,115 @@ interface DomainInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function show(array $input): string;
+    public function show(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function list(array $input = []): string;
+    public function list(array $input = []): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function add(array $input): string;
+    public function add(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function edit(array $input): string;
+    public function edit(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function terminate(array $input): string;
+    public function terminate(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function delete(array $input): string;
+    public function delete(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function getToken(array $input): string;
+    public function getToken(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function lock(array $input): string;
+    public function lock(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function unlock(array $input): string;
+    public function unlock(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function changeNameserver(array $input): string;
+    public function changeNameserver(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function syncWhois(array $input): string;
+    public function syncWhois(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function editWhois(array $input): string;
+    public function editWhois(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function check(array $input): string;
+    public function check(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function transfer(array $input): string;
+    public function transfer(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function register(array $input): string;
+    public function register(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function autoRenew(array $input): string;
+    public function autoRenew(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function listDnsTemplates(array $input): string;
+    public function listDnsTemplates(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function getDnsZone(array $input): string;
+    public function getDnsZone(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function editDnsZone(array $input): string;
+    public function editDnsZone(array $input): array;
 }

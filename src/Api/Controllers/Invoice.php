@@ -27,15 +27,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanSendSummationByEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Api\Capabilities\CanUnblock;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\InvoiceInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Types\Url;
 
 class Invoice extends ApiClient implements InvoiceInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -62,4 +60,20 @@ class Invoice extends ApiClient implements InvoiceInterface
     use CanPaymentProcessReactivate;
 
     protected static string $name = 'invoice';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

@@ -6,55 +6,55 @@ interface TicketInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function show(array $input): string;
+    public function show(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function list(array $input = []): string;
+    public function list(array $input = []): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function add(array $input): string;
+    public function add(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function edit(array $input): string;
+    public function edit(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function delete(array $input): string;
+    public function delete(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function addMessage(array $input): string;
+    public function addMessage(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function changeStatus(array $input): string;
+    public function changeStatus(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function changeOwner(array $input): string;
+    public function changeOwner(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function attachmentDownload(array $input): string;
+    public function attachmentDownload(array $input): array;
 }

@@ -6,12 +6,12 @@ trait CanGetDomainList
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function getDomainList(array $input): string
+    public function getDomainList(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 mb_strtolower(__FUNCTION__),
                 $input

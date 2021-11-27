@@ -6,79 +6,79 @@ interface VpsInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function show(array $input): string;
+    public function show(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function list(array $input = []): string;
+    public function list(array $input = []): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function add(array $input): string;
+    public function add(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function edit(array $input): string;
+    public function edit(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function terminate(array $input): string;
+    public function terminate(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function create(array $input): string;
+    public function create(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function start(array $input): string;
+    public function start(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function pause(array $input): string;
+    public function pause(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function restart(array $input): string;
+    public function restart(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function suspend(array $input): string;
+    public function suspend(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function unsuspend(array $input): string;
+    public function unsuspend(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function downloadAccountData(array $input): string;
+    public function downloadAccountData(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function emailAccountData(array $input): string;
+    public function emailAccountData(array $input): array;
 }

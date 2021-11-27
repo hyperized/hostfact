@@ -6,85 +6,85 @@ interface SslInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function show(array $input): string;
+    public function show(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function list(array $input = []): string;
+    public function list(array $input = []): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function add(array $input): string;
+    public function add(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function edit(array $input): string;
+    public function edit(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function terminate(array $input): string;
+    public function terminate(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function request(array $input): string;
+    public function request(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function markAsInstalled(array $input): string;
+    public function markAsInstalled(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function download(array $input): string;
+    public function download(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function reissue(array $input): string;
+    public function reissue(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function renew(array $input): string;
+    public function renew(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function getStatus(array $input): string;
+    public function getStatus(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function resendApproverEmail(array $input): string;
+    public function resendApproverEmail(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function revoke(array $input): string;
+    public function revoke(array $input): array;
 
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function markAsUninstalled(array $input): string;
+    public function markAsUninstalled(array $input): array;
 }

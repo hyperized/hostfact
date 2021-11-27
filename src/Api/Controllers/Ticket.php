@@ -13,15 +13,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanEdit;
 use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\TicketInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Types\Url;
 
 class Ticket extends ApiClient implements TicketInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -33,4 +31,20 @@ class Ticket extends ApiClient implements TicketInterface
     use CanDownloadAttachment;
 
     protected static string $name = 'ticket';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }

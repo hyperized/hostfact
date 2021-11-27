@@ -6,12 +6,12 @@ trait CanPaymentProcessPause
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function paymentProcessPause(array $input): string
+    public function paymentProcessPause(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'payment_process_pause',
                 $input

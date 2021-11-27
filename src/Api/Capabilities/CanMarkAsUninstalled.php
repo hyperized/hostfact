@@ -6,12 +6,12 @@ trait CanMarkAsUninstalled
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function markAsUninstalled(array $input): string
+    public function markAsUninstalled(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'uninstalled',
                 $input

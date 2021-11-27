@@ -6,12 +6,12 @@ trait CanDeleteAttachment
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function attachmentDelete(array $input): string
+    public function attachmentDelete(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'attachment_delete',
                 $input

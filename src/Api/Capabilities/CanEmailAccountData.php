@@ -6,12 +6,12 @@ trait CanEmailAccountData
 {
     /**
      * @param  array<string, mixed> $input
-     * @return string
+     * @return array<string, mixed>
      */
-    public function emailAccountData(array $input): string
+    public function emailAccountData(array $input): array
     {
         return $this
-            ->doRequest(
+            ->sendRequest(
                 self::$name,
                 'sendaccountdatabyemail',
                 $input

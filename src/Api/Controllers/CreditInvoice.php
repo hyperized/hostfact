@@ -15,15 +15,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanMarkAsPaid;
 use Hyperized\Hostfact\Api\Capabilities\CanPayPartial;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\ApiClient;
+use Hyperized\Hostfact\HttpClient;
 use Hyperized\Hostfact\Interfaces\CreditInvoiceInterface;
-use Hyperized\Hostfact\Traits\CanCreateNewCustomSelf;
-use Hyperized\Hostfact\Traits\CanCreateNewSelf;
+use Hyperized\Hostfact\Interfaces\HttpClientInterface;
+use Hyperized\Hostfact\Types\Url;
 
 class CreditInvoice extends ApiClient implements CreditInvoiceInterface
 {
-    use CanCreateNewSelf;
-    use CanCreateNewCustomSelf;
-
     use CanShow;
     use CanList;
     use CanAdd;
@@ -38,4 +36,20 @@ class CreditInvoice extends ApiClient implements CreditInvoiceInterface
     use CanDownloadAttachment;
 
     protected static string $name = 'creditinvoice';
+
+    public static function new(): self
+    {
+        return new self(
+            HttpClient::new(
+                Url::fromString(
+                    ApiClient::getUrlFromConfig()
+                )
+            )
+        );
+    }
+
+    public static function fromHttpClient(HttpClientInterface $httpClient): self
+    {
+        return new self($httpClient);
+    }
 }
