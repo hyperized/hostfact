@@ -16,7 +16,7 @@ trait CanCreateNewSelf
             ),
         );
     }
-    
+
     protected static function getUrlFromConfig(): string
     {
         $url = config('Hostfact.api_v2_url');

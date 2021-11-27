@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 
 interface ApiInterface
 {
-    public static function new(): ApiInterface;
+    public static function new(): self;
 
     /**
      * @param  HttpClientInterface $httpClient

@@ -87,5 +87,4 @@ interface SslInterface extends ApiInterface
      * @return string
      */
     public function markAsUninstalled(array $input): string;
-
 }

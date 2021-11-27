@@ -71,6 +71,7 @@
       "@phpcs",
       "@phpmnd",
       "@churn",
+      "@phpunit",
       "@infection"
     ],
     "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
