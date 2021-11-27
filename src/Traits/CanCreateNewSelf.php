@@ -4,11 +4,12 @@ namespace Hyperized\Hostfact\Traits;
 
 use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
 use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Interfaces\ApiInterface;
 use Hyperized\Hostfact\Types\Url;
 
 trait CanCreateNewSelf
 {
-    public static function new(): self
+    public static function new(): ApiInterface
     {
         return new self(
             HttpClient::new(
