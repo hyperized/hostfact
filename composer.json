@@ -28,7 +28,6 @@
     "phpstan/phpstan": "^1.2",
     "squizlabs/php_codesniffer": "^3.6",
     "povils/phpmnd": "^2.4",
-    "bmitch/churn-php": "^1.5",
     "infection/infection": "^0.25.3"
   },
   "autoload": {
@@ -60,19 +59,10 @@
       "@phpcs",
       "@phpmnd",
       "@phpunit",
-      "@churn",
       "@infection"
     ],
     "test-github": [
-      "@phpmd",
-      "@psalm",
-      "@phpstan",
-      "@phpcbf",
-      "@phpcs",
-      "@phpmnd",
-      "@churn",
-      "@phpunit",
-      "@infection"
+      "@test"
     ],
     "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
     "phpmd": "vendor/bin/phpmd --strict src text cyclomatic.xml",
@@ -81,7 +71,6 @@
     "phpcs": "vendor/bin/phpcs src --standard=PSR2 || true",
     "phpcbf": "vendor/bin/phpcbf src",
     "phpmnd": "vendor/bin/phpmnd src",
-    "churn": "vendor/bin/churn run src",
     "infection": "vendor/bin/infection || true",
     "major": [
       "composer update",

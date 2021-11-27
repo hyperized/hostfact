@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbdc0848bfa6add0c497ac87601f44d8",
+    "content-hash": "a85c30b6f39dad3d8c984c2dab8898fe",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -813,67 +813,6 @@
                 }
             ],
             "time": "2021-03-30T17:13:30+00:00"
-        },
-        {
-            "name": "bmitch/churn-php",
-            "version": "1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bmitch/churn-php.git",
-                "reference": "cefec950112ee1eccdbb63c34e05cf1083b1b41a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bmitch/churn-php/zipball/cefec950112ee1eccdbb63c34e05cf1083b1b41a",
-                "reference": "cefec950112ee1eccdbb63c34e05cf1083b1b41a",
-                "shasum": ""
-            },
-            "require": {
-                "composer/package-versions-deprecated": "^1.11",
-                "php": ">=7.1.3",
-                "symfony/console": "^3.4 || ^4.0 || ^5.0",
-                "symfony/filesystem": "^3.4 || ^4.0 || ^5.0",
-                "symfony/process": "^3.4 || ^4.0 || ^5.0",
-                "symfony/yaml": "^3.4 || ^4.0 || ^5.0",
-                "webmozart/assert": "^1.2"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
-                "bmitch/codor": "^1.2",
-                "mockery/mockery": "^1.2.0",
-                "slevomat/coding-standard": "^6.4",
-                "symfony/phpunit-bridge": "^5.1"
-            },
-            "bin": [
-                "bin/churn"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Churn\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bill Mitchell",
-                    "email": "wkmitch@gmail.com"
-                }
-            ],
-            "description": "Discover files in need of refactoring.",
-            "homepage": "https://github.com/bmitch/churn-php",
-            "keywords": [
-                "bmitch",
-                "churn-php"
-            ],
-            "support": {
-                "issues": "https://github.com/bmitch/churn-php/issues",
-                "source": "https://github.com/bmitch/churn-php/tree/1.5.0"
-            },
-            "time": "2021-02-18T21:33:51+00:00"
         },
         {
             "name": "brick/math",
@@ -10313,7 +10252,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0|^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

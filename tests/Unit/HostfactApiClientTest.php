@@ -17,7 +17,7 @@ class HostfactApiClientTest extends TestCase
     {
         parent::setUp();
         $this->instance = HttpClient::new(
-            Url::fromString('test://hostfact.api/')
+            Url::fromString('test://hostfact.tld/Pro/apiv2/api.php')
         );
     }
 
