@@ -39,7 +39,7 @@ php artisan vendor:publish --provider="Hyperized\Hostfact\HostfactServiceProvide
 ```
 
 This should give you a message
-like: `Copied File [/vendor/hyperized/hostfact/src/config/Hostfact.php] To [/config/Hostfact.php]`
+like: `Copied File [/vendor/hyperized/hostfact/config/Hostfact.php] To [/config/Hostfact.php]`
 
 It's possible to edit your configuration variables in the `config/Hostfact.php` file or you can use the `HOSTFACT_URL`
 and `HOSTFACT_KEY` environment variables to store sensitive information in the `.env` file
@@ -59,16 +59,16 @@ HOSTFACT_TIMEOUT=20
 Functionality
 ---------
 
-When writing code for this Hostfact package, consider that this package written as a basic interface.
+When writing code for this Hostfact package, consider that this package has been written as a basic interface.
 
-This package will do the following:
+This package _will_ do the following:
 
 * Provide an easy way to communicate with Hostfact API controllers;
 * Document the available API controller endpoints with methods;
 * Transport layer (HTTP/HTTPS) error catching;
 * Basic error parsing;
 
-This package does not:
+This package _will not_:
 
 * Parameter / input validation;
 * Output validation;
