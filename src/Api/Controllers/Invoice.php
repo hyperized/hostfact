@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanAddAttachment;
 use Hyperized\Hostfact\Api\Capabilities\CanAddLine;
@@ -26,13 +27,12 @@ use Hyperized\Hostfact\Api\Capabilities\CanSendReminderByEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanSendSummationByEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Api\Capabilities\CanUnblock;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\InvoiceInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class Invoice extends ApiClient implements InvoiceInterface
+class Invoice extends Api implements InvoiceInterface
 {
     use CanShow;
     use CanList;
@@ -66,7 +66,7 @@ class Invoice extends ApiClient implements InvoiceInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

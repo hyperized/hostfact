@@ -14,13 +14,13 @@ use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanMarkAsPaid;
 use Hyperized\Hostfact\Api\Capabilities\CanPayPartial;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Api\Api;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\CreditInvoiceInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class CreditInvoice extends ApiClient implements CreditInvoiceInterface
+class CreditInvoice extends Api implements CreditInvoiceInterface
 {
     use CanShow;
     use CanList;
@@ -42,7 +42,7 @@ class CreditInvoice extends ApiClient implements CreditInvoiceInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

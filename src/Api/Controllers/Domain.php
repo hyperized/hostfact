@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanAutoRenew;
 use Hyperized\Hostfact\Api\Capabilities\CanChangeNameserver;
@@ -21,13 +22,12 @@ use Hyperized\Hostfact\Api\Capabilities\CanSyncWhois;
 use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\Api\Capabilities\CanTransfer;
 use Hyperized\Hostfact\Api\Capabilities\CanUnlock;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\DomainInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class Domain extends ApiClient implements DomainInterface
+class Domain extends Api implements DomainInterface
 {
     use CanShow;
     use CanList;
@@ -56,7 +56,7 @@ class Domain extends ApiClient implements DomainInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanAddAttachment;
 use Hyperized\Hostfact\Api\Capabilities\CanCheckLogin;
@@ -13,13 +14,12 @@ use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanSendEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Api\Capabilities\CanUpdateLoginCredentials;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\DebtorInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class Debtor extends ApiClient implements DebtorInterface
+class Debtor extends Api implements DebtorInterface
 {
     use CanShow;
     use CanList;
@@ -40,7 +40,7 @@ class Debtor extends ApiClient implements DebtorInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Hyperized\Hostfact;
+namespace Hyperized\Hostfact\Http;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
@@ -11,12 +11,12 @@ final class HttpClient implements HttpClientInterface
 {
     private string $userAgent = 'hyperized/hostfact (https://github.com/hyperized/hostfact)';
     private HandlerStack $stack;
-    private Client $httpClient;
+    private GuzzleClient $httpClient;
 
     protected function __construct(ByteArrayInterface $url)
     {
         $this->stack = HandlerStack::create();
-        $this->httpClient = (new Client(
+        $this->httpClient = (new GuzzleClient(
             [
                 'handler' => $this->stack,
                 'base_uri' => $url->getValue(),
@@ -33,7 +33,7 @@ final class HttpClient implements HttpClientInterface
         return new HttpClient($url);
     }
 
-    public function getHttpClient(): Client
+    public function getHttpClient(): GuzzleClient
     {
         return $this->httpClient;
     }

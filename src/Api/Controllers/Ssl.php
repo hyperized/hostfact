@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanDownload;
 use Hyperized\Hostfact\Api\Capabilities\CanEdit;
@@ -16,13 +17,12 @@ use Hyperized\Hostfact\Api\Capabilities\CanResendApproverEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanRevoke;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\SslInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class Ssl extends ApiClient implements SslInterface
+class Ssl extends Api implements SslInterface
 {
     use CanShow;
     use CanList;
@@ -46,7 +46,7 @@ class Ssl extends ApiClient implements SslInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

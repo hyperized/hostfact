@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAccept;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanAddAttachment;
@@ -16,13 +17,12 @@ use Hyperized\Hostfact\Api\Capabilities\CanEdit;
 use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanSendByEmail;
 use Hyperized\Hostfact\Api\Capabilities\CanShow;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\PriceQuoteInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class PriceQuote extends ApiClient implements PriceQuoteInterface
+class PriceQuote extends Api implements PriceQuoteInterface
 {
     use CanShow;
     use CanList;
@@ -46,7 +46,7 @@ class PriceQuote extends ApiClient implements PriceQuoteInterface
         return new self(
             HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );

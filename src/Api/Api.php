@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Hyperized\Hostfact;
+namespace Hyperized\Hostfact\Api;
 
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
@@ -14,7 +14,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Safe\Exceptions\JsonException;
 
-abstract class ApiClient implements ApiInterface
+abstract class Api implements ApiInterface
 {
     private HttpClientInterface $httpClient;
 

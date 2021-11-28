@@ -5,7 +5,7 @@ namespace Hyperized\Hostfact\Tests\Unit;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
-use Hyperized\Hostfact\HttpClient;
+use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Types\Url;
 use Orchestra\Testbench\TestCase;
 

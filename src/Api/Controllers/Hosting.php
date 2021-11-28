@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Controllers;
 
+use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanCreate;
 use Hyperized\Hostfact\Api\Capabilities\CanDelete;
@@ -15,13 +16,11 @@ use Hyperized\Hostfact\Api\Capabilities\CanSuspend;
 use Hyperized\Hostfact\Api\Capabilities\CanTerminate;
 use Hyperized\Hostfact\Api\Capabilities\CanUnsuspend;
 use Hyperized\Hostfact\Api\Capabilities\CanUpDowngrade;
-use Hyperized\Hostfact\ApiClient;
-use Hyperized\Hostfact\HttpClient;
 use Hyperized\Hostfact\Interfaces\HostingInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\Url;
 
-class Hosting extends ApiClient implements HostingInterface
+class Hosting extends Api implements HostingInterface
 {
     use CanShow;
     use CanList;
@@ -42,9 +41,9 @@ class Hosting extends ApiClient implements HostingInterface
     public static function new(): self
     {
         return new self(
-            HttpClient::new(
+            \Hyperized\Hostfact\Http\HttpClient::new(
                 Url::fromString(
-                    ApiClient::getUrlFromConfig()
+                    Api::getUrlFromConfig()
                 )
             )
         );
