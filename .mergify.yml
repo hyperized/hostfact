@@ -1,8 +1,8 @@
 pull_request_rules:
-  - name: automatic merge on new dependency
+  - name: automatic merge on depenabot pull requests
     conditions:
       - author=dependabot[bot]
-      - status-success=continuous-integration/travis-ci/pr
+      - check-success=Run tests
     actions:
       merge:
         method: merge
