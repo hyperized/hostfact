@@ -1,11 +1,24 @@
 ---
 build:
   nodes:
-    analysis:
+    analysis74:
+      environment:
+        php: 7.4.26
       tests:
         override:
           - php-scrutinizer-run
-          - phpcs-run
+    analysis80:
+      environment:
+        php: 8.0.13
+      tests:
+        override:
+          - php-scrutinizer-run
+    analysis81:
+      environment:
+        php: 8.1.0
+      tests:
+        override:
+          - php-scrutinizer-run
 
 checks:
   php: true
