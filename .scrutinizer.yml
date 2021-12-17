@@ -1,5 +1,6 @@
 ---
 build:
+  image: default-focal
   nodes:
     analysis74:
       environment:
