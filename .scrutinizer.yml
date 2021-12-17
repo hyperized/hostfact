@@ -1,6 +1,6 @@
 ---
 build:
-  image: default-focal
+  image: default-bionic
   nodes:
     analysis74:
       environment:
