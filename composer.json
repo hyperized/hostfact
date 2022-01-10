@@ -80,5 +80,11 @@
     ],
     "update-major": "jq -r '.require | keys[]' composer.json | xargs composer require --update-with-all-dependencies",
     "update-major-dev": "jq -r '.\"require-dev\" | keys[]' composer.json | xargs composer require --dev --update-with-all-dependencies"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "infection/extension-installer": true
+    }
   }
 }
