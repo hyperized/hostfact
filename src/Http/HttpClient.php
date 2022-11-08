@@ -20,7 +20,7 @@ final class HttpClient implements HttpClientInterface
             [
                 'handler' => $this->stack,
                 'base_uri' => $url->getValue(),
-                'timeout' => config('Hostfact.api_v2_timeout'),
+                'timeout' => config('hostfact.api_v3_timeout'),
                 'headers' => [
                     'User-Agent' => $this->userAgent
                 ]

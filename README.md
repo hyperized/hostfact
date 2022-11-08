@@ -1,6 +1,6 @@
 # Hostfact API 3.0 for Laravel
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcreacoon%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcreacoon%2Fhostfact?ref=badge_shield)
 
 Official documentation:
 -----------------------
@@ -16,10 +16,10 @@ Install using composer:
 composer require hyperized/hostfact
 ```
 
-This package supports Package Auto-Discovery (Laravel 5.5+) so it doesn't require you to manually add the
+This package supports Package Auto-Discovery so it doesn't require you to manually add the
 ServiceProvider and alias.
 
-If you are using a lower version of Laravel or not using Auto-Discovery you can add the Hostfact Service Provider to
+If you are not using Auto-Discovery you can add the Hostfact Service Provider to
 the `config/app.php` file
 
 ```php
@@ -39,16 +39,16 @@ php artisan vendor:publish --provider="Hyperized\Hostfact\HostfactServiceProvide
 ```
 
 This should give you a message
-like: `Copied File [/vendor/hyperized/hostfact/config/Hostfact.php] To [/config/Hostfact.php]`
+like: `Copied File [/vendor/hyperized/hostfact/config/hostfact.php] To [/config/hostfact.php]`
 
-It's possible to edit your configuration variables in the `config/Hostfact.php` file or you can use the `HOSTFACT_URL`
+It's possible to edit your configuration variables in the `config/hostfact.php` file or you can use the `HOSTFACT_URL`
 and `HOSTFACT_KEY` environment variables to store sensitive information in the `.env` file
 
 ```php
-// config/Hostfact.php
-'api_v2_url'		=> env('HOSTFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
-'api_v2_key'		=> env('HOSTFACT_KEY', 'token'),
-'api_v2_timeout'	=> env('HOSTFACT_TIMEOUT', 20),
+// config/hostfact.php
+'api_v3_url'		=> env('HOSTFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
+'api_v3_key'		=> env('HOSTFACT_KEY', 'token'),
+'api_v3_timeout'	=> env('HOSTFACT_TIMEOUT', 20),
 
 // .env/.env.example
 HOSTFACT_URL=https://yoursite.tld/Pro/apiv2/api.php

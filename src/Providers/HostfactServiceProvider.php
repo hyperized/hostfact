@@ -6,9 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class HostfactServiceProvider extends ServiceProvider
 {
-    private static string $configPath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' .
-    DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
-
     /**
      * Bootstrap the application services.
      *
@@ -16,13 +13,11 @@ class HostfactServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Configuration file
-        $this->publishes(
-            [
-                self::$configPath . 'config.php' => config_path('Hostfact.php'),
-            ],
-            'config'
-        );
+        $this->publishes([
+            __DIR__.'/../config/hostfact.php' => config_path('hostfact.php'),
+        ], 'config');
+
+        $this->mergeConfigFrom(__DIR__.'/../config/hostfact.php', 'hostfact');
     }
 
     /**
@@ -32,7 +27,7 @@ class HostfactServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(self::$configPath . 'Hostfact.php', 'Hostfact');
+        //
     }
 
     /**

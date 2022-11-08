@@ -61,7 +61,7 @@ abstract class Api implements ApiInterface
                         'form_params' => array_merge(
                             $formParameter->toArray(),
                             [
-                                'api_key' => config('Hostfact.api_v2_key'),
+                                'api_key' => config('hostfact.api_v3_key'),
                                 'controller' => $controller,
                                 'action' => $action,
                             ]
@@ -126,7 +126,7 @@ abstract class Api implements ApiInterface
 
     public static function getUrlFromConfig(): string
     {
-        $url = config('Hostfact.api_v2_url');
+        $url = config('hostfact.api_v3_url');
         if (!is_string($url)) {
             throw InvalidArgumentException::configVariableNotAString();
         }
