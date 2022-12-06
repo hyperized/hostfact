@@ -10,11 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - 7.4
-          - 8.0
           - 8.1
         dependency-version:
-          - prefer-lowest
+          # - prefer-lowest
           - prefer-stable
         os:
           - ubuntu-latest
