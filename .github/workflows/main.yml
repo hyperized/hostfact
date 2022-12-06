@@ -12,7 +12,7 @@ jobs:
         php:
           - 8.1
         dependency-version:
-          - prefer-lowest
+          # - prefer-lowest
           - prefer-stable
         os:
           - ubuntu-latest
