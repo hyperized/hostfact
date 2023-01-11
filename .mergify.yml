@@ -2,7 +2,7 @@ pull_request_rules:
   - name: automatic merge on depenabot pull requests
     conditions:
       - author=dependabot[bot]
-      - check-success=Run tests
+      - check-success~=^test*
     actions:
       merge:
         method: merge
