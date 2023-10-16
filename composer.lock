@@ -2076,21 +2076,21 @@
         },
         {
             "name": "fruitcake/php-cors",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/php-cors.git",
-                "reference": "58571acbaa5f9f462c9c77e911700ac66f446d4e"
+                "reference": "3d158f36e7875e2f040f37bc0573956240a5a38b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/php-cors/zipball/58571acbaa5f9f462c9c77e911700ac66f446d4e",
-                "reference": "58571acbaa5f9f462c9c77e911700ac66f446d4e",
+                "url": "https://api.github.com/repos/fruitcake/php-cors/zipball/3d158f36e7875e2f040f37bc0573956240a5a38b",
+                "reference": "3d158f36e7875e2f040f37bc0573956240a5a38b",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "symfony/http-foundation": "^4.4|^5.4|^6"
+                "symfony/http-foundation": "^4.4|^5.4|^6|^7"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.4",
@@ -2100,7 +2100,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2131,7 +2131,7 @@
             ],
             "support": {
                 "issues": "https://github.com/fruitcake/php-cors/issues",
-                "source": "https://github.com/fruitcake/php-cors/tree/v1.2.0"
+                "source": "https://github.com/fruitcake/php-cors/tree/v1.3.0"
             },
             "funding": [
                 {
@@ -2143,7 +2143,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-20T15:07:15+00:00"
+            "time": "2023-10-12T05:21:21+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2719,16 +2719,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.26.2",
+            "version": "v10.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9"
+                "reference": "09137f50f715c1efc649788a26092dcb1ec4ab6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6e5440f7c518f26b4495e5d7e4796ec239e26df9",
-                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/09137f50f715c1efc649788a26092dcb1ec4ab6e",
+                "reference": "09137f50f715c1efc649788a26092dcb1ec4ab6e",
                 "shasum": ""
             },
             "require": {
@@ -2915,7 +2915,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-10-03T14:24:20+00:00"
+            "time": "2023-10-10T13:01:37+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4342,16 +4342,16 @@
         },
         {
             "name": "orchestra/canvas-core",
-            "version": "v8.9.0",
+            "version": "v8.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/canvas-core.git",
-                "reference": "27ac6b07880bda4ff10da06814eb97913eadb6db"
+                "reference": "642a966b1f8a351a994c04ce1e03a5ddd1025ff5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/canvas-core/zipball/27ac6b07880bda4ff10da06814eb97913eadb6db",
-                "reference": "27ac6b07880bda4ff10da06814eb97913eadb6db",
+                "url": "https://api.github.com/repos/orchestral/canvas-core/zipball/642a966b1f8a351a994c04ce1e03a5ddd1025ff5",
+                "reference": "642a966b1f8a351a994c04ce1e03a5ddd1025ff5",
                 "shasum": ""
             },
             "require": {
@@ -4366,15 +4366,10 @@
                 "orchestra/testbench-core": "<8.2.0"
             },
             "require-dev": {
-                "fakerphp/faker": "^1.21",
-                "laravel/framework": "^10.26",
                 "laravel/pint": "^1.6",
-                "mockery/mockery": "^1.5.1",
-                "orchestra/testbench-core": "^8.11",
-                "orchestra/workbench": "^0.3.0 || ^0.4.0",
+                "orchestra/testbench": "^8.13",
                 "phpstan/phpstan": "^1.10.6",
-                "phpunit/phpunit": "^10.1",
-                "symfony/yaml": "^6.2"
+                "phpunit/phpunit": "^10.1"
             },
             "type": "library",
             "extra": {
@@ -4409,30 +4404,30 @@
             "description": "Code Generators Builder for Laravel Applications and Packages",
             "support": {
                 "issues": "https://github.com/orchestral/canvas/issues",
-                "source": "https://github.com/orchestral/canvas-core/tree/v8.9.0"
+                "source": "https://github.com/orchestral/canvas-core/tree/v8.10.0"
             },
-            "time": "2023-10-03T05:50:06+00:00"
+            "time": "2023-10-16T01:44:47+00:00"
         },
         {
             "name": "orchestra/testbench",
-            "version": "v8.12.3",
+            "version": "v8.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "95052cafa48efc73d6c2ee3a6dd4797aecc46d82"
+                "reference": "b793195fa30517a89fd20b36b5d668324c5bbdbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/95052cafa48efc73d6c2ee3a6dd4797aecc46d82",
-                "reference": "95052cafa48efc73d6c2ee3a6dd4797aecc46d82",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/b793195fa30517a89fd20b36b5d668324c5bbdbb",
+                "reference": "b793195fa30517a89fd20b36b5d668324c5bbdbb",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
                 "fakerphp/faker": "^1.21",
-                "laravel/framework": ">=10.23.1 <10.27.0",
+                "laravel/framework": "^10.23.1",
                 "mockery/mockery": "^1.5.1",
-                "orchestra/testbench-core": ">=8.12.0 <8.13.0",
+                "orchestra/testbench-core": ">=8.13.0 <8.14.0",
                 "orchestra/workbench": "^0.4.0 || ^0.5.0",
                 "php": "^8.1",
                 "phpunit/phpunit": "^9.6 || ^10.1",
@@ -4465,27 +4460,33 @@
             ],
             "support": {
                 "issues": "https://github.com/orchestral/testbench/issues",
-                "source": "https://github.com/orchestral/testbench/tree/v8.12.3"
+                "source": "https://github.com/orchestral/testbench/tree/v8.13.0"
             },
-            "time": "2023-10-08T10:02:38+00:00"
+            "time": "2023-10-09T12:14:00+00:00"
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v8.12.1",
+            "version": "v8.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "9a7b63f9cd10dd15cf7c9d4aad2ccaa688465a1f"
+                "reference": "b03aa317d3c660dd63e4096580d7f713bc2cab15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/9a7b63f9cd10dd15cf7c9d4aad2ccaa688465a1f",
-                "reference": "9a7b63f9cd10dd15cf7c9d4aad2ccaa688465a1f",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/b03aa317d3c660dd63e4096580d7f713bc2cab15",
+                "reference": "b03aa317d3c660dd63e4096580d7f713bc2cab15",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
                 "php": "^8.1"
+            },
+            "conflict": {
+                "brianium/paratest": "<6.4.0 || >=7.0.0 <7.1.4 || >=8.0.0",
+                "laravel/framework": "<10.23.1 || >=11.0.0",
+                "nunomaduro/collision": "<6.4.0 || >=7.0.0 <7.4.0 || >=8.0.0",
+                "phpunit/phpunit": "<9.6.0 || >=10.5.0"
             },
             "require-dev": {
                 "fakerphp/faker": "^1.21",
@@ -4500,7 +4501,7 @@
                 "vlucas/phpdotenv": "^5.4.1"
             },
             "suggest": {
-                "brianium/paratest": "Allow using parallel tresting (^6.4 || ^7.1.4).",
+                "brianium/paratest": "Allow using parallel testing (^6.4 || ^7.1.4).",
                 "fakerphp/faker": "Allow using Faker for testing (^1.21).",
                 "laravel/framework": "Required for testing (^10.23).",
                 "mockery/mockery": "Allow using Mockery for testing (^1.5.1).",
@@ -4548,34 +4549,34 @@
                 "issues": "https://github.com/orchestral/testbench/issues",
                 "source": "https://github.com/orchestral/testbench-core"
             },
-            "time": "2023-09-26T12:50:24+00:00"
+            "time": "2023-10-09T11:41:27+00:00"
         },
         {
             "name": "orchestra/workbench",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/workbench.git",
-                "reference": "01175d82fd80a6589ffaa9a861100a64c500b259"
+                "reference": "52d5f5d6bf738539691a8335ff5cb892f5798b9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/workbench/zipball/01175d82fd80a6589ffaa9a861100a64c500b259",
-                "reference": "01175d82fd80a6589ffaa9a861100a64c500b259",
+                "url": "https://api.github.com/repos/orchestral/workbench/zipball/52d5f5d6bf738539691a8335ff5cb892f5798b9f",
+                "reference": "52d5f5d6bf738539691a8335ff5cb892f5798b9f",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
-                "illuminate/console": "^9.52.15 || ^10.23.0",
-                "illuminate/support": "^9.52.15 || ^10.23.0",
+                "illuminate/console": "^9.52.15 || ^10.26.0",
+                "illuminate/support": "^9.52.15 || ^10.26.0",
                 "laravel/tinker": "^2.8.2",
-                "orchestra/canvas": "^7.10.0 || ^8.9.0",
+                "orchestra/canvas": "^7.10.0 || ^8.11.0",
                 "orchestra/testbench-core": "^7.32.0 || ^8.12.0",
                 "php": "^8.0"
             },
             "require-dev": {
                 "fakerphp/faker": "^1.21",
-                "laravel/framework": "^9.52.15 || ^10.23.0",
+                "laravel/framework": "^9.52.15 || ^10.26.0",
                 "laravel/pint": "^1.4",
                 "mockery/mockery": "^1.5.1",
                 "phpstan/phpstan": "^1.10.7",
@@ -4613,9 +4614,9 @@
             ],
             "support": {
                 "issues": "https://github.com/orchestral/workbench/issues",
-                "source": "https://github.com/orchestral/workbench/tree/v0.5.0"
+                "source": "https://github.com/orchestral/workbench/tree/v0.5.1"
             },
-            "time": "2023-10-06T12:50:40+00:00"
+            "time": "2023-10-09T12:23:53+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -6109,16 +6110,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.21",
+            "version": "v0.11.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "bcb22101107f3bf770523b65630c9d547f60c540"
+                "reference": "128fa1b608be651999ed9789c95e6e2a31b5802b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/bcb22101107f3bf770523b65630c9d547f60c540",
-                "reference": "bcb22101107f3bf770523b65630c9d547f60c540",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/128fa1b608be651999ed9789c95e6e2a31b5802b",
+                "reference": "128fa1b608be651999ed9789c95e6e2a31b5802b",
                 "shasum": ""
             },
             "require": {
@@ -6147,7 +6148,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.11.x-dev"
+                    "dev-0.11": "0.11.x-dev"
                 },
                 "bamarni-bin": {
                     "bin-links": false,
@@ -6183,9 +6184,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.21"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.22"
             },
-            "time": "2023-09-17T21:15:54+00:00"
+            "time": "2023-10-14T21:56:36+00:00"
         },
         {
             "name": "ramsey/collection",
