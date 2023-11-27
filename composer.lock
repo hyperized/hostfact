@@ -5808,16 +5808,16 @@
         },
         {
             "name": "povils/phpmnd",
-            "version": "v3.2.0",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/povils/phpmnd.git",
-                "reference": "4bf2b1d0d8b7e45c8edee40d8cd9474c22527a7c"
+                "reference": "77a4db834aacbb20ee429d65db7a4df58ab5e3f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/povils/phpmnd/zipball/4bf2b1d0d8b7e45c8edee40d8cd9474c22527a7c",
-                "reference": "4bf2b1d0d8b7e45c8edee40d8cd9474c22527a7c",
+                "url": "https://api.github.com/repos/povils/phpmnd/zipball/77a4db834aacbb20ee429d65db7a4df58ab5e3f9",
+                "reference": "77a4db834aacbb20ee429d65db7a4df58ab5e3f9",
                 "shasum": ""
             },
             "require": {
@@ -5825,8 +5825,8 @@
                 "php": "^7.4 || ^8.0",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "phpunit/php-timer": "^2.0||^3.0||^4.0||^5.0||^6.0",
-                "symfony/console": "^4.4 || ^5.0 || ^6.0",
-                "symfony/finder": "^4.4 || ^5.0 || ^6.0"
+                "symfony/console": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+                "symfony/finder": "^4.4 || ^5.0 || ^6.0 || ^7.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
@@ -5854,9 +5854,9 @@
             "description": "A tool to detect Magic numbers in codebase",
             "support": {
                 "issues": "https://github.com/povils/phpmnd/issues",
-                "source": "https://github.com/povils/phpmnd/tree/v3.2.0"
+                "source": "https://github.com/povils/phpmnd/tree/v3.3.0"
             },
-            "time": "2023-07-14T11:42:47+00:00"
+            "time": "2023-11-24T09:41:36+00:00"
         },
         {
             "name": "psr/clock",
