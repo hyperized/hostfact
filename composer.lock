@@ -5893,23 +5893,24 @@
         },
         {
             "name": "povils/phpmnd",
-            "version": "v3.4.1",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/povils/phpmnd.git",
-                "reference": "1f3eb869e3a2c4fddbe0995fddd97b75caa2c203"
+                "reference": "dce72f751b49d778cba525c423069919c0f10b33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/povils/phpmnd/zipball/1f3eb869e3a2c4fddbe0995fddd97b75caa2c203",
-                "reference": "1f3eb869e3a2c4fddbe0995fddd97b75caa2c203",
+                "url": "https://api.github.com/repos/povils/phpmnd/zipball/dce72f751b49d778cba525c423069919c0f10b33",
+                "reference": "dce72f751b49d778cba525c423069919c0f10b33",
                 "shasum": ""
             },
             "require": {
+                "composer-runtime-api": "^2.0",
                 "nikic/php-parser": "^4.18 || ^5.0",
                 "php": "^7.4 || ^8.0",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
-                "phpunit/php-timer": "^2.0||^3.0||^4.0||^5.0||^6.0",
+                "phpunit/php-timer": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
                 "symfony/console": "^4.4 || ^5.0 || ^6.0 || ^7.0",
                 "symfony/finder": "^4.4 || ^5.0 || ^6.0 || ^7.0"
             },
@@ -5939,9 +5940,9 @@
             "description": "A tool to detect Magic numbers in codebase",
             "support": {
                 "issues": "https://github.com/povils/phpmnd/issues",
-                "source": "https://github.com/povils/phpmnd/tree/v3.4.1"
+                "source": "https://github.com/povils/phpmnd/tree/v3.5.0"
             },
-            "time": "2024-03-02T17:53:44+00:00"
+            "time": "2024-05-22T08:10:02+00:00"
         },
         {
             "name": "psr/clock",
@@ -8645,16 +8646,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v6.4.0",
+            "version": "v6.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "11d736e97f116ac375a81f96e662911a34cd50ce"
+                "reference": "511c48990be17358c23bf45c5d71ab85d40fb764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/11d736e97f116ac375a81f96e662911a34cd50ce",
-                "reference": "11d736e97f116ac375a81f96e662911a34cd50ce",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/511c48990be17358c23bf45c5d71ab85d40fb764",
+                "reference": "511c48990be17358c23bf45c5d71ab85d40fb764",
                 "shasum": ""
             },
             "require": {
@@ -8689,7 +8690,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v6.4.0"
+                "source": "https://github.com/symfony/finder/tree/v6.4.7"
             },
             "funding": [
                 {
@@ -8705,7 +8706,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-31T17:30:12+00:00"
+            "time": "2024-04-23T10:36:43+00:00"
         },
         {
             "name": "symfony/http-foundation",
