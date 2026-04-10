@@ -13,7 +13,7 @@ trait CanPaymentProcessPause
         return $this
             ->sendRequest(
                 self::$name,
-                'payment_process_pause',
+                'paymentprocesspause',
                 $input
             );
     }

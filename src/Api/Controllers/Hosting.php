@@ -7,7 +7,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanAdd;
 use Hyperized\Hostfact\Api\Capabilities\CanCreate;
 use Hyperized\Hostfact\Api\Capabilities\CanDelete;
 use Hyperized\Hostfact\Api\Capabilities\CanEdit;
-use Hyperized\Hostfact\Api\Capabilities\CanEmailAccountData;
+use Hyperized\Hostfact\Api\Capabilities\CanEmailAccountInfo;
 use Hyperized\Hostfact\Api\Capabilities\CanGetDomainList;
 use Hyperized\Hostfact\Api\Capabilities\CanList;
 use Hyperized\Hostfact\Api\Capabilities\CanRemoveFromServer;
@@ -33,7 +33,7 @@ class Hosting extends Api implements HostingInterface
     use CanCreate;
     use CanRemoveFromServer;
     use CanGetDomainList;
-    use CanEmailAccountData;
+    use CanEmailAccountInfo;
     use CanUpDowngrade;
 
     protected static string $name = 'hosting';

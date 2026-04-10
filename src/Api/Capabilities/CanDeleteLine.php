@@ -12,8 +12,8 @@ trait CanDeleteLine
     {
         return $this
             ->sendRequest(
-                self::$name,
-                mb_strtolower(self::$name) . 'line_delete',
+                mb_strtolower(self::$name) . 'line',
+                'delete',
                 $input
             );
     }

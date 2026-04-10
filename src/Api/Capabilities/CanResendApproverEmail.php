@@ -13,7 +13,7 @@ trait CanResendApproverEmail
         return $this
             ->sendRequest(
                 self::$name,
-                mb_strtolower(__FUNCTION__),
+                'resendapprovermail',
                 $input
             );
     }

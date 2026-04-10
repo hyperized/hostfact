@@ -116,7 +116,7 @@ abstract class Api implements ApiInterface
                 'status' => 'error',
                 'date' => date('c'),
                 'errors' => [
-                    $exception
+                    $exception->getMessage()
                 ]
             ];
         }

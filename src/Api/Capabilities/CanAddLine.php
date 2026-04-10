@@ -12,8 +12,8 @@ trait CanAddLine
     {
         return $this
             ->sendRequest(
-                self::$name,
-                mb_strtolower(self::$name) . 'line_add',
+                mb_strtolower(self::$name) . 'line',
+                'add',
                 $input
             );
     }

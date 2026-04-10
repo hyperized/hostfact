@@ -13,7 +13,7 @@ trait CanPaymentProcessReactivate
         return $this
             ->sendRequest(
                 self::$name,
-                'payment_process_reactivate',
+                'paymentprocessreactivate',
                 $input
             );
     }

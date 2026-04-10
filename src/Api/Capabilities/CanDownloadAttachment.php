@@ -12,8 +12,8 @@ trait CanDownloadAttachment
     {
         return $this
             ->sendRequest(
-                self::$name,
-                'attachment_download',
+                'attachment',
+                'download',
                 $input
             );
     }

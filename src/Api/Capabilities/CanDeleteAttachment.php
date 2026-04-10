@@ -12,8 +12,8 @@ trait CanDeleteAttachment
     {
         return $this
             ->sendRequest(
-                self::$name,
-                'attachment_delete',
+                'attachment',
+                'delete',
                 $input
             );
     }

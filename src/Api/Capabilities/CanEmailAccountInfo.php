@@ -2,18 +2,18 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
-trait CanAddAttachment
+trait CanEmailAccountInfo
 {
     /**
      * @param  array<string, mixed> $input
      * @return array<string, mixed>
      */
-    public function attachmentAdd(array $input): array
+    public function emailAccountData(array $input): array
     {
         return $this
             ->sendRequest(
-                'attachment',
-                'add',
+                self::$name,
+                'sendaccountinfobyemail',
                 $input
             );
     }
