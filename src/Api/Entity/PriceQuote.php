@@ -64,6 +64,7 @@ final readonly class PriceQuote extends Entity
         parent::__construct($bag);
     }
 
+    #[\Override]
     public static function fromBag(DataBag $bag): static
     {
         $lines = [];

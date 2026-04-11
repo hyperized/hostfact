@@ -37,6 +37,7 @@ final readonly class Ticket extends Entity
         parent::__construct($bag);
     }
 
+    #[\Override]
     public static function fromBag(DataBag $bag): static
     {
         $messages = [];

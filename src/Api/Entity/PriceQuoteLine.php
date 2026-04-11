@@ -32,6 +32,7 @@ final readonly class PriceQuoteLine extends Entity
         parent::__construct($bag);
     }
 
+    #[\Override]
     public static function fromBag(DataBag $bag): static
     {
         return new self(

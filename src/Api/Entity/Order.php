@@ -58,6 +58,7 @@ final readonly class Order extends Entity
         parent::__construct($bag);
     }
 
+    #[\Override]
     public static function fromBag(DataBag $bag): static
     {
         $lines = [];
