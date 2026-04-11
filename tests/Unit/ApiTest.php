@@ -67,8 +67,8 @@ class ApiTest extends TestCase
         $result = $controller->list();
 
         self::assertInstanceOf(ErrorResponse::class, $result);
-        self::assertSame('invalid', $result->controller);
-        self::assertSame('invalid', $result->action);
+        self::assertSame('product', $result->controller);
+        self::assertSame('list', $result->action);
         self::assertSame(Status::Error, $result->status);
         self::assertNotEmpty($result->errors);
         self::assertIsString($result->errors[0]);
@@ -118,7 +118,7 @@ class ApiTest extends TestCase
         $controller = Product::fromHttpClient($stubClient);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Connection refused');
+        $this->expectExceptionMessage('API call failed');
         $controller->show(['Identifier' => '1']);
     }
 

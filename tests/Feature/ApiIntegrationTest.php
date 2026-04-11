@@ -210,8 +210,8 @@ class ApiIntegrationTest extends TestCase
 
         self::assertInstanceOf(ErrorResponse::class, $result);
         self::assertTrue($result->isError());
-        self::assertSame('invalid', $result->controller);
-        self::assertSame('invalid', $result->action);
+        self::assertSame('product', $result->controller);
+        self::assertSame('list', $result->action);
         self::assertNotEmpty($result->errors);
     }
 
@@ -232,7 +232,7 @@ class ApiIntegrationTest extends TestCase
         $product = Product::fromHttpClient($stubClient);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('cURL error 7');
+        $this->expectExceptionMessage('API call failed');
         $product->list([]);
     }
 

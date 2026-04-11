@@ -78,7 +78,7 @@ abstract class Api implements ApiInterface
              * @var array<string, mixed> $result
              */
             $result = json_decode(
-                static::getResponseBody(
+                json: static::getResponseBody(
                     static::getResponse(
                         $this->getHttpClient(),
                         static::getRequest(),
@@ -87,14 +87,13 @@ abstract class Api implements ApiInterface
                         $action
                     )
                 ),
-                true,
-                512,
-                JSON_THROW_ON_ERROR,
+                associative: true,
+                flags: JSON_THROW_ON_ERROR,
             );
         } catch (JsonException $exception) {
             return new ErrorResponse(
-                'invalid',
-                'invalid',
+                $controller,
+                $action,
                 Status::Error,
                 new \DateTimeImmutable(),
                 [$exception->getMessage()],
