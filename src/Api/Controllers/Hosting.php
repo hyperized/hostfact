@@ -18,7 +18,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanUnsuspend;
 use Hyperized\Hostfact\Api\Capabilities\CanUpDowngrade;
 use Hyperized\Hostfact\Interfaces\HostingInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class Hosting extends Api implements HostingInterface
 {

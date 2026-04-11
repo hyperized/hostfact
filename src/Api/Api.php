@@ -6,6 +6,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Utils;
 use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+use Hyperized\Hostfact\Api\Response\ErrorResponse;
+use Hyperized\Hostfact\Api\Response\ResponseFactory;
+use Hyperized\Hostfact\Api\Response\Status;
 use Hyperized\Hostfact\Interfaces\ApiInterface;
 use Hyperized\Hostfact\Interfaces\FormParameterInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
@@ -16,35 +20,16 @@ use Safe\Exceptions\JsonException;
 
 abstract class Api implements ApiInterface
 {
-    private HttpClientInterface $httpClient;
-
     protected function __construct(
-        HttpClientInterface $httpClient
+        private readonly HttpClientInterface $httpClient
     ) {
-        $this->httpClient = $httpClient;
     }
 
-    /**
-     * @return RequestInterface
-     *
-     * uri will be filled in with HTTPClient uri
-     * Body will be empty as this client only sends form parameters via POST
-     */
     public static function getRequest(): RequestInterface
     {
         return new Request('POST', '', [], Utils::streamFor());
     }
 
-    /**
-     * @param  HttpClientInterface    $client
-     * @param  RequestInterface       $request
-     * @param  FormParameterInterface $formParameter
-     * @param  string                 $controller
-     * @param  string                 $action
-     * @return ResponseInterface
-     *
-     * This method slipstreams the api_key and controller information into the form parameters
-     */
     public static function getResponse(
         HttpClientInterface    $client,
         RequestInterface       $request,
@@ -58,14 +43,12 @@ abstract class Api implements ApiInterface
                 ->send(
                     $request,
                     [
-                        'form_params' => array_merge(
-                            $formParameter->toArray(),
-                            [
-                                'api_key' => config('Hostfact.api_v2_key'),
-                                'controller' => $controller,
-                                'action' => $action,
-                            ]
-                        ),
+                        'form_params' => [
+                            ...$formParameter->toArray(),
+                            'api_key' => config('Hostfact.api_v2_key'),
+                            'controller' => $controller,
+                            'action' => $action,
+                        ],
                     ]
                 );
         } catch (GuzzleException $exception) {
@@ -86,12 +69,9 @@ abstract class Api implements ApiInterface
     }
 
     /**
-     * @param  string               $controller
-     * @param  string               $action
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
      */
-    public function sendRequest(string $controller, string $action, array $input): array
+    public function sendRequest(string $controller, string $action, array $input): ApiResponse
     {
         try {
             /**
@@ -110,18 +90,17 @@ abstract class Api implements ApiInterface
                 true
             );
         } catch (JsonException $exception) {
-            $result = [
-                'controller' => 'invalid',
-                'action' => 'invalid',
-                'status' => 'error',
-                'date' => date('c'),
-                'errors' => [
-                    $exception->getMessage()
-                ]
-            ];
+            return new ErrorResponse(
+                'invalid',
+                'invalid',
+                Status::Error,
+                new \DateTimeImmutable(),
+                [$exception->getMessage()],
+                [],
+            );
         }
 
-        return $result;
+        return ResponseFactory::fromArray($result);
     }
 
     public static function getUrlFromConfig(): string

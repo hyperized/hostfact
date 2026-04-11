@@ -2,13 +2,15 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanRequest
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function request(array $input): array
+    public function request(array $input): ApiResponse
     {
         return $this
             ->sendRequest(

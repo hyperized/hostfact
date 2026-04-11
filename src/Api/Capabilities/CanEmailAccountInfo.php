@@ -2,13 +2,15 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanEmailAccountInfo
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function emailAccountData(array $input): array
+    public function emailAccountData(array $input): ApiResponse
     {
         return $this
             ->sendRequest(

@@ -2,83 +2,85 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 interface HostingInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function show(array $input): array;
+    public function show(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function list(array $input = []): array;
+    public function list(array $input = []): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function add(array $input): array;
+    public function add(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array;
+    public function edit(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function terminate(array $input): array;
+    public function terminate(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function delete(array $input): array;
+    public function delete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function suspend(array $input): array;
+    public function suspend(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function unsuspend(array $input): array;
+    public function unsuspend(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function create(array $input): array;
+    public function create(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function removeFromServer(array $input): array;
+    public function removeFromServer(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function getDomainList(array $input): array;
+    public function getDomainList(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function emailAccountData(array $input): array;
+    public function emailAccountData(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function upDowngrade(array $input): array;
+    public function upDowngrade(array $input): ApiResponse;
 }

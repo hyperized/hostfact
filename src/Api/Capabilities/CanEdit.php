@@ -2,13 +2,15 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanEdit
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array
+    public function edit(array $input): ApiResponse
     {
         return $this
             ->sendRequest(

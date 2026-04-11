@@ -2,77 +2,79 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 interface CreditInvoiceInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function show(array $input): array;
+    public function show(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function list(array $input = []): array;
+    public function list(array $input = []): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function add(array $input): array;
+    public function add(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array;
+    public function edit(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function delete(array $input): array;
+    public function delete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function partialPayment(array $input): array;
+    public function partialPayment(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function markAsPaid(array $input): array;
+    public function markAsPaid(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function lineAdd(array $input): array;
+    public function lineAdd(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function lineDelete(array $input): array;
+    public function lineDelete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentAdd(array $input): array;
+    public function attachmentAdd(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDelete(array $input): array;
+    public function attachmentDelete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDownload(array $input): array;
+    public function attachmentDownload(array $input): ApiResponse;
 }

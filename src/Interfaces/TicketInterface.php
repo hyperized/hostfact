@@ -2,59 +2,61 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 interface TicketInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function show(array $input): array;
+    public function show(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function list(array $input = []): array;
+    public function list(array $input = []): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function add(array $input): array;
+    public function add(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array;
+    public function edit(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function delete(array $input): array;
+    public function delete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function addMessage(array $input): array;
+    public function addMessage(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function changeStatus(array $input): array;
+    public function changeStatus(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function changeOwner(array $input): array;
+    public function changeOwner(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDownload(array $input): array;
+    public function attachmentDownload(array $input): ApiResponse;
 }

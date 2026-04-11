@@ -30,7 +30,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanUnblock;
 use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Interfaces\InvoiceInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class Invoice extends Api implements InvoiceInterface
 {

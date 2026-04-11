@@ -2,13 +2,15 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanPaymentProcessReactivate
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function paymentProcessReactivate(array $input): array
+    public function paymentProcessReactivate(array $input): ApiResponse
     {
         return $this
             ->sendRequest(

@@ -2,89 +2,91 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 interface SslInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function show(array $input): array;
+    public function show(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function list(array $input = []): array;
+    public function list(array $input = []): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function add(array $input): array;
+    public function add(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array;
+    public function edit(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function terminate(array $input): array;
+    public function terminate(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function request(array $input): array;
+    public function request(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function markAsInstalled(array $input): array;
+    public function markAsInstalled(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function download(array $input): array;
+    public function download(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function reissue(array $input): array;
+    public function reissue(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function renew(array $input): array;
+    public function renew(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function getStatus(array $input): array;
+    public function getStatus(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function resendApproverEmail(array $input): array;
+    public function resendApproverEmail(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function revoke(array $input): array;
+    public function revoke(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function markAsUninstalled(array $input): array;
+    public function markAsUninstalled(array $input): ApiResponse;
 }

@@ -12,7 +12,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\HandleInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class Handle extends Api implements HandleInterface
 {
