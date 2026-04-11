@@ -95,4 +95,10 @@ class ServiceProviderTest extends TestCase
         self::assertIsString($target);
         self::assertStringEndsWith('Hostfact.php', $target);
     }
+
+    public function testProvidesReturnsEmptyArray(): void
+    {
+        $provider = new HostfactServiceProvider($this->app);
+        self::assertSame([], $provider->provides());
+    }
 }
