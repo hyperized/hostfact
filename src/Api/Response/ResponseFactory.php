@@ -146,15 +146,14 @@ final class ResponseFactory
     {
         $raw = $data['errors'] ?? [];
 
-        /** @var list<string> $errors */
-        $errors = [];
-
-        if (is_array($raw)) {
-            foreach ($raw as $error) {
-                $errors[] = is_scalar($error) ? (string) $error : '';
-            }
+        if (!is_array($raw)) {
+            return [];
         }
 
-        return $errors;
+        /** @var list<string> */
+        return array_map(
+            static fn(mixed $error): string => is_scalar($error) ? (string) $error : '',
+            $raw,
+        );
     }
 }
