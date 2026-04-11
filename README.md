@@ -2,7 +2,7 @@
 
 [![Run tests](https://github.com/hyperized/hostfact/actions/workflows/main.yml/badge.svg)](https://github.com/hyperized/hostfact/actions/workflows/main.yml)
 
-Unofficial Laravel package for the [HostFact API v2](https://www.hostfact.nl/developer/api/).
+Unofficial Laravel package for the [HostFact API v3.1](https://www.hostfact.nl/developer/api/).
 
 ## Requirements
 
