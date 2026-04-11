@@ -18,8 +18,7 @@
   "require": {
     "php": "^8.4",
     "guzzlehttp/guzzle": "^7.5",
-    "hyperized/value-objects": "^2.0.0",
-    "thecodingmachine/safe": "^3.4"
+    "hyperized/value-objects": "^2.0.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^13.0",

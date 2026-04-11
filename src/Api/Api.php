@@ -16,7 +16,7 @@ use Hyperized\Hostfact\Interfaces\HttpClientInterface;
 use Hyperized\Hostfact\Types\FormParameter;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Safe\Exceptions\JsonException;
+use JsonException;
 
 abstract class Api implements ApiInterface
 {
@@ -77,7 +77,7 @@ abstract class Api implements ApiInterface
             /**
              * @var array<string, mixed> $result
              */
-            $result = \Safe\json_decode(
+            $result = json_decode(
                 static::getResponseBody(
                     static::getResponse(
                         $this->getHttpClient(),
@@ -87,7 +87,9 @@ abstract class Api implements ApiInterface
                         $action
                     )
                 ),
-                true
+                true,
+                512,
+                JSON_THROW_ON_ERROR,
             );
         } catch (JsonException $exception) {
             return new ErrorResponse(
