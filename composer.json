@@ -25,7 +25,7 @@
     "phpmd/phpmd": "^2.14",
     "orchestra/testbench": "^11.0",
     "phpstan/phpstan": "^2.0",
-    "squizlabs/php_codesniffer": "^3.7 || ^4.0",
+    "squizlabs/php_codesniffer": "^3.8 || ^4.0",
     "povils/phpmnd": "^3.0",
     "infection/infection": "^0.32"
   },
@@ -55,8 +55,6 @@
       "@phpmd --strict src text cyclomatic.xml",
       "@phpstan --version",
       "@phpstan analyse",
-      "@phpcbf --version",
-      "@phpcbf src",
       "@phpcs --version",
       "@phpcs src --standard=PSR2",
       "@phpmnd --version",
@@ -73,7 +71,6 @@
     "phpmd": "vendor/bin/phpmd",
     "phpstan": "vendor/bin/phpstan",
     "phpcs": "vendor/bin/phpcs",
-    "phpcbf": "vendor/bin/phpcbf",
     "phpmnd": "vendor/bin/phpmnd src",
     "infection": "vendor/bin/infection",
     "major": [
