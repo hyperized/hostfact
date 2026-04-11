@@ -187,6 +187,116 @@ class DataBagTest extends TestCase
         $bag->nullableInt('Data');
     }
 
+    public function testNullableBoolReturnsTrueForYes(): void
+    {
+        $bag = new DataBag(['Flag' => 'yes']);
+        self::assertTrue($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsFalseForNo(): void
+    {
+        $bag = new DataBag(['Flag' => 'no']);
+        self::assertFalse($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsTrueForOne(): void
+    {
+        $bag = new DataBag(['Flag' => 1]);
+        self::assertTrue($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsFalseForZero(): void
+    {
+        $bag = new DataBag(['Flag' => 0]);
+        self::assertFalse($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsTrueForStringOne(): void
+    {
+        $bag = new DataBag(['Flag' => '1']);
+        self::assertTrue($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsFalseForStringZero(): void
+    {
+        $bag = new DataBag(['Flag' => '0']);
+        self::assertFalse($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsTrueForTrue(): void
+    {
+        $bag = new DataBag(['Flag' => true]);
+        self::assertTrue($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsFalseForFalse(): void
+    {
+        $bag = new DataBag(['Flag' => false]);
+        self::assertFalse($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsNullForMissing(): void
+    {
+        $bag = new DataBag([]);
+        self::assertNull($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolReturnsNullForNull(): void
+    {
+        $bag = new DataBag(['Flag' => null]);
+        self::assertNull($bag->nullableBool('Flag'));
+    }
+
+    public function testNullableBoolThrowsOnUnexpectedValue(): void
+    {
+        $bag = new DataBag(['Flag' => 'maybe']);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Field 'Flag' cannot be cast to bool, got: 'maybe'");
+        $bag->nullableBool('Flag');
+    }
+
+    public function testNullableDateTimeReturnsDateTimeImmutable(): void
+    {
+        $bag = new DataBag(['Created' => '2022-11-24 11:00:00']);
+        $dt = $bag->nullableDateTime('Created');
+        self::assertInstanceOf(\DateTimeImmutable::class, $dt);
+        self::assertSame('2022-11-24 11:00:00', $dt->format('Y-m-d H:i:s'));
+    }
+
+    public function testNullableDateTimeReturnsNullForMissing(): void
+    {
+        $bag = new DataBag([]);
+        self::assertNull($bag->nullableDateTime('Created'));
+    }
+
+    public function testNullableDateTimeReturnsNullForNull(): void
+    {
+        $bag = new DataBag(['Created' => null]);
+        self::assertNull($bag->nullableDateTime('Created'));
+    }
+
+    public function testNullableDateTimeReturnsNullForEmptyString(): void
+    {
+        $bag = new DataBag(['Created' => '']);
+        self::assertNull($bag->nullableDateTime('Created'));
+    }
+
+    public function testNullableDateTimeThrowsOnInvalidDate(): void
+    {
+        $bag = new DataBag(['Created' => 'not-a-date']);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Field 'Created' cannot be parsed as date");
+        $bag->nullableDateTime('Created');
+    }
+
+    public function testNullableDateTimeThrowsOnNonString(): void
+    {
+        $bag = new DataBag(['Created' => 12345]);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Field 'Created' is not a valid date string");
+        $bag->nullableDateTime('Created');
+    }
+
     public function testArrayReturnsValue(): void
     {
         $bag = new DataBag(['Groups' => ['A', 'B']]);

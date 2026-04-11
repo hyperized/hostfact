@@ -14,4 +14,26 @@ abstract readonly class Entity
     }
 
     abstract public static function fromBag(DataBag $bag): static;
+
+    /**
+     * @template T of \BackedEnum
+     * @param class-string<T> $enumClass
+     * @return T|null
+     */
+    protected static function nullableEnum(DataBag $bag, string $key, string $enumClass): ?\BackedEnum
+    {
+        $value = $bag->nullableString($key);
+
+        if ($value === null) {
+            return null;
+        }
+
+        $backing = (new \ReflectionEnum($enumClass))->getBackingType();
+
+        if ($backing !== null && (string) $backing === 'int') {
+            return $enumClass::tryFrom((int) $value);
+        }
+
+        return $enumClass::tryFrom($value);
+    }
 }

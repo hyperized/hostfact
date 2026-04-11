@@ -92,6 +92,45 @@ final readonly class DataBag implements \ArrayAccess, \Countable
         return (int) $value;
     }
 
+    public function nullableBool(string $key): ?bool
+    {
+        $value = $this->data[$key] ?? null;
+
+        if ($value === null) {
+            return null;
+        }
+
+        return match ($value) {
+            'yes', true, 1, '1' => true,
+            'no', false, 0, '0' => false,
+            default => throw new \InvalidArgumentException(
+                "Field '{$key}' cannot be cast to bool, got: " . var_export($value, true)
+            ),
+        };
+    }
+
+    public function nullableDateTime(string $key): ?\DateTimeImmutable
+    {
+        $value = $this->data[$key] ?? null;
+
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        if (!is_string($value)) {
+            throw new \InvalidArgumentException("Field '{$key}' is not a valid date string");
+        }
+
+        try {
+            return new \DateTimeImmutable($value);
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException(
+                "Field '{$key}' cannot be parsed as date: {$value}",
+                previous: $e,
+            );
+        }
+    }
+
     /**
      * @return array<string, mixed>
      */
