@@ -26,19 +26,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: curl, json
           coverage: pcov
-      - name: Composer self-update
-        run: |
-          composer self-update
       - name: Composer update
         run: |
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
       - name: Composer ${{ matrix.test }}-${{ matrix.os }}
         run: |
           composer ${{ matrix.test }}
