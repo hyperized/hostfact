@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bed4754e3bc0e593537b5ba01eed97d7",
+    "content-hash": "121e338838aba8893eb1079a8f89349b",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -334,16 +334,16 @@
         },
         {
             "name": "hyperized/value-objects",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperized/value-objects.git",
-                "reference": "481fcde24adba424a7b9c8f6242f37075ea75c67"
+                "reference": "1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperized/value-objects/zipball/481fcde24adba424a7b9c8f6242f37075ea75c67",
-                "reference": "481fcde24adba424a7b9c8f6242f37075ea75c67",
+                "url": "https://api.github.com/repos/hyperized/value-objects/zipball/1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c",
+                "reference": "1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c",
                 "shasum": ""
             },
             "require": {
@@ -373,9 +373,9 @@
             "description": "A basic value objects collection",
             "support": {
                 "issues": "https://github.com/hyperized/value-objects/issues",
-                "source": "https://github.com/hyperized/value-objects/tree/v1.0.0"
+                "source": "https://github.com/hyperized/value-objects/tree/v1.1.0"
             },
-            "time": "2026-04-11T01:12:35+00:00"
+            "time": "2026-04-11T11:42:56+00:00"
         },
         {
             "name": "psr/http-client",
@@ -10925,7 +10925,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
