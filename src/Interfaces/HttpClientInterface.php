@@ -3,7 +3,7 @@
 namespace Hyperized\Hostfact\Interfaces;
 
 use GuzzleHttp\ClientInterface;
-use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
+use Hyperized\ValueObjects\Contracts\Strings\ByteArrayInterface;
 
 interface HttpClientInterface
 {

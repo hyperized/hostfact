@@ -5,7 +5,7 @@ namespace Hyperized\Hostfact\Http;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
+use Hyperized\ValueObjects\Contracts\Strings\ByteArrayInterface;
 
 final class HttpClient implements HttpClientInterface
 {
