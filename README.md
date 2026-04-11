@@ -6,7 +6,7 @@ Unofficial Laravel package for the [HostFact API v2](https://www.hostfact.nl/dev
 
 ## Requirements
 
-- PHP 8.3+
+- PHP 8.4+
 - Laravel 13 and above (auto-discovery supported)
 
 ## Installation

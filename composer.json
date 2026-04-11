@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": "^8.3",
+    "php": "^8.4",
     "guzzlehttp/guzzle": "^7.5",
     "hyperized/value-objects": "^1.0.0",
     "thecodingmachine/safe": "^3.4"
