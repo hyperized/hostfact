@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "937ab82915766938d92622e0bb94c243",
+    "content-hash": "c758ccca6c723305c1d865082929cca6",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -334,20 +334,20 @@
         },
         {
             "name": "hyperized/value-objects",
-            "version": "v1.1.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperized/value-objects.git",
-                "reference": "1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c"
+                "reference": "226db89b16795834c670f0d61566bc3b4e542f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperized/value-objects/zipball/1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c",
-                "reference": "1c8897f5f31fc1d2d0a59fb9dde22678dc5dd17c",
+                "url": "https://api.github.com/repos/hyperized/value-objects/zipball/226db89b16795834c670f0d61566bc3b4e542f59",
+                "reference": "226db89b16795834c670f0d61566bc3b4e542f59",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3"
+                "php": "^8.4"
             },
             "require-dev": {
                 "infection/infection": "^0.32.6",
@@ -373,9 +373,9 @@
             "description": "A basic value objects collection",
             "support": {
                 "issues": "https://github.com/hyperized/value-objects/issues",
-                "source": "https://github.com/hyperized/value-objects/tree/v1.1.0"
+                "source": "https://github.com/hyperized/value-objects/tree/v2.0.0"
             },
-            "time": "2026-04-11T11:42:56+00:00"
+            "time": "2026-04-11T19:54:01+00:00"
         },
         {
             "name": "psr/http-client",
