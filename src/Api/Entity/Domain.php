@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\DomainStatus;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Domain extends Entity
@@ -11,15 +12,15 @@ final readonly class Domain extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $Domain,
         public ?string $Tld,
-        public ?string $Debtor,
+        public ?int $Debtor,
         public ?string $DebtorCode,
-        public ?string $HostingID,
-        public ?string $Status,
-        public ?string $RegistrationDate,
-        public ?string $ExpirationDate,
+        public ?int $HostingID,
+        public ?DomainStatus $Status,
+        public ?\DateTimeImmutable $RegistrationDate,
+        public ?\DateTimeImmutable $ExpirationDate,
         public ?string $Registrar,
         public ?string $DNS1,
         public ?string $DNS2,
@@ -31,10 +32,10 @@ final readonly class Domain extends Entity
         public ?string $OwnerHandle,
         public ?string $AdminHandle,
         public ?string $TechHandle,
-        public ?string $DomainAutoRenew,
+        public ?bool $DomainAutoRenew,
         public ?string $Comment,
-        public ?string $Created,
-        public ?string $Modified,
+        public ?\DateTimeImmutable $Created,
+        public ?\DateTimeImmutable $Modified,
         public ?Subscription $Subscription,
         public ?DataBag $RegistrarInfo,
         public array $Translations,
@@ -46,15 +47,15 @@ final readonly class Domain extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             Domain: $bag->nullableString('Domain'),
             Tld: $bag->nullableString('Tld'),
-            Debtor: $bag->nullableString('Debtor'),
+            Debtor: $bag->nullableInt('Debtor'),
             DebtorCode: $bag->nullableString('DebtorCode'),
-            HostingID: $bag->nullableString('HostingID'),
-            Status: $bag->nullableString('Status'),
-            RegistrationDate: $bag->nullableString('RegistrationDate'),
-            ExpirationDate: $bag->nullableString('ExpirationDate'),
+            HostingID: $bag->nullableInt('HostingID'),
+            Status: self::nullableEnum($bag, 'Status', DomainStatus::class),
+            RegistrationDate: $bag->nullableDateTime('RegistrationDate'),
+            ExpirationDate: $bag->nullableDateTime('ExpirationDate'),
             Registrar: $bag->nullableString('Registrar'),
             DNS1: $bag->nullableString('DNS1'),
             DNS2: $bag->nullableString('DNS2'),
@@ -66,10 +67,10 @@ final readonly class Domain extends Entity
             OwnerHandle: $bag->nullableString('OwnerHandle'),
             AdminHandle: $bag->nullableString('AdminHandle'),
             TechHandle: $bag->nullableString('TechHandle'),
-            DomainAutoRenew: $bag->nullableString('DomainAutoRenew'),
+            DomainAutoRenew: $bag->nullableBool('DomainAutoRenew'),
             Comment: $bag->nullableString('Comment'),
-            Created: $bag->nullableString('Created'),
-            Modified: $bag->nullableString('Modified'),
+            Created: $bag->nullableDateTime('Created'),
+            Modified: $bag->nullableDateTime('Modified'),
             Subscription: $bag->has('Subscription') ? Subscription::fromBag($bag->bag('Subscription')) : null,
             RegistrarInfo: $bag->has('RegistrarInfo') ? $bag->bag('RegistrarInfo') : null,
             Translations: $bag->has('Translations') ? $bag->bags('Translations') : [],

@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\Sex;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Creditor extends Entity
@@ -12,13 +13,13 @@ final readonly class Creditor extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $CreditorCode,
         public ?string $MyCustomerCode,
         public ?string $CompanyName,
         public ?string $CompanyNumber,
         public ?string $TaxNumber,
-        public ?string $Sex,
+        public ?Sex $Sex,
         public ?string $Initials,
         public ?string $SurName,
         public ?string $Address,
@@ -30,15 +31,15 @@ final readonly class Creditor extends Entity
         public ?string $MobileNumber,
         public ?string $FaxNumber,
         public ?string $Comment,
-        public ?string $Authorisation,
+        public ?bool $Authorisation,
         public ?string $AccountNumber,
         public ?string $AccountBIC,
         public ?string $AccountName,
         public ?string $AccountBank,
         public ?string $AccountCity,
-        public ?string $Term,
-        public ?string $Created,
-        public ?string $Modified,
+        public ?int $Term,
+        public ?\DateTimeImmutable $Created,
+        public ?\DateTimeImmutable $Modified,
         public array $Groups,
         public array $Translations,
     ) {
@@ -49,13 +50,13 @@ final readonly class Creditor extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             CreditorCode: $bag->nullableString('CreditorCode'),
             MyCustomerCode: $bag->nullableString('MyCustomerCode'),
             CompanyName: $bag->nullableString('CompanyName'),
             CompanyNumber: $bag->nullableString('CompanyNumber'),
             TaxNumber: $bag->nullableString('TaxNumber'),
-            Sex: $bag->nullableString('Sex'),
+            Sex: self::nullableEnum($bag, 'Sex', Sex::class),
             Initials: $bag->nullableString('Initials'),
             SurName: $bag->nullableString('SurName'),
             Address: $bag->nullableString('Address'),
@@ -67,15 +68,15 @@ final readonly class Creditor extends Entity
             MobileNumber: $bag->nullableString('MobileNumber'),
             FaxNumber: $bag->nullableString('FaxNumber'),
             Comment: $bag->nullableString('Comment'),
-            Authorisation: $bag->nullableString('Authorisation'),
+            Authorisation: $bag->nullableBool('Authorisation'),
             AccountNumber: $bag->nullableString('AccountNumber'),
             AccountBIC: $bag->nullableString('AccountBIC'),
             AccountName: $bag->nullableString('AccountName'),
             AccountBank: $bag->nullableString('AccountBank'),
             AccountCity: $bag->nullableString('AccountCity'),
-            Term: $bag->nullableString('Term'),
-            Created: $bag->nullableString('Created'),
-            Modified: $bag->nullableString('Modified'),
+            Term: $bag->nullableInt('Term'),
+            Created: $bag->nullableDateTime('Created'),
+            Modified: $bag->nullableDateTime('Modified'),
             Groups: $bag->has('Groups') ? $bag->bags('Groups') : [],
             Translations: $bag->has('Translations') ? $bag->bags('Translations') : [],
         );

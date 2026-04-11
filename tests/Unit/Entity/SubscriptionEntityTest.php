@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Tests\Unit\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\Periodic;
 use Hyperized\Hostfact\Api\Entity\Hosting;
 use Hyperized\Hostfact\Api\Entity\Subscription;
 use Hyperized\Hostfact\Api\Response\DataBag;
@@ -27,12 +28,12 @@ class SubscriptionEntityTest extends TestCase
 
         $sub = Subscription::fromBag($bag);
 
-        self::assertSame('1', $sub->Number);
+        self::assertSame(1, $sub->Number);
         self::assertSame('P002', $sub->ProductCode);
         self::assertSame('25', $sub->PriceExcl);
         self::assertSame('30.25', $sub->PriceIncl);
-        self::assertSame('m', $sub->Periodic);
-        self::assertSame('yes', $sub->InvoiceAuthorisation);
+        self::assertSame(Periodic::Month, $sub->Periodic);
+        self::assertSame(true, $sub->InvoiceAuthorisation);
     }
 
     public function testMissingFieldsReturnNull(): void

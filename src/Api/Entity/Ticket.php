@@ -2,6 +2,9 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\TicketPriority;
+use Hyperized\Hostfact\Api\Entity\Enum\TicketStatus;
+use Hyperized\Hostfact\Api\Entity\Enum\TicketType;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Ticket extends Entity
@@ -12,21 +15,21 @@ final readonly class Ticket extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $TicketID,
-        public ?string $Debtor,
+        public ?int $Debtor,
         public ?string $DebtorCode,
         public ?string $EmailAddress,
         public ?string $CC,
-        public ?string $Type,
-        public ?string $Date,
+        public ?TicketType $Type,
+        public ?\DateTimeImmutable $Date,
         public ?string $Subject,
         public ?string $Owner,
-        public ?string $Priority,
-        public ?string $Status,
+        public ?TicketPriority $Priority,
+        public ?TicketStatus $Status,
         public ?string $Comment,
-        public ?string $Number,
-        public ?string $LastDate,
+        public ?int $Number,
+        public ?\DateTimeImmutable $LastDate,
         public ?string $LastName,
         public array $TicketMessages,
         public array $Translations,
@@ -45,21 +48,21 @@ final readonly class Ticket extends Entity
 
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             TicketID: $bag->nullableString('TicketID'),
-            Debtor: $bag->nullableString('Debtor'),
+            Debtor: $bag->nullableInt('Debtor'),
             DebtorCode: $bag->nullableString('DebtorCode'),
             EmailAddress: $bag->nullableString('EmailAddress'),
             CC: $bag->nullableString('CC'),
-            Type: $bag->nullableString('Type'),
-            Date: $bag->nullableString('Date'),
+            Type: self::nullableEnum($bag, 'Type', TicketType::class),
+            Date: $bag->nullableDateTime('Date'),
             Subject: $bag->nullableString('Subject'),
             Owner: $bag->nullableString('Owner'),
-            Priority: $bag->nullableString('Priority'),
-            Status: $bag->nullableString('Status'),
+            Priority: self::nullableEnum($bag, 'Priority', TicketPriority::class),
+            Status: self::nullableEnum($bag, 'Status', TicketStatus::class),
             Comment: $bag->nullableString('Comment'),
-            Number: $bag->nullableString('Number'),
-            LastDate: $bag->nullableString('LastDate'),
+            Number: $bag->nullableInt('Number'),
+            LastDate: $bag->nullableDateTime('LastDate'),
             LastName: $bag->nullableString('LastName'),
             TicketMessages: $messages,
             Translations: $bag->has('Translations') ? $bag->bags('Translations') : [],

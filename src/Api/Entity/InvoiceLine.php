@@ -2,28 +2,31 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\DiscountPercentageType;
+use Hyperized\Hostfact\Api\Entity\Enum\Periodic;
+use Hyperized\Hostfact\Api\Entity\Enum\ProductType;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class InvoiceLine extends Entity
 {
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
-        public ?string $Date,
-        public ?string $Number,
+        public ?int $Identifier,
+        public ?\DateTimeImmutable $Date,
+        public ?int $Number,
         public ?string $NumberSuffix,
         public ?string $ProductCode,
         public ?string $Description,
         public ?string $PriceExcl,
         public ?string $DiscountPercentage,
-        public ?string $DiscountPercentageType,
+        public ?DiscountPercentageType $DiscountPercentageType,
         public ?string $TaxPercentage,
-        public ?string $PeriodicID,
-        public ?string $Periods,
-        public ?string $Periodic,
-        public ?string $StartPeriod,
-        public ?string $EndPeriod,
-        public ?string $ProductType,
+        public ?int $PeriodicID,
+        public ?int $Periods,
+        public ?Periodic $Periodic,
+        public ?\DateTimeImmutable $StartPeriod,
+        public ?\DateTimeImmutable $EndPeriod,
+        public ?ProductType $ProductType,
         public ?string $Reference,
         public ?string $NoDiscountAmountIncl,
         public ?string $NoDiscountAmountExcl,
@@ -37,22 +40,22 @@ final readonly class InvoiceLine extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
-            Date: $bag->nullableString('Date'),
-            Number: $bag->nullableString('Number'),
+            Identifier: $bag->nullableInt('Identifier'),
+            Date: $bag->nullableDateTime('Date'),
+            Number: $bag->nullableInt('Number'),
             NumberSuffix: $bag->nullableString('NumberSuffix'),
             ProductCode: $bag->nullableString('ProductCode'),
             Description: $bag->nullableString('Description'),
             PriceExcl: $bag->nullableString('PriceExcl'),
             DiscountPercentage: $bag->nullableString('DiscountPercentage'),
-            DiscountPercentageType: $bag->nullableString('DiscountPercentageType'),
+            DiscountPercentageType: self::nullableEnum($bag, 'DiscountPercentageType', DiscountPercentageType::class),
             TaxPercentage: $bag->nullableString('TaxPercentage'),
-            PeriodicID: $bag->nullableString('PeriodicID'),
-            Periods: $bag->nullableString('Periods'),
-            Periodic: $bag->nullableString('Periodic'),
-            StartPeriod: $bag->nullableString('StartPeriod'),
-            EndPeriod: $bag->nullableString('EndPeriod'),
-            ProductType: $bag->nullableString('ProductType'),
+            PeriodicID: $bag->nullableInt('PeriodicID'),
+            Periods: $bag->nullableInt('Periods'),
+            Periodic: self::nullableEnum($bag, 'Periodic', Periodic::class),
+            StartPeriod: $bag->nullableDateTime('StartPeriod'),
+            EndPeriod: $bag->nullableDateTime('EndPeriod'),
+            ProductType: self::nullableEnum($bag, 'ProductType', ProductType::class),
             Reference: $bag->nullableString('Reference'),
             NoDiscountAmountIncl: $bag->nullableString('NoDiscountAmountIncl'),
             NoDiscountAmountExcl: $bag->nullableString('NoDiscountAmountExcl'),

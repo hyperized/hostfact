@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Tests\Unit\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\InvoiceStatus;
 use Hyperized\Hostfact\Api\Entity\Invoice;
 use Hyperized\Hostfact\Api\Entity\InvoiceLine;
 use Hyperized\Hostfact\Api\Response\DataBag;
@@ -22,9 +23,10 @@ class InvoiceEntityTest extends TestCase
 
         $invoice = Invoice::fromBag($bag);
 
-        self::assertSame('10', $invoice->Identifier);
+        self::assertSame(10, $invoice->Identifier);
         self::assertSame('F0001', $invoice->InvoiceCode);
         self::assertSame('DB0001', $invoice->DebtorCode);
+        self::assertSame(InvoiceStatus::PartiallyPaid, $invoice->Status);
         self::assertSame('100.00', $invoice->AmountExcl);
         self::assertEmpty($invoice->InvoiceLines);
     }

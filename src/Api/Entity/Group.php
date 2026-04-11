@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\GroupType;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Group extends Entity
@@ -11,9 +12,9 @@ final readonly class Group extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $GroupName,
-        public ?string $Type,
+        public ?GroupType $Type,
         public array $Items,
     ) {
         parent::__construct($bag);
@@ -30,9 +31,9 @@ final readonly class Group extends Entity
 
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             GroupName: $bag->nullableString('GroupName'),
-            Type: $bag->nullableString('Type'),
+            Type: self::nullableEnum($bag, 'Type', GroupType::class),
             Items: $items,
         );
     }

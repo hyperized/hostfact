@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\HostingStatus;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Hosting extends Entity
@@ -11,18 +12,18 @@ final readonly class Hosting extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $Username,
-        public ?string $Debtor,
+        public ?int $Debtor,
         public ?string $DebtorCode,
         public ?string $Domain,
         public ?string $Server,
         public ?string $Package,
         public ?string $PackageName,
         public ?string $Comment,
-        public ?string $Status,
-        public ?string $Created,
-        public ?string $Modified,
+        public ?HostingStatus $Status,
+        public ?\DateTimeImmutable $Created,
+        public ?\DateTimeImmutable $Modified,
         public ?Subscription $Subscription,
         public ?DataBag $PackageInfo,
         public ?DataBag $ServerInfo,
@@ -35,18 +36,18 @@ final readonly class Hosting extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             Username: $bag->nullableString('Username'),
-            Debtor: $bag->nullableString('Debtor'),
+            Debtor: $bag->nullableInt('Debtor'),
             DebtorCode: $bag->nullableString('DebtorCode'),
             Domain: $bag->nullableString('Domain'),
             Server: $bag->nullableString('Server'),
             Package: $bag->nullableString('Package'),
             PackageName: $bag->nullableString('PackageName'),
             Comment: $bag->nullableString('Comment'),
-            Status: $bag->nullableString('Status'),
-            Created: $bag->nullableString('Created'),
-            Modified: $bag->nullableString('Modified'),
+            Status: self::nullableEnum($bag, 'Status', HostingStatus::class),
+            Created: $bag->nullableDateTime('Created'),
+            Modified: $bag->nullableDateTime('Modified'),
             Subscription: $bag->has('Subscription') ? Subscription::fromBag($bag->bag('Subscription')) : null,
             PackageInfo: $bag->has('PackageInfo') ? $bag->bag('PackageInfo') : null,
             ServerInfo: $bag->has('ServerInfo') ? $bag->bag('ServerInfo') : null,

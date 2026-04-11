@@ -2,6 +2,8 @@
 
 namespace Hyperized\Hostfact\Api\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\Periodic;
+use Hyperized\Hostfact\Api\Entity\Enum\ProductType;
 use Hyperized\Hostfact\Api\Response\DataBag;
 
 final readonly class Product extends Entity
@@ -12,22 +14,22 @@ final readonly class Product extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $ProductCode,
         public ?string $ProductName,
         public ?string $ProductKeyPhrase,
         public ?string $ProductDescription,
         public ?string $NumberSuffix,
         public ?string $PriceExcl,
-        public ?string $PricePeriod,
+        public ?Periodic $PricePeriod,
         public ?string $TaxPercentage,
         public ?string $Cost,
-        public ?string $ProductType,
+        public ?ProductType $ProductType,
         public ?string $ProductTld,
-        public ?string $PackageID,
-        public ?string $HasCustomPrice,
-        public ?string $Created,
-        public ?string $Modified,
+        public ?int $PackageID,
+        public ?bool $HasCustomPrice,
+        public ?\DateTimeImmutable $Created,
+        public ?\DateTimeImmutable $Modified,
         public array $Groups,
         public array $Translations,
     ) {
@@ -38,22 +40,22 @@ final readonly class Product extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             ProductCode: $bag->nullableString('ProductCode'),
             ProductName: $bag->nullableString('ProductName'),
             ProductKeyPhrase: $bag->nullableString('ProductKeyPhrase'),
             ProductDescription: $bag->nullableString('ProductDescription'),
             NumberSuffix: $bag->nullableString('NumberSuffix'),
             PriceExcl: $bag->nullableString('PriceExcl'),
-            PricePeriod: $bag->nullableString('PricePeriod'),
+            PricePeriod: self::nullableEnum($bag, 'PricePeriod', Periodic::class),
             TaxPercentage: $bag->nullableString('TaxPercentage'),
             Cost: $bag->nullableString('Cost'),
-            ProductType: $bag->nullableString('ProductType'),
+            ProductType: self::nullableEnum($bag, 'ProductType', ProductType::class),
             ProductTld: $bag->nullableString('ProductTld'),
-            PackageID: $bag->nullableString('PackageID'),
-            HasCustomPrice: $bag->nullableString('HasCustomPrice'),
-            Created: $bag->nullableString('Created'),
-            Modified: $bag->nullableString('Modified'),
+            PackageID: $bag->nullableInt('PackageID'),
+            HasCustomPrice: $bag->nullableBool('HasCustomPrice'),
+            Created: $bag->nullableDateTime('Created'),
+            Modified: $bag->nullableDateTime('Modified'),
             Groups: $bag->has('Groups') ? $bag->bags('Groups') : [],
             Translations: $bag->has('Translations') ? $bag->bags('Translations') : [],
         );

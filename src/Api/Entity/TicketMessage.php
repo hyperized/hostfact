@@ -11,11 +11,11 @@ final readonly class TicketMessage extends Entity
      */
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
-        public ?string $Date,
+        public ?int $Identifier,
+        public ?\DateTimeImmutable $Date,
         public ?string $Subject,
         public ?string $Base64Message,
-        public ?string $SenderID,
+        public ?int $SenderID,
         public ?string $SenderName,
         public ?string $SenderEmail,
         public array $Attachments,
@@ -27,11 +27,11 @@ final readonly class TicketMessage extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
-            Date: $bag->nullableString('Date'),
+            Identifier: $bag->nullableInt('Identifier'),
+            Date: $bag->nullableDateTime('Date'),
             Subject: $bag->nullableString('Subject'),
             Base64Message: $bag->nullableString('Base64Message'),
-            SenderID: $bag->nullableString('SenderID'),
+            SenderID: $bag->nullableInt('SenderID'),
             SenderName: $bag->nullableString('SenderName'),
             SenderEmail: $bag->nullableString('SenderEmail'),
             Attachments: $bag->has('Attachments') ? $bag->bags('Attachments') : [],

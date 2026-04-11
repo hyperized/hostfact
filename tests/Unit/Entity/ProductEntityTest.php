@@ -2,6 +2,8 @@
 
 namespace Hyperized\Hostfact\Tests\Unit\Entity;
 
+use Hyperized\Hostfact\Api\Entity\Enum\Periodic;
+use Hyperized\Hostfact\Api\Entity\Enum\ProductType;
 use Hyperized\Hostfact\Api\Entity\Product;
 use Hyperized\Hostfact\Api\Response\DataBag;
 use PHPUnit\Framework\TestCase;
@@ -35,15 +37,16 @@ class ProductEntityTest extends TestCase
 
         $product = Product::fromBag($bag);
 
-        self::assertSame('3', $product->Identifier);
+        self::assertSame(3, $product->Identifier);
         self::assertSame('P001', $product->ProductCode);
         self::assertSame('Hosting Basic', $product->ProductName);
         self::assertSame('Basic hosting', $product->ProductKeyPhrase);
         self::assertSame('250', $product->PriceExcl);
         self::assertSame('21', $product->TaxPercentage);
-        self::assertSame('hosting', $product->ProductType);
-        self::assertSame('no', $product->HasCustomPrice);
-        self::assertSame('2022-11-24 11:00:00', $product->Created);
+        self::assertSame(ProductType::Hosting, $product->ProductType);
+        self::assertSame(false, $product->HasCustomPrice);
+        self::assertInstanceOf(\DateTimeImmutable::class, $product->Created);
+        self::assertSame('2022-11-24 11:00:00', $product->Created->format('Y-m-d H:i:s'));
         self::assertEmpty($product->Groups);
         self::assertCount(1, $product->Translations);
     }
@@ -54,7 +57,7 @@ class ProductEntityTest extends TestCase
 
         $product = Product::fromBag($bag);
 
-        self::assertSame('1', $product->Identifier);
+        self::assertSame(1, $product->Identifier);
         self::assertNull($product->ProductCode);
         self::assertNull($product->ProductName);
         self::assertNull($product->PriceExcl);

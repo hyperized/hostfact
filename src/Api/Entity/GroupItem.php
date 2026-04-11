@@ -8,7 +8,7 @@ final readonly class GroupItem extends Entity
 {
     public function __construct(
         DataBag $bag,
-        public ?string $Identifier,
+        public ?int $Identifier,
         public ?string $ProductCode,
         public ?string $ProductName,
     ) {
@@ -19,7 +19,7 @@ final readonly class GroupItem extends Entity
     {
         return new self(
             bag: $bag,
-            Identifier: $bag->nullableString('Identifier'),
+            Identifier: $bag->nullableInt('Identifier'),
             ProductCode: $bag->nullableString('ProductCode'),
             ProductName: $bag->nullableString('ProductName'),
         );
