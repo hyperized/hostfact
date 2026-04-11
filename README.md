@@ -1,95 +1,151 @@
-# Hostfact API 3.0 for Laravel
+# Hostfact API v3.1 for Laravel
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_shield)
+[![Run tests](https://github.com/hyperized/hostfact/actions/workflows/main.yml/badge.svg)](https://github.com/hyperized/hostfact/actions/workflows/main.yml)
 
-Official documentation:
------------------------
+Unofficial Laravel package for the [HostFact API v2](https://www.hostfact.nl/developer/api/).
 
-* [Hostfact API documentation](https://www.hostfact.nl/developer/api/)
+## Requirements
 
-Installation
-------------
+- PHP 8.3+
+- Laravel 13 and above (auto-discovery supported)
 
-Install using composer:
+## Installation
 
 ```bash
 composer require hyperized/hostfact
 ```
 
-This package supports Package Auto-Discovery (Laravel 5.5+) so it doesn't require you to manually add the
-ServiceProvider and alias.
-
-If you are using a lower version of Laravel or not using Auto-Discovery you can add the Hostfact Service Provider to
-the `config/app.php` file
-
-```php
-Hyperized\Hostfact\HostfactServiceProvider::class,
-```
-
-Register an alias for Hostfact, also in `config/app.php`:
-
-```php
-'Hostfact'    => Hyperized\Hostfact\HostfactServiceProvider::class,
-```
-
-Now publish the Hostfact package into your installation:
+Publish the configuration:
 
 ```bash
-php artisan vendor:publish --provider="Hyperized\Hostfact\HostfactServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Hyperized\Hostfact\Providers\HostfactServiceProvider" --tag="config"
 ```
 
-This should give you a message
-like: `Copied File [/vendor/hyperized/hostfact/config/Hostfact.php] To [/config/Hostfact.php]`
+## Configuration
 
-It's possible to edit your configuration variables in the `config/Hostfact.php` file or you can use the `HOSTFACT_URL`
-and `HOSTFACT_KEY` environment variables to store sensitive information in the `.env` file
+Add these to your `.env` file:
 
-```php
-// config/Hostfact.php
-'api_v2_url'		=> env('HOSTFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
-'api_v2_key'		=> env('HOSTFACT_KEY', 'token'),
-'api_v2_timeout'	=> env('HOSTFACT_TIMEOUT', 20),
-
-// .env/.env.example
+```env
 HOSTFACT_URL=https://yoursite.tld/Pro/apiv2/api.php
-HOSTFACT_KEY=token
+HOSTFACT_KEY=your-api-token
 HOSTFACT_TIMEOUT=20
 ```
 
-Functionality
----------
-
-When writing code for this Hostfact package, consider that this package has been written as a basic interface.
-
-This package _will_ do the following:
-
-* Provide an easy way to communicate with Hostfact API controllers;
-* Document the available API controller endpoints with methods;
-* Transport layer (HTTP/HTTPS) error catching;
-* Basic error parsing;
-
-This package _will not_:
-
-* Parameter / input validation;
-* Output validation;
-
-You will need to consult the [Hostfact API documentation](https://www.hostfact.nl/developer/api/) to understand the
-acceptable input and output for each of the API controllers.
-
-Examples
---------
-
-Example code:
+Or edit `config/Hostfact.php` directly:
 
 ```php
-use \Hyperized\Hostfact\Api\Controllers\Product;
+return [
+    'api_v2_url'     => env('HOSTFACT_URL', 'https://yoursite.tld/Pro/apiv2/api.php'),
+    'api_v2_key'     => env('HOSTFACT_KEY', 'token'),
+    'api_v2_timeout' => env('HOSTFACT_TIMEOUT', 20),
+];
+```
 
-$products = Product::new()
-                ->list([
-                    'searchfor' => 'invoice'
-                ]);
+## Usage
+
+Every controller provides a static `new()` factory that reads configuration from Laravel automatically:
+
+```php
+use Hyperized\Hostfact\Api\Controllers\Product;
+use Hyperized\Hostfact\Api\Response\ListResponse;
+
+$response = Product::new()->list(['searchfor' => 'hosting']);
+
+if ($response instanceof ListResponse) {
+    echo $response->pagination->totalResults . ' results';
+
+    foreach ($response->items as $product) {
+        echo $product->string('ProductName');
+        echo $product->float('PriceExcl');
+    }
+}
+```
+
+For dependency injection or testing, use `fromHttpClient()`:
+
+```php
+use Hyperized\Hostfact\Api\Controllers\Invoice;
+
+$invoice = Invoice::fromHttpClient($httpClient);
+$result = $invoice->show(['Identifier' => 'F0001']);
+```
+
+See the [examples/](examples/) directory for more complete usage patterns.
+
+## Typed Responses
+
+All API methods return an `ApiResponse` subclass:
+
+| Response Type | When | Properties |
+|---|---|---|
+| `ShowResponse` | Single entity returned | `data` (DataBag) |
+| `ListResponse` | Multiple entities returned | `items` (list of DataBag), `pagination` |
+| `ActionResponse` | Action with no entity data (e.g. markAsPaid) | — |
+| `ErrorResponse` | API returned an error | `errors` (list of strings) |
+
+All responses share: `controller`, `action`, `status`, `date`, `isSuccess()`, `isError()`, `toArray()`.
+
+### DataBag
+
+Entity data is accessed through typed methods on `DataBag`:
+
+```php
+$bag->string('ProductCode')      // string
+$bag->int('Identifier')          // int
+$bag->float('PriceExcl')         // float
+$bag->bool('AutoRenew')          // bool (handles "yes"/"no", 1/0)
+$bag->nullableString('Comment')  // ?string
+$bag->nullableInt('PackageID')   // ?int
+$bag->array('Groups')            // array
+$bag->bag('Subscription')        // nested DataBag
+$bag->bags('InvoiceLines')       // list<DataBag>
+$bag->has('SomeField')           // bool
+$bag['ProductCode']              // mixed (ArrayAccess)
+```
+
+## Available Controllers
+
+| Controller | Actions |
+|---|---|
+| `CreditInvoice` | show, list, add, edit, delete, partialPayment, markAsPaid, lineAdd, lineDelete, attachmentAdd, attachmentDelete, attachmentDownload |
+| `Creditor` | show, list, add, edit, delete, attachmentAdd, attachmentDelete, attachmentDownload |
+| `Debtor` | show, list, add, edit, checkLogin, updateLoginCredentials, generatePdf, sendEmail, attachmentAdd, attachmentDelete, attachmentDownload |
+| `Domain` | show, list, add, edit, terminate, delete, getToken, lock, unlock, changeNameserver, syncWhois, editWhois, check, transfer, register, autoRenew, listDnsTemplates, getDnsZone, editDnsZone |
+| `Group` | show, list, add, edit, delete |
+| `Handle` | show, list, add, edit, delete, listDomain |
+| `Hosting` | show, list, add, edit, terminate, delete, suspend, unsuspend, create, removeFromServer, getDomainList, emailAccountData, upDowngrade |
+| `Invoice` | show, list, add, edit, delete, credit, partialPayment, markAsPaid, markAsUnpaid, sendByEmail, sendReminderByEmail, sendSummationByEmail, download, lineAdd, lineDelete, attachmentAdd, attachmentDelete, attachmentDownload, block, unblock, schedule, cancelSchedule, paymentProcessPause, paymentProcessReactivate |
+| `Order` | show, list, add, edit, process, lineAdd, lineDelete |
+| `PriceQuote` | show, list, add, edit, delete, sendByEmail, download, accept, decline, lineAdd, lineDelete, attachmentAdd, attachmentDelete, attachmentDownload |
+| `Product` | show, list, add, edit, delete |
+| `Service` | show, list, add, edit, terminate |
+| `Ssl` | show, list, add, edit, terminate, request, markAsInstalled, download, reissue, renew, getStatus, resendApproverEmail, revoke, markAsUninstalled |
+| `Ticket` | show, list, add, edit, delete, addMessage, changeStatus, changeOwner, attachmentDownload |
+| `Vps` | show, list, add, edit, terminate, create, start, pause, restart, suspend, unsuspend, downloadAccountData, emailAccountData |
+
+## Design
+
+This package provides a thin wrapper around the HostFact API. It does **not** validate input parameters. Consult the [HostFact API documentation](https://www.hostfact.nl/developer/api/) for accepted parameters.
+
+Architecture:
+- **Controllers** extend the abstract `Api` class and compose capability **traits** (e.g., `CanShow`, `CanList`, `CanAdd`)
+- Each controller implements a corresponding **interface**
+- All API methods accept `array<string, mixed>` and return typed `ApiResponse` subclasses
+- HTTP transport is handled by Guzzle 7.x
+
+## Testing
+
+```bash
+# Full test suite (PHPMD, PHPStan, PHPCS, phpmnd, PHPUnit, Infection)
+composer test
+
+# PHPUnit only
+composer phpunit -- --configuration phpunit.xml.dist
+
+# Static analysis
+composer phpstan -- analyse
 ```
 
 ## License
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhyperized%2Fhostfact?ref=badge_large)
+MIT - see [LICENSE](LICENSE) for details.
