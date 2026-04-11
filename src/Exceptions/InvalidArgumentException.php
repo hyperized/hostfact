@@ -8,7 +8,7 @@ class InvalidArgumentException extends \InvalidArgumentException
 {
     public static function apiFailed(GuzzleException $exception): InvalidArgumentException
     {
-        return new self('API call returned an invalid response: ' . $exception->getMessage() . '.');
+        return new self('API call failed: ' . $exception->getCode(), previous: $exception);
     }
 
     public static function configVariableNotAString(): InvalidArgumentException

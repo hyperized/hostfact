@@ -18,24 +18,21 @@ class InvalidArgumentExceptionTest extends TestCase
 
         $exception = InvalidArgumentException::apiFailed($guzzleException);
 
-        self::assertSame(
-            'API call returned an invalid response: Connection refused.',
-            $exception->getMessage()
-        );
+        self::assertSame('API call failed: 0', $exception->getMessage());
+        self::assertSame($guzzleException, $exception->getPrevious());
     }
 
-    public function testApiFailedPreservesExceptionMessage(): void
+    public function testApiFailedDoesNotExposeRequestDetails(): void
     {
         $guzzleException = new RequestException(
-            'Timeout exceeded',
-            new Request('POST', 'https://example.com')
+            'Error with https://secret.example.com/api?key=abc123',
+            new Request('POST', 'https://secret.example.com/api?key=abc123')
         );
 
         $exception = InvalidArgumentException::apiFailed($guzzleException);
 
-        self::assertStringStartsWith('API call returned an invalid response: ', $exception->getMessage());
-        self::assertStringEndsWith('.', $exception->getMessage());
-        self::assertStringContainsString('Timeout exceeded', $exception->getMessage());
+        self::assertStringNotContainsString('secret.example.com', $exception->getMessage());
+        self::assertStringNotContainsString('abc123', $exception->getMessage());
     }
 
     public function testConfigVariableNotAString(): void
