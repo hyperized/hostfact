@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanAddAttachment
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentAdd(array $input): array
+    public function attachmentAdd(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
-                self::$name,
-                'attachment_add',
+                'attachment',
+                'add',
                 $input
             );
     }

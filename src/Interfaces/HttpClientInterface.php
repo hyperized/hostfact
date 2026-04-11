@@ -3,11 +3,11 @@
 namespace Hyperized\Hostfact\Interfaces;
 
 use GuzzleHttp\ClientInterface;
-use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
+use Hyperized\ValueObjects\Contracts\Strings\UrlInterface;
 
 interface HttpClientInterface
 {
-    public static function new(ByteArrayInterface $url): HttpClientInterface;
+    public static function new(UrlInterface $url): HttpClientInterface;
 
     public function getHttpClient(): ClientInterface;
 }

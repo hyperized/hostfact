@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanCancelSchedule
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function cancelSchedule(array $input): array
+    public function cancelSchedule(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
                 self::$name,
-                mb_strtolower(__FUNCTION__),
+                strtolower(__FUNCTION__),
                 $input
             );
     }

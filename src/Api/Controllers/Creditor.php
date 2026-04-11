@@ -14,7 +14,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanShow;
 use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\CreditorInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class Creditor extends Api implements CreditorInterface
 {

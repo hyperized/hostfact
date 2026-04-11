@@ -4,19 +4,13 @@ namespace Hyperized\Hostfact\Types;
 
 use Hyperized\Hostfact\Interfaces\FormParameterInterface;
 
-final class FormParameter implements FormParameterInterface
+final readonly class FormParameter implements FormParameterInterface
 {
-    /**
-     * @var array<string, mixed>
-     */
-    private array $value;
-
     /**
      * @param array<string, mixed> $value
      */
-    protected function __construct(array $value = [])
+    protected function __construct(private array $value = [])
     {
-        $this->value = $value;
     }
 
     /**

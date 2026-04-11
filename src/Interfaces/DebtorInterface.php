@@ -2,71 +2,73 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 interface DebtorInterface extends ApiInterface
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function show(array $input): array;
+    public function show(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function list(array $input = []): array;
+    public function list(array $input = []): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function add(array $input): array;
+    public function add(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function edit(array $input): array;
+    public function edit(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function checkLogin(array $input): array;
+    public function checkLogin(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function updateLoginCredentials(array $input): array;
+    public function updateLoginCredentials(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function generatePdf(array $input): array;
+    public function generatePdf(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function sendEmail(array $input): array;
+    public function sendEmail(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentAdd(array $input): array;
+    public function attachmentAdd(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDelete(array $input): array;
+    public function attachmentDelete(array $input): ApiResponse;
 
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDownload(array $input): array;
+    public function attachmentDownload(array $input): ApiResponse;
 }

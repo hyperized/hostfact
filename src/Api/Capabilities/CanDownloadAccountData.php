@@ -2,13 +2,15 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanDownloadAccountData
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function downloadAccountData(array $input): array
+    public function downloadAccountData(array $input): ApiResponse
     {
         return $this
             ->sendRequest(

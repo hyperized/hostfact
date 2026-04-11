@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanDeleteLine
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function lineDelete(array $input): array
+    public function lineDelete(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
-                self::$name,
-                mb_strtolower(self::$name) . 'line_delete',
+                self::$name . 'line',
+                'delete',
                 $input
             );
     }

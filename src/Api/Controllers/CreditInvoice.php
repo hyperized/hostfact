@@ -18,7 +18,7 @@ use Hyperized\Hostfact\Api\Api;
 use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\CreditInvoiceInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class CreditInvoice extends Api implements CreditInvoiceInterface
 {

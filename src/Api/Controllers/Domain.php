@@ -25,7 +25,7 @@ use Hyperized\Hostfact\Api\Capabilities\CanUnlock;
 use Hyperized\Hostfact\Http\HttpClient;
 use Hyperized\Hostfact\Interfaces\DomainInterface;
 use Hyperized\Hostfact\Interfaces\HttpClientInterface;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
 
 class Domain extends Api implements DomainInterface
 {

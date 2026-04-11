@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanDeleteAttachment
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function attachmentDelete(array $input): array
+    public function attachmentDelete(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
-                self::$name,
-                'attachment_delete',
+                'attachment',
+                'delete',
                 $input
             );
     }

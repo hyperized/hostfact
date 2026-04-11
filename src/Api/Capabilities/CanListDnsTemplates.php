@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanListDnsTemplates
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function listDnsTemplates(array $input): array
+    public function listDnsTemplates(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
                 self::$name,
-                mb_strtolower(__FUNCTION__),
+                strtolower(__FUNCTION__),
                 $input
             );
     }

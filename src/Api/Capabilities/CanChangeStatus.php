@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanChangeStatus
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function changeStatus(array $input): array
+    public function changeStatus(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
                 self::$name,
-                mb_strtolower(__FUNCTION__),
+                strtolower(__FUNCTION__),
                 $input
             );
     }

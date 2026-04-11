@@ -2,6 +2,7 @@
 
 namespace Hyperized\Hostfact\Interfaces;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -28,10 +29,7 @@ interface ApiInterface
     public function getHttpClient(): HttpClientInterface;
 
     /**
-     * @param  string               $controller
-     * @param  string               $action
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
      */
-    public function sendRequest(string $controller, string $action, array $input): array;
+    public function sendRequest(string $controller, string $action, array $input): ApiResponse;
 }

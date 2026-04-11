@@ -7,16 +7,10 @@ pull_request_rules:
         type: APPROVE
         message: Automatically approving dependabot
 
-  - name: automatic merge on depenabot pull requests
+  - name: automatic merge on dependabot pull requests
     conditions:
       - author=dependabot[bot]
       - check-success~=^test*
     actions:
       merge:
         method: merge
-        
-  - name: delete head branch after merge
-    conditions:
-      - merged
-    actions:
-      delete_head_branch:

@@ -2,11 +2,12 @@
 
 namespace Hyperized\Hostfact\Tests\Unit;
 
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\RequestException;
-use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
+use GuzzleHttp\HandlerStack;
 use Hyperized\Hostfact\Http\HttpClient;
-use Hyperized\Hostfact\Types\Url;
+use Hyperized\ValueObjects\Concretes\Strings\Url;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use Orchestra\Testbench\TestCase;
 
 class HostfactApiClientTest extends TestCase
@@ -17,13 +18,10 @@ class HostfactApiClientTest extends TestCase
     {
         parent::setUp();
         $this->instance = HttpClient::new(
-            Url::fromString('test://hostfact.tld/Pro/apiv2/api.php')
+            Url::fromString('https://example.com/api.php')
         );
     }
 
-    /**
-     * @throws GuzzleException
-     */
     public function testDoFakeRequest(): void
     {
         $this->expectException(RequestException::class);
@@ -32,21 +30,40 @@ class HostfactApiClientTest extends TestCase
 
     public function testInvalidUrl(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(StringException::class);
         Url::fromString('!?Invalid');
     }
 
-    public function testHttpClient(): void
+    public function testHttpClientReturnsGuzzleClient(): void
     {
-        self::assertIsObject(
-            $this->instance->getHttpClient()
-        );
+        self::assertInstanceOf(GuzzleClient::class, $this->instance->getHttpClient());
     }
 
     public function testCanGetStack(): void
     {
-        self::assertIsObject(
-            $this->instance->getStack()
-        );
+        self::assertInstanceOf(HandlerStack::class, $this->instance->getStack());
+    }
+
+    public function testHttpClientHasConfiguredBaseUri(): void
+    {
+        $baseUri = (string) $this->instance->getHttpClient()->getConfig('base_uri');
+
+        self::assertSame('https://example.com/api.php', $baseUri);
+    }
+
+    public function testHttpClientHasConfiguredUserAgent(): void
+    {
+        $headers = $this->instance->getHttpClient()->getConfig('headers');
+
+        self::assertArrayHasKey('User-Agent', $headers);
+        self::assertStringContainsString('hyperized/hostfact', $headers['User-Agent']);
+    }
+
+    public function testHttpClientHasHandlerStack(): void
+    {
+        $handler = $this->instance->getHttpClient()->getConfig('handler');
+
+        self::assertInstanceOf(HandlerStack::class, $handler);
+        self::assertSame($this->instance->getStack(), $handler);
     }
 }

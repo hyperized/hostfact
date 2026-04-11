@@ -2,18 +2,20 @@
 
 namespace Hyperized\Hostfact\Api\Capabilities;
 
+use Hyperized\Hostfact\Api\Response\ApiResponse;
+
 trait CanChangeOwner
 {
     /**
      * @param  array<string, mixed> $input
-     * @return array<string, mixed>
+     * @return ApiResponse
      */
-    public function changeOwner(array $input): array
+    public function changeOwner(array $input): ApiResponse
     {
         return $this
             ->sendRequest(
                 self::$name,
-                mb_strtolower(__FUNCTION__),
+                strtolower(__FUNCTION__),
                 $input
             );
     }

@@ -6,14 +6,9 @@ use GuzzleHttp\Exception\GuzzleException;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {
-    public static function invalidUrl(string $value): InvalidArgumentException
-    {
-        return new self('Provided URL is not valid [' . $value . ']');
-    }
-
     public static function apiFailed(GuzzleException $exception): InvalidArgumentException
     {
-        return new self('API call returned an invalid response: ' . $exception->getMessage() . '.');
+        return new self('API call failed: ' . $exception->getCode(), previous: $exception);
     }
 
     public static function configVariableNotAString(): InvalidArgumentException
