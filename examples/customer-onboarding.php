@@ -14,6 +14,9 @@ use Hyperized\Hostfact\Api\Controllers\Debtor;
 use Hyperized\Hostfact\Api\Controllers\Domain;
 use Hyperized\Hostfact\Api\Controllers\Hosting;
 use Hyperized\Hostfact\Api\Controllers\Invoice;
+use Hyperized\Hostfact\Api\Entity\Debtor as DebtorEntity;
+use Hyperized\Hostfact\Api\Entity\Hosting as HostingEntity;
+use Hyperized\Hostfact\Api\Entity\Invoice as InvoiceEntity;
 use Hyperized\Hostfact\Api\Response\ErrorResponse;
 use Hyperized\Hostfact\Api\Response\ShowResponse;
 use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
@@ -42,7 +45,9 @@ if ($debtorResponse instanceof ErrorResponse) {
 }
 
 assert($debtorResponse instanceof ShowResponse);
-$debtorCode = $debtorResponse->data->string('DebtorCode');
+$debtor = $debtorResponse->entity;
+assert($debtor instanceof DebtorEntity);
+$debtorCode = $debtor->DebtorCode;
 echo "Customer created: {$debtorCode}\n";
 
 // ---------------------------------------------------------------------------
@@ -80,7 +85,9 @@ if ($hostingResponse instanceof ErrorResponse) {
 }
 
 assert($hostingResponse instanceof ShowResponse);
-$hostingCode = $hostingResponse->data->string('HostingCode');
+$hosting = $hostingResponse->entity;
+assert($hosting instanceof HostingEntity);
+$hostingCode = $hosting->bag->string('HostingCode');
 echo "Hosting created: {$hostingCode}\n";
 
 // Provision the account on the server
@@ -111,7 +118,9 @@ if ($invoiceResponse instanceof ErrorResponse) {
 }
 
 assert($invoiceResponse instanceof ShowResponse);
-$invoiceCode = $invoiceResponse->data->string('InvoiceCode');
+$invoice = $invoiceResponse->entity;
+assert($invoice instanceof InvoiceEntity);
+$invoiceCode = $invoice->InvoiceCode;
 
 // Add the hosting line
 Invoice::new()->lineAdd([

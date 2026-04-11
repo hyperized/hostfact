@@ -9,6 +9,7 @@
  */
 
 use Hyperized\Hostfact\Api\Controllers\Product;
+use Hyperized\Hostfact\Api\Entity\Product as ProductEntity;
 use Hyperized\Hostfact\Api\Response\ErrorResponse;
 use Hyperized\Hostfact\Api\Response\ListResponse;
 use Hyperized\Hostfact\Exceptions\InvalidArgumentException;
@@ -32,11 +33,12 @@ if ($response instanceof ErrorResponse) {
 }
 
 if ($response instanceof ListResponse) {
-    // Process the results
-    echo 'Found ' . count($response->items) . ' products';
+    // Process the results using typed entities
+    echo 'Found ' . count($response->entities) . ' products';
 
-    foreach ($response->items as $product) {
-        echo $product->string('ProductName');
+    foreach ($response->entities as $product) {
+        assert($product instanceof ProductEntity);
+        echo $product->ProductName;
     }
 }
 
