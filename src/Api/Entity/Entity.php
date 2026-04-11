@@ -30,7 +30,7 @@ abstract readonly class Entity
 
         $backing = (new \ReflectionEnum($enumClass))->getBackingType();
 
-        if ($backing !== null && (string) $backing === 'int') {
+        if ($backing instanceof \ReflectionNamedType && $backing->getName() === 'int') {
             return $enumClass::tryFrom((int) $value);
         }
 
