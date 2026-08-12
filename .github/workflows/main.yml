@@ -37,3 +37,22 @@ jobs:
       - name: Composer ${{ matrix.test }}-${{ matrix.os }}
         run: |
           composer ${{ matrix.test }}
+
+  security-audit:
+    # Audits the committed lock file, which is what Dependabot scans. Kept out of
+    # the matrix above because --prefer-lowest deliberately resolves to the oldest
+    # versions the constraints allow, which will always carry advisories.
+    name: Composer audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: curl, json
+          coverage: none
+      - name: Audit composer.lock
+        run: |
+          composer audit --locked

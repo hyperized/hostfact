@@ -1,5 +1,6 @@
 /vendor/
 /.idea/
 clover.xml
+infection.log
 .phpunit.result.cache
 CLAUDE.md
