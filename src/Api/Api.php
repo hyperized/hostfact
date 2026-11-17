@@ -37,6 +37,8 @@ abstract class Api implements ApiInterface
         string                 $controller,
         string                 $action
     ): ResponseInterface {
+        $key = static::getKeyFromConfig();
+
         try {
             return $client
                 ->getHttpClient()
@@ -45,7 +47,7 @@ abstract class Api implements ApiInterface
                     [
                         'form_params' => [
                             ...$formParameter->toArray(),
-                            'api_key' => config('Hostfact.api_v2_key'),
+                            'api_key' => $key,
                             'controller' => $controller,
                             'action' => $action,
                         ],
@@ -102,6 +104,15 @@ abstract class Api implements ApiInterface
         }
 
         return ResponseFactory::fromArray($result);
+    }
+
+    public static function getKeyFromConfig(): string
+    {
+        $key = config('Hostfact.api_v2_key');
+        if (!is_string($key)) {
+            throw InvalidArgumentException::configVariableNotAString();
+        }
+        return $key;
     }
 
     public static function getUrlFromConfig(): string

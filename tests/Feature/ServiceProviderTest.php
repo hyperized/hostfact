@@ -43,6 +43,22 @@ class ServiceProviderTest extends TestCase
         \Hyperized\Hostfact\Api\Controllers\Product::getUrlFromConfig();
     }
 
+    public function testGetKeyFromConfigThrowsWhenNotString(): void
+    {
+        config(['Hostfact.api_v2_key' => null]);
+
+        $this->expectException(\Hyperized\Hostfact\Exceptions\InvalidArgumentException::class);
+        $this->expectExceptionMessage('not a string');
+        \Hyperized\Hostfact\Api\Controllers\Product::getKeyFromConfig();
+    }
+
+    public function testGetKeyFromConfigReturnsString(): void
+    {
+        config(['Hostfact.api_v2_key' => 'secret']);
+
+        self::assertSame('secret', \Hyperized\Hostfact\Api\Controllers\Product::getKeyFromConfig());
+    }
+
     public function testGetUrlFromConfigReturnsString(): void
     {
         config(['Hostfact.api_v2_url' => 'https://example.com/api.php']);

@@ -11,7 +11,7 @@ interface FormParameterInterface
     public static function fromArray(array $value = []): FormParameterInterface;
 
     /**
-     * @return array<string, mixed>
+     * @return array<string, scalar|array<mixed>|null>
      */
     public function toArray(): array;
 }

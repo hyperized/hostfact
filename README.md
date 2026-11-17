@@ -182,7 +182,8 @@ Architecture:
 - **Controllers** extend the abstract `Api` class and compose capability **traits** (e.g., `CanShow`, `CanList`, `CanAdd`)
 - Each controller implements a corresponding **interface**
 - All API methods accept `array<string, mixed>` and return typed `ApiResponse` subclasses
-- HTTP transport is handled by Guzzle 7.x
+- HTTP transport is handled by Guzzle 8.x
+- Parameter names are not validated, but each top-level value must be a scalar, an array or null; anything else throws `InvalidArgumentException`
 
 ## Testing
 

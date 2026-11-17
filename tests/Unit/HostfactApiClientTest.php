@@ -59,6 +59,22 @@ class HostfactApiClientTest extends TestCase
         self::assertStringContainsString('hyperized/hostfact', $headers['User-Agent']);
     }
 
+    public function testHttpClientUsesNumericTimeoutFromConfig(): void
+    {
+        config(['Hostfact.api_v2_timeout' => '5']);
+        $client = HttpClient::new(Url::fromString('https://example.com/api.php'));
+
+        self::assertSame(5.0, $client->getHttpClient()->getConfig('timeout'));
+    }
+
+    public function testHttpClientFallsBackToDefaultTimeout(): void
+    {
+        config(['Hostfact.api_v2_timeout' => 'soon']);
+        $client = HttpClient::new(Url::fromString('https://example.com/api.php'));
+
+        self::assertSame(20.0, $client->getHttpClient()->getConfig('timeout'));
+    }
+
     public function testHttpClientHasHandlerStack(): void
     {
         $handler = $this->instance->getHttpClient()->getConfig('handler');
