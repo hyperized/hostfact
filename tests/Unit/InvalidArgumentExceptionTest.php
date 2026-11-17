@@ -42,6 +42,16 @@ class InvalidArgumentExceptionTest extends TestCase
         self::assertStringContainsString('not a string', $exception->getMessage());
     }
 
+    public function testFormParameterNotEncodable(): void
+    {
+        $exception = InvalidArgumentException::formParameterNotEncodable('Debtor');
+
+        self::assertSame(
+            'Form parameter "Debtor" must be a scalar, an array or null',
+            $exception->getMessage()
+        );
+    }
+
     public function testAllExceptionsExtendInvalidArgumentException(): void
     {
         self::assertInstanceOf(

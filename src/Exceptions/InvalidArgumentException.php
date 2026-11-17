@@ -15,4 +15,9 @@ class InvalidArgumentException extends \InvalidArgumentException
     {
         return new self('Provided config field is not a string');
     }
+
+    public static function formParameterNotEncodable(string $name): InvalidArgumentException
+    {
+        return new self('Form parameter "' . $name . '" must be a scalar, an array or null');
+    }
 }
